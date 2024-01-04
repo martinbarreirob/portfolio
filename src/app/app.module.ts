@@ -12,7 +12,7 @@ import { ServicesComponent } from './services/services.component';
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ServicesComponent
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,
