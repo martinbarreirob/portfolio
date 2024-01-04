@@ -1,0 +1,54 @@
+.home-title {
+  width: 100%;
+}
+
+.home-title h1,
+h2,
+h3 {
+  margin: 5px;
+}
+
+h2 {
+  font-weight: 500;
+  font-style: italic;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.home-arrow {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 2em;
+}
+
+.home-arrow i {
+  scale: 3;
+}
+
+
+
+.home-content{
+  display: flex;
+}
+
+.card-image{
+  margin: 0;
+  padding: 0;
+  height: auto;
+
+}
+
+
+.card-image img{
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-body{
+  padding: 2em;
+  padding-top: 0px;
+
+}

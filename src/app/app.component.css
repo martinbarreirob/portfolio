@@ -12,11 +12,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
-  border-radius: 35px;
+  padding: 1em 3em 1em 3em;
+  border-radius: 30px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 1px 1px 3px rgba(24, 22, 22, 0.3);
+  /* box-shadow: 1px 1px 3px rgba(24, 22, 22, 0.3); */
   width: 100%;
   box-sizing: border-box;
 }
@@ -54,19 +54,17 @@ footer{
 
 /* Your existing styles */
 nav a {
-  font-weight: normal; /* Set the initial font weight */
+  font-weight: bold; /* Set the initial font weight */
   transition: color 0.3s ease, transform 0.3s ease; /* Add a smooth transition for color and scale */
   display: inline-block; /* Ensures proper scaling */
   color: black; /* Set your initial text color */
+
 }
 
 /* Change font weight and scale on hover */
 nav a:hover {
   transform: scale(1.1); /* Or any desired scale value on hover */
 }
-
-
-
 
 
 .circle
@@ -88,20 +86,31 @@ nav a:hover {
   align-items: center;
 }
 
-.header, .content {
+.header {
   width: 95%; /* Ancho predeterminado para pantallas pequeñas (móviles) */
   max-width: 1200px; /* Ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
 }
 
+.content{
+  width: 90%;
+  max-width: 1200px;
+}
+
 /* Estilos específicos para diferentes tamaños de pantalla */
 @media (min-width: 768px) {
-  .header, .content {
-    width: 80%;
+  .header{
+    width: 90%;
+  }
+  .content{
+    width: 85%;
   }
 }
 
 @media (min-width: 992px) {
-  .header, .content {
-    width: 70%;
+  .header {
+    width: 80%;
+  }
+  .content{
+    width: 60%;
   }
 }

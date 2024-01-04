@@ -1,18 +1,43 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
 
-body{
+body {
   margin: 0;
   font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-a
-{
+a {
   text-decoration: none;
   color: black;
 }
 
+h1{
+  margin: 0;
+}
 
+.card {
+  background-color: rgb(245, 243, 239);
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  transition: box-shadow 0.4s;
+}
+
+.card:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 12%) 0px 2px 5px 0px;
+}
+
+.page-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
 
 
 /* CSS Efects */
@@ -27,6 +52,7 @@ a
   position: relative;
   overflow: hidden;
 }
+
 .underline-effect:before {
   content: "";
   position: absolute;
@@ -43,7 +69,10 @@ a
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
-.underline-effect:hover:before, .underline-effect:focus:before, .underline-effect:active:before {
+
+.underline-effect:hover:before,
+.underline-effect:focus:before,
+.underline-effect:active:before {
   left: 0;
   right: 0;
 }
