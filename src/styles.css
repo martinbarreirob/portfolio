@@ -4,29 +4,163 @@
 body {
   margin: 0;
   font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  color: #383940;
+  background-color: #ffffff;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #383940;
 }
 
-h1{
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-weight: 500;
+  font-style: italic;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+.content {
+  width: 100%;
+}
+
 .card {
-  background-color: rgb(245, 243, 239);
-  border-radius: 20px;
+  background-color: #FAFAFA;
+  border-radius: 25px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-  transition: box-shadow 0.4s;
+  box-shadow:
+    rgba(0, 0, 0, 0.007) 0px 1px 1px 0px,
+    /* borde inferior */
+    rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 2%) 0px 2px 5px 0px;
+
+  transition: box-shadow 0.6s;
+  padding: 1.5em;
 }
 
 .card:hover {
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 12%) 0px 2px 5px 0px;
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 7px 0px, rgb(60 66 87 / 6%) 0px 2px 6px 0px;
+}
+
+.card-image {
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow:
+    rgba(0, 0, 0, 0.007) 0px 1px 1px 0px,
+    /* borde inferior */
+    rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 12%) 0px 2px 7px 0px;
+  transition: box-shadow 0.3s;
+}
+
+.card-image img {
+  object-fit: cover;
+}
+
+.card-image:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 14%) 0px 3px 6px 0px, rgb(60 66 87 / 20%) 0px 2px 8px 0px;
+}
+
+
+/* Reparte el espacio entre elementos de un contenedor flex */
+.flex-grow-50 {
+  flex-grow: 1;
+  flex-basis: 1;
+}
+
+.card-secondary {
+  background-color: #FAFAFA;
+  border-radius: 25px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  box-shadow:
+    rgba(0, 0, 0, 0.007) 0px 1px 1px 0px,
+    /* borde inferior */
+    rgb(60 66 87 / 6%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 2%) 0px 2px 4px 0px;
+  transition: box-shadow 0.6s;
+  padding: 0.7em;
+}
+
+.card-secondary:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 7px 0px, rgb(60 66 87 / 6%) 0px 2px 6px 0px;
+}
+
+.card-secondary-image {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.card-secondary-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+
+
+.card-secondary-body {
+  padding: 1em 1em 1em 1em !important;
+  padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-secondary-body p {
+  font-weight: 300;
+}
+
+
+
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  .card {
+    padding: 3em;
+  }
+
+  .flex-grow-50 {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  .card-secondary {
+    flex-direction: row;
+  }
+
+
+
+  .card-secondary-body {
+    padding: 1em 2em 0em 2em !important;
+  }
+
 }
 
 .page-container {
@@ -75,4 +209,113 @@ h1{
 .underline-effect:active:before {
   left: 0;
   right: 0;
+}
+
+.section-title {
+  margin: 2em 1em 1em 1em !important;
+}
+
+
+
+
+.primary-btn {
+  background-color: #383940;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 30px;
+  border: 2px solid #383940;
+  padding: 10px 30px 10px 30px;
+  width: fit-content;
+  transition: background-color 0.4s, color 0.4s, border 0.4s;
+}
+
+.primary-btn:hover {
+  background-color: white;
+  color: #383940;
+  border: 2px solid #383940;
+  cursor: pointer;
+}
+
+/* Iconos */
+
+.icon-btn {
+  background-color: white;
+  color: #383940;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 30px;
+  border: 2px solid white;
+  padding: 8px;
+  width: fit-content;
+  transition: background-color 0.4s, color 0.4s, border 0.4s;
+  display: inline-block;
+  display: flex;
+
+}
+
+.linkedin:hover {
+  background-color: white;
+  color: rgb(255, 255, 255);
+  border: 2px solid #0A66C2;
+  background-color: #0A66C2;
+  cursor: pointer;
+}
+
+.github:hover {
+  background-color: white;
+  color: rgb(255, 255, 255);
+  border: 2px solid #6E5494;
+  background-color: #6E5494;
+  cursor: pointer;
+}
+
+.clipboard:hover {
+  background-color: #FAFAFA;
+  color: #FAFAFA;
+  border: 2px solid #383940;
+  background-color: #383940;
+  cursor: pointer;
+}
+
+.icon-btn i,
+.icon-btn i {
+  font-size: 1.5em;
+}
+
+/* Span Buttons */
+span {
+  border: 0;
+  outline: 0;
+  cursor: default;
+  color: rgb(60, 66, 87);
+  background-color: rgb(255, 255, 255);
+  box-shadow:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 10%) 0px 1px 1px 0px,
+    rgb(60 66 87 / 4%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 4%) 0px 2px 5px 0px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  transition: box-shadow .24s;
+}
+
+span:hover {
+  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+}
+
+.span-primary {
+  background-color: #F78522;
+  font-weight: 500;
+  color: #FAFAFA;
+}
+
+strong {
+  font-weight: 500;
 }
