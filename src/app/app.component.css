@@ -43,12 +43,12 @@
 
 footer{
   width: 100%;
-  background-color: rgb(211, 211, 211);
+  background-color: #383940;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
-  box-shadow: 0px 0px 3px rgba(24, 22, 22, 0.3);
+  height: 200px;
+  box-shadow: inset 0px 6px 15px rgba(34, 30, 30, 0.733);
   color: white;
 }
 
@@ -57,7 +57,7 @@ nav a {
   font-weight: bold; /* Set the initial font weight */
   transition: color 0.3s ease, transform 0.3s ease; /* Add a smooth transition for color and scale */
   display: inline-block; /* Ensures proper scaling */
-  color: black; /* Set your initial text color */
+  color: #383940; /* Set your initial text color */
 
 }
 
@@ -72,7 +72,7 @@ nav a:hover {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: orange;
+  background-color: #F78522;
 }
 
 
@@ -87,13 +87,19 @@ nav a:hover {
 }
 
 .header {
-  width: 95%; /* Ancho predeterminado para pantallas pequeñas (móviles) */
-  max-width: 1200px; /* Ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
+  width: 100%; /* Ancho predeterminado para pantallas pequeñas (móviles) */
+  max-width: 1300px; /* Ancho máximo para evitar que el contenido se extienda demasiado en pantallas grandes */
 }
 
 .content{
-  width: 90%;
-  max-width: 1200px;
+  width: 97%;
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .header-title{
+    display: none;
+  }
 }
 
 /* Estilos específicos para diferentes tamaños de pantalla */
@@ -108,9 +114,9 @@ nav a:hover {
 
 @media (min-width: 992px) {
   .header {
-    width: 80%;
+    width: 85%;
   }
   .content{
-    width: 60%;
+    width: 80%;
   }
 }

@@ -2,13 +2,13 @@
   <!-- Encabezado del home
    -->
 
-  <div class="home-content">
-    <div class="card profileImage">
-      <img src="../../assets/retratoMartin.png" alt="">
+  <div class="content home-content">
+    <div class="card-image profileImage">
+      <img src="../../assets/retrato.gif" alt="">
     </div>
     <div class="card profileInformation">
       <div>
-        <h1>¡Hola! Soy Martín, Desarrollador Web.</h1>
+        <h1>¡Hola! Soy Martín, <br> Desarrollador Web. <img src="../../assets/saludo.png" style="height: 1em;"></h1>
         <p>Mi pasión e inquietudes por la programación me llevaron a estudiar el CS de Desarrollo de Aplicaciones Web
           donde pude descubrir mis habilidades.</p>
         <p>¿Mi objetivo? Actualmente busco trabajo mientras tanto ofrezco desarrollo para particular para poder así
@@ -16,7 +16,7 @@
       </div>
 
       <div class="profile-buttons">
-        <a class="contact-btn">Contáctame</a>
+        <a class="primary-btn">Contáctame</a>
         <a href="#" class="icon-btn linkedin">
           <i class="fab fa-linkedin"></i>
         </a>
@@ -28,35 +28,57 @@
     </div>
   </div>
 
-  <div class="home-experience" >
-    <h2 style="margin: 1em">Experiencia</h2>
+  <div class="home-experience">
+    <h2 class="section-title">Experiencia</h2>
     <div class="grid-experience">
 
-      <div class="card pinvestiga">
-        <div class="exp-title">pInvestiga</div>
-        <div class="exp-subtitle">Desarrollador Fullstack</div>
-        <div class="exp-data">Octubre 2023 / Diciembre 2023</div>
+      <div class="card pinvestiga exp-content">
+        <div class="exp-content">
+          <div class="exp-title">pInvestiga</div>
+          <div class="exp-subtitle">Desarrollador Fullstack</div>
+          <div class="exp-data">Octubre 2023 / Diciembre 2023</div>
 
-        <p class="exp-text">Durante estas prácticas trabajé en el desarrollo de la nueva versión en Angular y NestJs del software de pInvestiga. Mi principal labor era la creación de componentes y servicios para la aplicación como la implementación de un chat en tiempo real, bibliotecas de datos, formularios para ingreso de datos...</p>
-
-        <div class="exp-technologies">
-          <span>NestJS</span>
-          <span>Angular</span>
-          <span>PHP</span>
-          <span>SQL</span>
-          <span>Github</span>
+          <p class="exp-text">Durante estas prácticas trabajé en el desarrollo de la nueva versión en Angular y NestJs
+            del
+            software de pInvestiga.
+          </p>
+          <p class="exp-text">
+            Mi principal labor era la creación de componentes y servicios para la aplicación como
+            la implementación de un <strong>chat en tiempo real</strong>, bibliotecas de datos, formularios para ingreso de datos...
+          </p>
         </div>
-      </div>
 
-      <div class="card tresenraya">
-        <div class="exp-title">Tres En Raya Online</div>
-        <div class="exp-subtitle">Proyecto CS DAW</div>
-        <p class="exp-text">Este funciona con Angular junto a un backend en NestJS con una API Gateway y WebSockets para la comunicación en tiempo real. Desarrollado al 100% de manera autodidacta como formación. </p>
 
         <div class="exp-bottom">
           <div class="exp-technologies">
             <span>NestJS</span>
             <span>Angular</span>
+            <span>PHP</span>
+            <span>SQL</span>
+            <span>Github</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-experience">
+      <h2 class="section-title">Proyectos Destacados</h2>
+      <div class="card tresenraya exp-content">
+        <div>
+          <div class="exp-title">Tres En Raya Online</div>
+          <div class="exp-subtitle">Proyecto CS DAW</div>
+          <p class="exp-text">Este funciona con Angular junto a un backend en NestJS con una API Gateway y WebSockets
+            para la comunicación en tiempo real. Desarrollado al 100% de manera autodidacta como formación.
+          </p>
+
+        </div>
+
+        <div class="exp-bottom">
+          <div class="exp-technologies">
+            <span>NestJS</span>
+            <span>Angular</span>
+            <span>Socket.IO</span>
+            <span>Apache</span>
           </div>
           <div class="exp-links">
             <a href="#" class="icon-btn github">
@@ -65,15 +87,13 @@
           </div>
         </div>
       </div>
-
-      <div class="card pokeinfo">
-        <div class="exp-title">Fast Pokeinfo</div>
-        <div class="exp-subtitle">Proyecto Personal</div>
-        <p class="exp-text">Uno de mis primeros proyectos, consiste en un buscador sobre una API de Pokemon, este a pesar de ser </p>
-
-
-      </div>
     </div>
+
+
+  </div>
+
+  <div class="home-contact">
+    <app-contact></app-contact>
   </div>
 
 

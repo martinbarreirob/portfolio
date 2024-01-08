@@ -5,12 +5,7 @@
 .home-title h1,
 h2,
 h3 {
-  margin: 5px;
-}
-
-h2 {
-  font-weight: 500;
-  font-style: italic;
+  margin: 0px;
 }
 
 h3 {
@@ -28,77 +23,57 @@ h3 {
   scale: 5;
 }
 
-.contact-btn {
-  background-color: black;
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 30px;
-  border: 2px solid black;
-  padding: 10px 30px 10px 30px;
-  width: fit-content;
-  transition: background-color 0.4s, color 0.4s, border 0.4s;
+
+
+.home-contact {
+  width: 100%;
+  overflow: none;
 }
-
-.contact-btn:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid black;
-  cursor: pointer;
-}
-
-
 
 
 .grid-experience {
   display: grid;
   grid-template-areas:
     "pinvestiga"
-    "tresenraya"
-    "pokeinfo"
   ;
   width: 100%;
-  grid-gap: 2em;
 }
 
 .pinvestiga {
-  padding: 3em;
   grid-area: pinvestiga;
 }
 
-.tresenraya {
-  padding: 3em;
-  grid-area: tresenraya;
-}
 
 .pokeinfo {
-  padding: 3em;
   grid-area: pokeinfo;
 }
 
 .home-content {
-  width: 100%;
   display: grid;
-  grid-gap: 2em;
+  grid-gap: 1.5em;
   grid-template-areas:
-    "profileImage"
     "profileInformation"
+    "profileImage"
   ;
 }
 
 .profileImage {
   grid-area: profileImage;
+  /* background-image: url(../../assets/retratoMartin.png); */
 }
 
 .profileImage img {
+
   transform: scale(1.1);
   transition: transform 0.4s ease;
   height: 100%;
-  width: 100%;
+  object-fit: cover;
+  top: 20%;
+
 }
 
 .profileImage img:hover {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 
@@ -106,7 +81,6 @@ h3 {
   grid-area: profileInformation;
   display: flex;
   justify-content: space-between;
-  padding: 3em;
 }
 
 .profileInformation p {
@@ -139,40 +113,36 @@ h3 {
 
 .exp-text {
   font-weight: 300;
+  margin: 0;
+  margin-top: 1em;
+}
+
+.exp-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  gap: 1em;
 }
 
 .exp-technologies {
   display: flex;
   gap: 10px;
   align-items: center;
+  overflow: none;
+  flex-wrap: wrap;
+  padding: 05px;
 }
 
-.exp-technologies span {
-  border: 0;
-  outline: 0;
-  cursor:default;
-  color: rgb(60, 66, 87);
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 8px;
-  display: inline-block;
-  transition: box-shadow .24s;
-}
 
-.exp-technologies span:hover {
-    box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
-}
 
-.exp-bottom{
+.exp-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 1em;
 }
+
 @media only screen and (min-width: 768px) {
   .home-content {
     grid-template-columns: 35% auto;
@@ -181,51 +151,9 @@ h3 {
   }
 
   .grid-experience {
-    grid-template-columns: 3;
     grid-template-areas:
-      "pinvestiga pinvestiga pinvestiga"
-      "tresenraya tresenraya pokeinfo"
+      "pinvestiga"
+      "tresenraya"
     ;
   }
-}
-
-
-
-
-
-
-
-.icon-btn {
-  background-color: white;
-  color: black;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 30px;
-  border: 2px solid white;
-  padding: 8px;
-  width: fit-content;
-  transition: background-color 0.4s, color 0.4s, border 0.4s;
-  display: inline-block;
-}
-
-.linkedin:hover {
-  background-color: white;
-  color: rgb(255, 255, 255);
-  border: 2px solid #0A66C2;
-  background-color: #0A66C2;
-  cursor: pointer;
-}
-
-.github:hover {
-  background-color: white;
-  color: rgb(255, 255, 255);
-  border: 2px solid #6E5494;
-  background-color: #6E5494;
-  cursor: pointer;
-}
-
-.icon-btn i,
-.icon-btn i {
-  font-size: 1.5em;
-
 }

@@ -1,54 +1,54 @@
-.home-title {
+.about-title{
   width: 100%;
-}
-
-.home-title h1,
-h2,
-h3 {
-  margin: 5px;
-}
-
-h2 {
-  font-weight: 500;
-  font-style: italic;
-}
-
-h3 {
-  font-weight: 400;
-}
-
-.home-arrow {
   display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-  margin: 2em;
+  flex-direction: column;
 }
 
-.home-arrow i {
-  scale: 3;
+.about-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
 }
 
+.image-circle{
+  overflow: hidden;
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
+  box-shadow:
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 10%) 0px 1px 1px 0px,
+  rgb(60 66 87 / 4%) 0px 0px 0px 1px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+  rgb(60 66 87 / 12%) 0px 7px 8px 0px;
+}
+.image-circle img{
+  object-fit: cover;
+  width: 100%;
+  transform: scale(3) translateX(-2%) translateY(2%);
+}
 
+.about-information{
+  margin-top: 1em;
+}
+
+.card-about{
+  display: flex;
+  flex-direction: row;
+}
 
 .home-content{
   display: flex;
 }
 
-.card-image{
-  margin: 0;
-  padding: 0;
-  height: auto;
 
+
+.body-title{
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
-
-.card-image img{
-  width: 100%;
-  overflow: hidden;
-}
-
-.card-body{
-  padding: 2em;
-  padding-top: 0px;
-
-}
