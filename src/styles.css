@@ -352,19 +352,19 @@ span:hover {
   gap: 8px;
   align-items: center;
 }
-.span-linkedin {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  background-color: #0A66C2;
-  color: #FAFAFA;
-}
+
 
 .span-hover:hover {
   background-color: #383940;
   color: white;
   cursor: pointer;
 }
+
+.span-linkedin:hover{
+  background-color: #0A66C2;
+  color: #FAFAFA;
+}
+
 
 strong {
   font-weight: 500;
