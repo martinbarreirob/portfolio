@@ -1,11 +1,4 @@
 import { Component } from '@angular/core';
-import {
-  MatSnackBar,
-  MatSnackBarAction,
-  MatSnackBarActions,
-  MatSnackBarLabel,
-  MatSnackBarRef,
-} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -15,24 +8,16 @@ import {
 
 })
 export class ContactComponent {
+  message: string = 'Correo copiado al portapapeles';
+  showSnackbar: boolean = false;
 
-  constructor(private _snackBar: MatSnackBar) {}
-
-  mostrarAlert(mensaje: string) {
-    this._snackBar.open(mensaje, undefined, {
-      duration: 1223000, // Duración en milisegundos
-      panelClass: 'snackbar-clipboard',
-    });
+  emailToClipboard() {
+    this.showSnackbar = true;
+    setTimeout(() => {
+      this.showSnackbar = false;
+    }, 2000);
   }
 
-  public emailToClipboard() {
-    const email = 'tu-correo@example.com';
-    navigator.clipboard.writeText(email).then(() => {
-      this.mostrarAlert('Correo copiado al portapapeles');
-    }).catch(err => {
-      console.error('Error al copiar al portapapeles:', err);
-    });
-  }
 
 
 }

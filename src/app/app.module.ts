@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CustomSnackbarComponent } from './custom-snackbar/custom-snackbar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AboutComponent,
     ServicesComponent,
     ContactComponent,
+    CustomSnackbarComponent,
   ],
   imports: [
     BrowserModule,

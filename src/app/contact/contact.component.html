@@ -1,7 +1,14 @@
 <h2 class="section-title">Contáctame Aquí</h2>
 
 <div class="card contact-card">
-  <span class="span-clipboard" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+  <div class="contact-buttons">
+    <a href="https://www.linkedin.com/in/martinbarreirob/" target="_blank">
+      <span class="span-linkedin span-hover" href="https://www.linkedin.com/in/martinbarreirob/">Linkedin<i class="fab fa-linkedin"></i></span>
+    </a>
+    <span class="span-clipboard span-hover" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+
+  </div>
+
   <hr>
 
   <form action="mailto:tuemail@example.com" method="post" enctype="text/plain" class="contact-form">
@@ -17,9 +24,9 @@
 
 
 
-    <input type="submit" class="primary-btn submit-btn" value="Enviar">
-
-
-
+    <input type="submit" class="primary-btn submit-btn btn-hover" value="Enviar">
   </form>
 </div>
+
+<!-- SnackBar CopyClipboard -->
+<app-custom-snackbar [message]="message" [visible]="showSnackbar"></app-custom-snackbar>
