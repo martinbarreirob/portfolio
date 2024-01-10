@@ -37,7 +37,7 @@ h3 {
 }
 
 .card {
-  background-color: #FAFAFA;
+  background-color: #f4f4f4;
   border-radius: 25px;
   display: flex;
   overflow: hidden;
@@ -45,17 +45,23 @@ h3 {
   box-shadow:
     rgba(0, 0, 0, 0.007) 0px 1px 1px 0px,
     /* borde inferior */
-    rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(60 66 87 / 6%) 0px 0px 0px 1px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px,
     rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(60 66 87 / 2%) 0px 2px 5px 0px;
-
+    rgb(60 66 87 / 2%) 0px 2px 4px 0px;
   transition: box-shadow 0.6s;
   padding: 1.5em;
 }
 
 .card:hover {
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 7px 0px, rgb(60 66 87 / 6%) 0px 2px 6px 0px;
+  box-shadow:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px,
+    rgb(60 66 87 / 16%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 8%) 0px 3px 7px 0px,
+    rgb(60 66 87 / 6%) 0px 2px 6px 0px;
 }
 
 .card-image {
@@ -89,7 +95,7 @@ h3 {
 }
 
 .card-secondary {
-  background-color: #FAFAFA;
+  background-color: #f4f4f4;
   border-radius: 25px;
   display: flex;
   overflow: hidden;
@@ -135,7 +141,52 @@ h3 {
 }
 
 
+/* Elementos dentro del card */
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body-title {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.card-body-subtitle {
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.card-body-data {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+
+.card-body-text p {
+  font-weight: 300;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.card-body-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  gap: 1em;
+}
+
+.card-body-technologies {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow: none;
+  flex-wrap: wrap;
+}
 
 @media (min-width: 768px) {
   h1 {
@@ -158,7 +209,7 @@ h3 {
 
 
   .card-secondary-body {
-    padding: 1em 2em 0em 2em !important;
+    padding: 2em 1.5em 1em 2em !important;
   }
 
 }
@@ -169,7 +220,7 @@ h3 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding-top: 150px;
+  padding-top: 80px;
   padding-bottom: 50px;
 }
 
@@ -212,9 +263,17 @@ h3 {
 }
 
 .section-title {
-  margin: 2em 1em 1em 1em !important;
+  margin: 3em 1em 1em 1em !important;
 }
 
+hr {
+  border: 0;
+  height: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 2em;
+}
 
 
 
@@ -302,8 +361,12 @@ span {
   font-size: 14px;
   font-weight: 500;
   padding: 4px 8px;
-  display: inline-block;
-  transition: box-shadow .24s;
+  transition: box-shadow .24s, background-color 0.24s, color .24s;
+  width: fit-content;
+
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 span:hover {
@@ -316,6 +379,31 @@ span:hover {
   color: #FAFAFA;
 }
 
+.span-primary i {
+  font-size: 0.8em;
+  margin-top: 3px;
+}
+
+.span-clipboard {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.span-clipboard:hover {
+  background-color: #383940;
+  color: white;
+  cursor: pointer;
+}
+
 strong {
   font-weight: 500;
 }
+
+.contact {
+  width: 100%;
+  overflow: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
