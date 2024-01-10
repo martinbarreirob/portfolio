@@ -121,7 +121,7 @@ h3 {
   transition: box-shadow 0.3s;
 }
 
-.card-secondary-image img {
+.swipper-image {
   height: 100%;
   width: 100%;
   object-fit: cover;

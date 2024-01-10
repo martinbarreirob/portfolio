@@ -2,7 +2,7 @@
   <div class="about-title card">
     <div class="about-header">
       <div class="image-circle">
-        <img src="/assets/selfie.jpeg" alt="">
+        <img src="/assets/selfie.webp" alt="">
       </div>
       <div class="about-header-text">
         <h1>Martín Barreiro</h1>
@@ -26,7 +26,12 @@
 
     <div class="card-secondary">
       <div class="card-secondary-image flex-grow-50">
-        <img class="carousel-image" src="/assets/about2.jpg" alt="">
+        <swiper-container>
+          <swiper-slide *ngFor="let image of images">
+            <img class="swipper-image"  src="{{image}}"alt="">
+          </swiper-slide>
+        </swiper-container>
+
       </div>
       <div class="card-secondary-body flex-grow-50">
         <div class="body-title">¿Quien soy?</div>
