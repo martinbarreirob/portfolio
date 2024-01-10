@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
-  images = ['/assets/about1.jpg', '/assets/about2.jpg', '/assets/about3.jpg'];
+  public images = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
 }
