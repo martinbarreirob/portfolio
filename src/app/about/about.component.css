@@ -1,7 +1,8 @@
 .about-title{
-  width: 100%;
   display: flex;
   flex-direction: column;
+  margin-left: 6px;
+  margin-right: 5px;
 }
 
 .about-header{
@@ -9,6 +10,12 @@
   flex-direction: row;
   align-items: center;
   gap: 1em;
+}
+
+.about-header-text{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .image-circle{
@@ -44,11 +51,38 @@
   display: flex;
 }
 
-
-
 .body-title{
   font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 5px;
+}
+
+.about-studies{
+  display: grid;
+  grid-template-areas:
+    "csdaw"
+    "csasir"
+  ;
+  gap: 1em;
+}
+
+.csdaw{
+  grid-area: csdaw;
+}
+
+.csasir{
+  grid-area: csasir;
+}
+
+h2{
+  margin-bottom: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+  .about-studies {
+    grid-template-areas:
+      "csdaw"
+      "csasir";
+  }
 }
 

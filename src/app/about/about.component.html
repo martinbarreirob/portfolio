@@ -1,15 +1,18 @@
 <div class="page-container">
-  <div class="about-title">
+  <div class="about-title card">
     <div class="about-header">
       <div class="image-circle">
         <img src="../../assets/selfie.jpeg" alt="">
       </div>
-      <div>
+      <div class="about-header-text">
         <h1>Martín Barreiro</h1>
-        <span class="span-primary">Open To Work</span>
+        <div class="about-header-mail">
+          <span class="span-clipboard">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+        </div>
+        <span class="span-primary"><i class="fa-solid fa-circle"></i>Open To Work</span>
       </div>
-
     </div>
+
     <div class="about-information">
       <h2>
         Técnico de Desarrollo de Aplicaciones Web
@@ -22,65 +25,110 @@
 
   </div>
 
-  <!-- <div class="home-arrow">
-    <i class="fa-solid fa-chevron-down"></i>
-  </div> -->
-
   <div class="content about-content" style="margin-top: 4em;">
 
     <div class="card-secondary">
-
       <div class="card-secondary-image flex-grow-50">
-        <img class="carousel-image" src="/assets/about2.jpg" alt="">
+        <img class="carousel-image" src="/assets/about3.jpg" alt="">
       </div>
-
       <div class="card-secondary-body flex-grow-50">
-
         <div class="body-title">¿Quien soy?</div>
         <p>
-          Hace veintitrés años, en Galicia, vi la luz por primera vez. Desde mis primeros recuerdos, mi fascinación por los ordenadores marcó el rumbo de mi vida. Siempre fui una persona curiosa en el ámbito de la informática, lo que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi pasión por ella.
+          Hace veintitrés años, en Galicia, vi la luz por primera vez. Desde mis primeros recuerdos, mi fascinación por
+          los ordenadores marcó el rumbo de mi vida.
+        </p>
+        <p>
+          Siempre fui una persona curiosa en el ámbito de la informática, lo
+          que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi <strong>pasión</strong> por ella.
         </p>
         <p>
           Más allá de la informática y la programación, heredé una gran afición por la música y el mar de mi padre.
         </p>
         <p>
-          Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en esta disciplina, la cual ha forjado mi carácter en la disciplina, trabajo en equipo y ha hecho crecer mis habilidades sociales al interactuar con personas de diversos perfiles.
+          Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en esta
+          disciplina, la cual ha forjado mi carácter en la <strong>disciplina</strong>, <strong>trabajo en equipo</strong> y ha hecho crecer mis
+          habilidades sociales al interactuar con personas de diversos perfiles.
         </p>
+        <p>
+          Actualmente, mi objetivo es <strong>encontrar empleo</strong> para consolidar mis conocimientos y demostrar mi valía. Mientras tanto, ofrezco servicios de desarrollo web personalizado para particulares buscando crecer en el sector.
+        </p>
+      </div>
+    </div>
 
+    <div>
+      <h2 class="section-title">Estudios</h2>
+      <div class="about-studies">
+        <!-- CSDAW -->
+        <div class="card card-content csdaw">
+          <div class="card-body">
+            <div class="card-body-title">CS Desarrollado de Aplicaciones Web</div>
+            <div class="card-body-subtitle">IES San Clemente</div>
+            <div class="card-body-data">2021 / 2022</div>
 
+            <div class="card-body-text">
+              <p>
+                Durante el desarrollo de este Ciclo, adquirí sólidos fundamentos en programación orientada a objetos y
+                me familiaricé con el uso de los frameworks Symfony y Vue.
+              </p>
+              <p>
+                En el ámbito del desarrollo backend, aproveché la oportunidad de aprender a crear contenedores Docker
+                para implementar eficientemente mis proyectos.
+              </p>
+              <p>
+                Aunque esta etapa me proporcionó conocimientos fundamentales en diversas áreas, también marcó el
+                comienzo para identificar mis verdaderos intereses.
+              </p>
+            </div>
+          </div>
 
+          <div class="card-body-bottom">
+            <div class="card-body-technologies">
+              <span>Docker</span>
+              <span>Javascript</span>
+              <span>Vue</span>
+              <span>Vite</span>
+              <span>PHP</span>
+              <span>Symfony</span>
+            </div>
+          </div>
+        </div>
 
+        <!-- CSASIR -->
+        <div class="card card-content csasir">
+          <div class="card-body">
+            <div class="card-body-title">CS Administración de Sistemas Informáticos en Red</div>
+            <div class="card-body-subtitle">IES Rodeira</div>
+            <div class="card-body-data">2019 / 2021</div>
 
+            <div class="card-body-text">
+              <p>
+               Aquí principalmente aprendí sobre la gestión y despliegue de servidores utilizando Docker y Apache principalmente además
+               de trabajar con Bases de Datos SQL.
+              </p>
+              <p>
+                Estos estudios también me sirvieron para descubrir la programación e hicieron solida mi decisión de seguir estudiando.
+              </p>
+            </div>
+          </div>
 
+          <div class="card-body-bottom">
+            <div class="card-body-technologies">
+              <span>Apache</span>
+              <span>SQL</span>
+              <span>Linux</span>
+              <span>Docker</span>
+              <span>PHP</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
 
   </div>
 
+  <div class="contact">
+    <app-contact></app-contact>
+  </div>
 </div>
-
-
-
-
-
-<!-- <div class="card card-about">
-  <div class="card-image">
-    <img src="../../assets/WhatsApp Image 2023-12-21 at 17.01.48.jpeg" alt="">
-  </div>
-  <div class="card-body">
-    <h1>¿Quien Soy?</h1>
-    <p>
-      Hace veintitres años en Galicia ví la luz por primera vez y desde que tengo recuerdos tuve un gran interés en
-      los ordenadores. Siempre fui una persona muy curiosa con la informática y esto me llevó a estudiar un ciclo
-      superior de sistemas, donde conocí la programación y mi pasón por ella.
-    </p>
-    <p>Compito a nivel nacional desde los 16 años en Kayak esto me ha formado en la disciplina, el trabajo en equipo
-      y desarrollado mis habilidades sociales con todo tipo de personas.</p>
-    <p>
-      Aunque mi carrera profesional es corta y no dispongo de mucha experiencia me mantengo en continua formación
-      realizando pequeños proyectos, cursos y trabajos por cuenta propia. Actualmente estoy buscando oportunidades
-      laborales donde poder aumentar mis conocimientos.
-    </p>
-  </div>
-</div> -->

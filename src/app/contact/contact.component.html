@@ -1,5 +1,9 @@
 <h2 class="section-title">Contáctame Aquí</h2>
+
 <div class="card contact-card">
+  <span class="span-clipboard" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+  <hr>
+
   <form action="mailto:tuemail@example.com" method="post" enctype="text/plain" class="contact-form">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" placeholder="Carlos Martinez" class="contact-input" required>
