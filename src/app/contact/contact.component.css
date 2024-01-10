@@ -78,3 +78,9 @@ label{
 .snackbar-clipboard{
   border-radius: 20px;
 }
+
+.contact-buttons
+{
+  display: flex;
+  gap: 1em;
+}
