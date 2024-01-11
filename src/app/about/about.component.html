@@ -1,5 +1,5 @@
 <div class="page-container">
-  <div class="about-title card">
+  <div class="about-title card shadow">
     <div class="about-header">
       <div class="image-circle">
         <img src="/assets/selfie.webp" alt="">
@@ -24,15 +24,20 @@
 
   <div class="content about-content" style="margin-top: 4em;">
 
-    <div class="card-secondary">
-      <div class="card-secondary-image flex-grow-50">
-        <swiper-container>
-          <swiper-slide *ngFor="let image of images">
-            <img class="swipper-image"  src="{{image}}"alt="">
-          </swiper-slide>
-        </swiper-container>
+    <div class="card-secondary shadow">
 
-      </div>
+
+      <swiper-container class="card-secondary-image flex-grow-50" delay="1000" autoplay="true" loop="true" slidesPerView="1">
+        <swiper-slide class="carousel-image" *ngFor="let image of images">
+          <img src="{{image}}" alt="">
+        </swiper-slide>
+      </swiper-container>
+
+
+      <!-- <div class="card-secondary-image flex-grow-50">
+        <img class="carousel-image" src="/assets/about2.webp" alt="">
+      </div> -->
+
       <div class="card-secondary-body flex-grow-50">
         <div class="body-title">¿Quien soy?</div>
         <p>
@@ -41,18 +46,21 @@
         </p>
         <p>
           Siempre fui una persona curiosa en el ámbito de la informática, lo
-          que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi <strong>pasión</strong> por ella.
+          que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi
+          <strong>pasión</strong> por ella.
         </p>
         <p>
           Más allá de la informática y la programación, heredé una gran afición por la música y el mar de mi padre.
         </p>
         <p>
-          Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en esta
-          disciplina, la cual ha forjado mi carácter en la <strong>disciplina</strong>, <strong>trabajo en equipo</strong> y ha hecho crecer mis
+          Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en este deporte, el cual ha forjado mi carácter en la <strong>disciplina</strong>, <strong>trabajo en
+            equipo</strong> y ha hecho crecer mis
           habilidades sociales al interactuar con personas de diversos perfiles.
         </p>
         <p>
-          Actualmente, mi objetivo es <strong>encontrar empleo</strong> para consolidar mis conocimientos y demostrar mi valía. Mientras tanto, ofrezco servicios de desarrollo web personalizado para particulares buscando crecer en el sector.
+          Actualmente, mi objetivo es <strong>encontrar empleo</strong> para consolidar mis conocimientos y demostrar mi
+          valía. Mientras tanto, ofrezco servicios de desarrollo web personalizado para particulares buscando crecer en
+          el sector.
         </p>
       </div>
     </div>
@@ -61,7 +69,7 @@
       <h2 class="section-title">Estudios</h2>
       <div class="about-studies">
         <!-- CSDAW -->
-        <div class="card card-content csdaw">
+        <div class="card card-content csdaw shadow">
           <div class="card-body">
             <div class="card-body-title">CS Desarrollado de Aplicaciones Web</div>
             <div class="card-body-subtitle">IES San Clemente</div>
@@ -69,7 +77,8 @@
 
             <div class="card-body-text">
               <p>
-                Durante el desarrollo de este Ciclo, adquirí sólidos fundamentos en <strong>programación orientada a objetos</strong> y
+                Durante el desarrollo de este Ciclo, adquirí sólidos fundamentos en <strong>programación orientada a
+                  objetos</strong> y
                 me familiaricé con el uso de los frameworks Symfony y Vue.
               </p>
               <p>
@@ -96,7 +105,7 @@
         </div>
 
         <!-- CSASIR -->
-        <div class="card card-content csasir">
+        <div class="card card-content csasir shadow">
           <div class="card-body">
             <div class="card-body-title">CS Administración de Sistemas Informáticos en Red</div>
             <div class="card-body-subtitle">IES Rodeira</div>
@@ -104,11 +113,13 @@
 
             <div class="card-body-text">
               <p>
-               Aquí principalmente aprendí sobre la gestión y <strong>despliegue de servidores</strong> utilizando Docker y Apache principalmente además
-               de trabajar con Bases de Datos SQL.
+                Aquí principalmente aprendí sobre la gestión y <strong>despliegue de servidores</strong> utilizando
+                Docker y Apache principalmente además
+                de trabajar con Bases de Datos SQL.
               </p>
               <p>
-                Estos estudios también me sirvieron para descubrir la programación e hicieron solida mi decisión de seguir estudiando.
+                Estos estudios también me sirvieron para descubrir la programación e hicieron solida mi decisión de
+                seguir estudiando.
               </p>
             </div>
           </div>

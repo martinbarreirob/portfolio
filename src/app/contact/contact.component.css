@@ -53,6 +53,7 @@ label{
 .submit-btn{
   padding: 10px 50px 10px 50px;
   margin-top: 1em;
+  font-weight: 600;
 }
 
 .contact-email{
@@ -82,5 +83,16 @@ label{
 .contact-buttons
 {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1em;
+  margin: 1em;
+}
+
+
+@media (min-width: 768px) {
+  .contact-buttons{
+    margin-top: 0em;
+  }
+
 }

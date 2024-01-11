@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+
   public images = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
 }
