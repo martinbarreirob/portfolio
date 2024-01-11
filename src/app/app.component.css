@@ -37,8 +37,8 @@
 
 .header-nav {
   display: flex;
-  gap: 2em;
   align-items: center;
+  gap: 10px;
 }
 
 footer {
@@ -55,27 +55,22 @@ footer {
 
 /* Your existing styles */
 nav a {
-  font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
   display: inline-block;
   color: #383940;
-  padding: 3px 12px;
-  border-radius: 8px;
+  padding: 3px 18px;
+  border-radius: 5px;
+}
 
+nav a:hover {
+  background-color: #e9e9e9a1;
 }
 
 nav a.active {
-  font-weight: 500;
-  background-color: #383940;
-  color: #FAFAFA;
-  box-shadow:
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 12%) 0px 1px 1px 0px,
-    rgb(60 66 87 / 16%) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(60 66 87 / 8%) 0px 3px 9px 0px,
-    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  background-color: #e9e9e9a1;
+  font-weight: 600;
+
 }
 
 .circle {
@@ -123,6 +118,10 @@ nav a.active {
 
   .content {
     width: 85%;
+  }
+
+  .header-nav {
+    gap: 2em;
   }
 }
 
