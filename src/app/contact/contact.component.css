@@ -1,9 +1,9 @@
-.contact-form{
+.contact-form {
   display: flex;
   flex-direction: column;
 }
 
-.contact-input{
+.contact-input {
   border-radius: 13px;
   padding: 12px 12px 12px 18px;
   border: 1px solid rgba(204, 204, 204, 0.329);
@@ -13,7 +13,7 @@
   font-weight: 400;
 }
 
-.contact-textarea{
+.contact-textarea {
   border-radius: 15px;
   padding: 1em;
   border: 1px solid rgba(204, 204, 204, 0.329);
@@ -24,16 +24,30 @@
   font-family: roboto;
 }
 
-.contact-input:focus{
+.contact-input:focus {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0);
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  box-shadow:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 6%) 0px 1px 1px 0px,
+    rgb(60 66 87 / 8%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 4%) 0px 3px 6px 0px,
+    rgb(60 66 87 / 4%) 0px 2px 4px 0px;
 }
 
-.contact-textarea:focus{
+.contact-textarea:focus {
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0);
-  box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  box-shadow:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 6%) 0px 1px 1px 0px,
+    rgb(60 66 87 / 8%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 4%) 0px 3px 6px 0px,
+    rgb(60 66 87 / 4%) 0px 2px 4px 0px;
 }
 
 input:placeholder-shown,
@@ -43,20 +57,20 @@ textarea:placeholder-shown {
   font-weight: 300;
 }
 
-label{
+label {
   font-weight: 300;
   margin: 15px 0 10px 5px;
   color: #383940;
   font-size: 18px;
 }
 
-.submit-btn{
+.submit-btn {
   padding: 10px 50px 10px 50px;
   margin-top: 1em;
   font-weight: 600;
 }
 
-.contact-email{
+.contact-email {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -65,7 +79,7 @@ label{
   justify-content: space-between;
 }
 
-.contact-input-email{
+.contact-input-email {
   border-radius: 20px;
   padding: 11px 40px 11px 40px;
   border: 1px solid rgba(204, 204, 204, 0.329);
@@ -76,12 +90,11 @@ label{
   background-color: white;
 }
 
-.snackbar-clipboard{
+.snackbar-clipboard {
   border-radius: 20px;
 }
 
-.contact-buttons
-{
+.contact-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +104,7 @@ label{
 
 
 @media (min-width: 768px) {
-  .contact-buttons{
+  .contact-buttons {
     margin-top: 0em;
   }
 

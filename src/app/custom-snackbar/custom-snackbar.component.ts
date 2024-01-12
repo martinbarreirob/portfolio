@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
       transform: translateX(-50%);
       background-color: #F78522;
       color: #FAFAFA;
-      padding: 8px 15px;
+      padding: 8px 12px;
       border-radius: 8px;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
@@ -31,6 +31,10 @@ import { Component, Input } from '@angular/core';
         rgb(0 0 0 / 0%) 0px 0px 0px 0px,
         rgb(0 0 0 / 0%) 0px 0px 0px 0px,
         rgb(60 66 87 / 4%) 0px 2px 5px 0px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     .show {

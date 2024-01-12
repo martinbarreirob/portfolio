@@ -1,5 +1,8 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+html{
+  scroll-behavior: smooth !important;
+}
 
 body {
   margin: 0;
@@ -60,7 +63,7 @@ h3 {
 }
 
 .card {
-  background-color: #f4f4f4;
+  background-color: #f8f8f8 !important;
   border-radius: 25px;
   display: flex;
   overflow: hidden;
@@ -88,7 +91,7 @@ h3 {
 }
 
 .card-secondary {
-  background-color: #f4f4f4;
+  background-color: #f8f8f8;
   border-radius: 25px;
   display: flex;
   overflow: hidden;
@@ -248,7 +251,7 @@ hr {
 .btn-hover:hover {
   background-color: white;
   color: #383940;
-  border: 2px solid #383940;
+  border: 2px solid rgba(128, 128, 128, 0.205);
   cursor: pointer;
 }
 
@@ -341,17 +344,18 @@ span:hover {
   margin-top: 3px;
 }
 
-.span-clipboard {
+.span-button {
   display: flex;
   gap: 8px;
   align-items: center;
+  cursor: pointer;
 }
 
 
 .span-hover:hover {
   background-color: #383940;
   color: white;
-  cursor: pointer;
+
 }
 
 .span-linkedin:hover {
