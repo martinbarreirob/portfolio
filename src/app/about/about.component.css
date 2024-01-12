@@ -1,8 +1,6 @@
 .about-title{
   display: flex;
   flex-direction: column;
-  margin-left: 6px;
-  margin-right: 5px;
 }
 
 .about-header{
