@@ -1,17 +1,17 @@
-<h2 class="section-title">Contáctame Aquí</h2>
+<h2 class="section-title" id="contacto">Contáctame Aquí</h2>
 
 <div class="card contact-card shadow">
   <div class="contact-buttons">
     <a href="https://www.linkedin.com/in/martinbarreirob/" target="_blank">
-      <span class="span-clipboard span-linkedin">Linkedin<i class="fab fa-linkedin"></i></span>
+      <span class="span-button span-linkedin">Linkedin<i class="fab fa-linkedin"></i></span>
     </a>
-    <span class="span-clipboard span-hover" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+    <span class="span-button span-hover" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
 
   </div>
 
   <hr>
 
-  <form action="mailto:martinbarreirob@gmail.com" method="post" enctype="text/plain" class="contact-form">
+  <form  method="post" enctype="text/plain" class="contact-form">
     <label for="nombre">Nombre:</label>
     <input type="text" id="nombre" name="nombre" placeholder="Carlos Martinez" class="contact-input" required>
 

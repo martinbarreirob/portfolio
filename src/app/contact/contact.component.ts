@@ -8,16 +8,21 @@ import { Component } from '@angular/core';
 
 })
 export class ContactComponent {
-  message: string = 'Correo copiado al portapapeles';
-  showSnackbar: boolean = false;
+  private email: string = "martinbarreirob@gmail.com"
+  public message: string = 'Correo copiado al portapapeles';
+  public showSnackbar: boolean = false;
 
   emailToClipboard() {
-    this.showSnackbar = true;
-    setTimeout(() => {
-      this.showSnackbar = false;
-    }, 2000);
+    navigator.clipboard.writeText(this.email).then(() => {
+      this.showSnackbar = true;
+      setTimeout(() => {
+        this.showSnackbar = false;
+      }, 2000);
+    }).catch(err => {
+      console.error('Error al copiar al portapapeles:', err);
+    });
+
+
+
   }
-
-
-
 }

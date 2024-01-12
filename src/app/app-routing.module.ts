@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, NavigationEnd  } from '@angular/router';
+import { RouterModule, Routes, NavigationEnd } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ServicesComponent } from './services/services.component';
@@ -13,8 +13,13 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    // RouterModule.forRoot(routes, {
+    //   scrollPositionRestoration: 'top',
+    // })
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'top',
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+      
     })
   ],
   exports: [RouterModule]
