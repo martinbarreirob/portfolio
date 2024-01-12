@@ -6,5 +6,4 @@ F78522 Naranja
 383940 Negro
 FAFAFA
 
-
-Añadir mi correo electronico junto a un boton clipboard
+git push https://martinbarreirob@github.com/martinbarreirob/portfolio
