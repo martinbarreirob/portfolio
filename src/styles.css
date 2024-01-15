@@ -16,6 +16,10 @@ a {
   color: #383940;
 }
 
+p {
+  text-wrap: pretty;
+}
+
 h1,
 h2,
 h3 {
@@ -349,6 +353,16 @@ span:hover {
   gap: 8px;
   align-items: center;
   cursor: pointer;
+}
+
+.span-recomendation{
+  background-color: #F78522;
+  color: #FAFAFA;
+}
+
+.span-primary:hover{
+  background-color: #fafafa;
+  color: #383940;
 }
 
 
