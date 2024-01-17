@@ -16,25 +16,7 @@
   gap: 4px;
 }
 
-.image-circle{
-  overflow: hidden;
-  width: 6em;
-  height: 6em;
-  border-radius: 50%;
-  box-shadow:
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-  rgb(0 0 0 / 10%) 0px 1px 1px 0px,
-  rgb(60 66 87 / 4%) 0px 0px 0px 1px,
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-  rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-  rgb(60 66 87 / 12%) 0px 7px 8px 0px;
-}
-.image-circle img{
-  object-fit: cover;
-  width: 100%;
-  transform: scale(3) translateX(-2%) translateY(2%);
-}
+
 
 .about-information{
   margin-top: 1em;
