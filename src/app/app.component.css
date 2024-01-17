@@ -46,13 +46,28 @@ footer {
   width: 100%;
   background-color: #383940;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 200px;
   box-shadow: inset 0px 6px 15px rgba(34, 30, 30, 0.733);
   color: white;
 }
 
+.footer-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.footer-rrss{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
 /* Your existing styles */
 nav a {
   font-weight: 400;
