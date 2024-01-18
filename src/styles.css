@@ -68,7 +68,7 @@ h3 {
 
 .card {
   background-color: #f8f8f8 !important;
-  border-radius: 25px;
+  border-radius: 20px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -76,7 +76,7 @@ h3 {
 }
 
 .card-image {
-  border-radius: 25px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -96,7 +96,7 @@ h3 {
 
 .card-secondary {
   background-color: #f8f8f8;
-  border-radius: 25px;
+  border-radius: 20px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -106,7 +106,7 @@ h3 {
 
 
 .card-secondary-image {
-  border-radius: 20px;
+  border-radius: 13px;
   overflow: hidden;
   transition: box-shadow 0.3s;
   max-height: 600px;

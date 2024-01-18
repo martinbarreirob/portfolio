@@ -5,27 +5,40 @@
     <a href="https://www.linkedin.com/in/martinbarreirob/" target="_blank">
       <span class="span-button span-linkedin">Linkedin<i class="fab fa-linkedin"></i></span>
     </a>
-    <span class="span-button span-hover" (click)="emailToClipboard()">martinbarreirob@gmail.com<i class="fa-solid fa-copy"></i></span>
+    <span class="span-button span-hover" (click)="emailToClipboard()">martinbarreirob@gmail.com<i
+        class="fa-solid fa-copy"></i></span>
 
   </div>
 
   <hr>
 
+
   <form class="contact-form" [formGroup]="form" (submit)="sendEmail()">
     <label for="nombre">Nombre:</label>
-    <input type="text" formControlName="from_name" id="from_name" name="from_name" placeholder="Carlos Martinez" class="contact-input" require>
+    <input class="contact-input" [class.ng-invalid]="formSubmitted && form.get('from_name')?.invalid" type="text"
+      formControlName="from_name" id="from_name" name="from_name" placeholder="Carlos Martinez" required>
+    <div *ngIf="formSubmitted && form.get('from_name')?.invalid" class="error-message">
+      Por favor, ingrese un nombre válido.
+    </div>
 
     <label for="email">Correo Electrónico:</label>
-    <input type="email" formControlName="from_email" id="from_email" name="from_email" class="contact-input" placeholder="carlos@email.com" require>
+    <input class="contact-input" [class.ng-invalid]="formSubmitted && form.get('from_email')?.invalid" type="email"
+      formControlName="from_email" id="from_email" name="from_email" placeholder="carlos@email.com" required>
+    <div *ngIf="formSubmitted && form.get('from_email')?.invalid" class="error-message">
+      Por favor, ingrese un correo electrónico válido.
+    </div>
 
     <label for="mensaje">Mensaje:</label>
-    <textarea id="message" formControlName="message" name="message" rows="6" class="contact-textarea" maxlength="400"
-      require></textarea>
-
-
+    <textarea id="message" [class.ng-invalid]="formSubmitted && form.get('message')?.invalid" formControlName="message"
+      name="message" rows="6" class="contact-textarea" maxlength="400" required></textarea>
+    <div *ngIf="formSubmitted && form.get('message')?.invalid" class="error-message">
+      Por favor, ingrese un mensaje válido.
+    </div>
 
     <input type="submit" class="primary-btn submit-btn btn-hover" value="{{submitButton}}">
   </form>
+
+
 </div>
 
 <!-- SnackBar CopyClipboard -->

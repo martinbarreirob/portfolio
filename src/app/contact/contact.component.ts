@@ -26,6 +26,8 @@ export class ContactComponent {
 
   constructor(private fb: FormBuilder) { }
 
+  public formSubmitted: boolean = false;
+
   emailToClipboard() {
     navigator.clipboard.writeText(this.email).then(() => {
       this.snackbar('Email copiado al portapapeles.', 4000)
@@ -35,36 +37,38 @@ export class ContactComponent {
   }
 
   async sendEmail() {
-    if (this.form.valid) {
-      console.log('isvalid')
-    } else {
-      console.log('notvalid');
+    this.formSubmitted = true;
+    if (!this.form.valid) {
       return;
     }
+    let from_name = this.form.value.from_name;
+    let from_email = this.form.value.from_email;
+    let message = this.form.value.message;
+
     this.submitButton = 'Enviando...';
+    this.formSubmitted = false;
     this.form = this.fb.group({
       from_name: '',
       from_email: '',
       message: '',
     });
 
+    try {
+      emailjs.init(enviroment.emailJsApiKey)
+      const response = await emailjs.send("service_0ag0ljd", "template_o4px7uh", {
+        from_name: from_name,
+        from_email: from_email,
+        message: message,
+      });
 
-    // try {
-    //   emailjs.init(enviroment.emailJsApiKey)
-    //   const response = await emailjs.send("service_0ag0ljd", "template_o4px7uh", {
-    //     from_name: this.form.value.from_name,
-    //     from_email: this.form.value.from_email,
-    //     message: this.form.value.message,
-    //   });
-
-    //   if (response.status === 200) {
-    //     this.snackbar('Tu correo ha sido enviado correctamente, responderé lo antes posible.', 16000);
-    //   } else {
-    //     console.error('Error al enviar el correo. Respuesta:', response);
-    //   }
-    // } catch (error) {
-    //   console.error('Error en la solicitud HTTP:', error);
-    // }
+      if (response.status === 200) {
+        this.snackbar('Tu correo ha sido enviado correctamente, responderé lo antes posible.', 16000);
+      } else {
+        console.error('Error al enviar el correo. Respuesta:', response);
+      }
+    } catch (error) {
+      console.error('Error en la solicitud HTTP:', error);
+    }
 
 
     this.submitButton = 'Enviar';
