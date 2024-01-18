@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomSnackbarComponent } from './custom-snackbar/custom-snackbar.component';
 import { register } from 'swiper/element/bundle';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 register();
@@ -27,6 +28,7 @@ register();
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
