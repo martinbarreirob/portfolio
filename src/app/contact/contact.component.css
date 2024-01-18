@@ -4,7 +4,7 @@
 }
 
 .contact-input {
-  border-radius: 13px;
+  border-radius: 10px;
   padding: 12px 12px 12px 18px;
   border: 1px solid rgba(204, 204, 204, 0.329);
   font-size: 15px;
@@ -14,7 +14,7 @@
 }
 
 .contact-textarea {
-  border-radius: 15px;
+  border-radius: 12px;
   padding: 1em;
   border: 1px solid rgba(204, 204, 204, 0.329);
   resize: none;
@@ -108,4 +108,27 @@ label {
     margin-top: 0em;
   }
 
+}
+
+
+
+
+
+
+input.ng-invalid,
+textarea.ng-invalid {
+  border: 1px solid red;
+}
+
+/* Estilo adicional para el texto de la etiqueta de campo */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilo para resaltar el mensaje de error */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
