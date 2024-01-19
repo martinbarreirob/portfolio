@@ -38,43 +38,25 @@
     <h2 class="section-title">Experiencia</h2>
     <div class="grid-experience">
 
-      <div class="card pinvestiga card-content shadow">
+      <div class="card pinvestiga card-content shadow" *ngFor="let job of experiences">
         <div class="card-body">
-          <div class="card-body-title">Galaxia Empirica - pInvestiga</div>
-          <div class="card-body-subtitle">Desarrollador Fullstack</div>
-          <div class="card-body-data">Octubre 2023 / Diciembre 2023</div>
+          <div class="card-body-title">{{job.empresa}}</div>
+          <div class="card-body-subtitle">{{job.puesto}}</div>
+          <div class="card-body-data">{{job.data}}</div>
 
-          <div class="card-body-text">
-            <p>
-              Durante mi período de prácticas en la empresa, colaboré activamente en el desarrollo de la nueva versión
-              del software pInvestiga utilizando Angular y NestJS.
-            </p>
-            <p>
-              Mi responsabilidad principal consistía en la creación de diversos componentes y servicios para la
-              aplicación. Entre las tareas destacadas se incluyeron la implementación de un <strong>sistema de chat en
-                tiempo
-                real</strong>, el desarrollo de bibliotecas de datos y la creación de formularios para el ingreso de
-              datos, entre
-              otras contribuciones significativas.
-            </p>
-            <p>
-              También quiero agradecer a todo el equipo por el conocimiento, enseñanzas y trato recibido durante mi
-              estancia, que fue espectacular.
-            </p>
+          <div class="card-body-text" [innerHTML]="job.description">
           </div>
         </div>
 
 
         <div class="card-body-bottom">
           <div class="card-body-technologies">
-            <span>NodeJs</span>
-            <span>Angular</span>
-            <span>PHP</span>
-            <span>SQL</span>
-            <span>Github</span>
+            <span *ngFor="let technology of job.technologies">
+              {{technology}}
+            </span>
           </div>
           <div class="card-body-links">
-            <a (click)="abrirPDF()">
+            <a (click)="abrirPDF(job.recomendation)">
               <span class="span-button span-primary">Carta de Recomendación<i class="fa-regular fa-envelope"></i></span>
             </a>
           </div>
@@ -84,34 +66,22 @@
 
     <div class="home-experience">
       <h2 class="section-title">Proyectos Destacados</h2>
-      <div class="card tresenraya card-body-content shadow">
+      <div class="card tresenraya card-body-content shadow" *ngFor="let proyect of proyects">
         <div>
-          <div class="card-body-title">Tres En Raya Online</div>
-          <div class="card-body-subtitle">Proyecto CS DAW</div>
-          <div class="card-body-text">
-            <p>
-              A pesar de ser un juego simple que todo el mundo conoce, decidí llevarlo al siguiente nivel al añadir
-              soporte para jugar en línea con otros usuarios. Esta implementación permite a los jugadores crear o unirse
-              a partidas en tiempo real, además de facilitar la comunicación a través de un chat de texto integrado.
-            </p>
-            <p>
-              La aplicación está desarrollada utilizando Angular en el lado del cliente y un backend en NestJS con una
-              API Gateway y WebSockets para facilitar la comunicación en tiempo real. Este proyecto ha sido desarrollado
-              de manera autodidacta al 100%, representando una valiosa experiencia formativa.
-            </p>
-          </div>
+          <div class="card-body-title">{{proyect.title}}</div>
+          <div class="card-body-subtitle">{{proyect.subtitle}}</div>
+          <div class="card-body-text" [innerHTML]="proyect.description"></div>
 
         </div>
 
         <div class="card-body-bottom">
           <div class="card-body-technologies">
-            <span>NodeJs</span>
-            <span>Angular</span>
-            <span>Socket.IO</span>
-            <span>Apache</span>
+            <span *ngFor="let technology of proyect.technologies">
+              {{technology}}
+            </span>
           </div>
           <div class="card-body-links">
-            <a href="https://github.com/martinbarreirob/tresOnline2" target="_blank" class="icon-btn github btn-hover">
+            <a href="{{proyect.github}}" target="_blank" class="icon-btn github btn-hover">
               <i class="fab fa-github"></i>
             </a>
           </div>

@@ -97,7 +97,6 @@ h3 {
   .grid-experience {
     grid-template-areas:
       "pinvestiga"
-      "tresenraya"
     ;
   }
 }
