@@ -33,11 +33,6 @@
         </swiper-slide>
       </swiper-container>
 
-
-      <!-- <div class="card-secondary-image flex-grow-50">
-        <img class="carousel-image" src="/assets/about2.webp" alt="">
-      </div> -->
-
       <div class="card-secondary-body flex-grow-50">
         <div class="body-title">¿Quien soy?</div>
         <p>
@@ -68,70 +63,24 @@
     <div>
       <h2 class="section-title">Estudios</h2>
       <div class="about-studies">
-        <!-- CSDAW -->
-        <div class="card card-content csdaw shadow">
+        <div class="card card-content csdaw shadow" *ngFor="let degree of studies">
           <div class="card-body">
-            <div class="card-body-title">CS Desarrollado de Aplicaciones Web</div>
-            <div class="card-body-subtitle">IES San Clemente</div>
-            <div class="card-body-data">2021 / 2023</div>
-
-            <div class="card-body-text">
-              <p>
-                Durante el desarrollo de este Ciclo, adquirí sólidos fundamentos en <strong>programación orientada a
-                  objetos</strong> y
-                me familiaricé con el uso de los frameworks Symfony y Vue.
-              </p>
-              <p>
-                En el ámbito del desarrollo backend, aproveché la oportunidad de aprender a crear contenedores Docker
-                para implementar eficientemente mis proyectos.
-              </p>
-              <p>
-                Aunque esta etapa me proporcionó conocimientos fundamentales en diversas áreas, también marcó el
-                comienzo para identificar mis verdaderos intereses.
-              </p>
+            <div class="card-body-title">
+              {{degree.title}}
             </div>
+            <div class="card-body-subtitle">
+              {{degree.center}}
+            </div>
+            <div class="card-body-data">
+              {{degree.data}}
+            </div>
+
+            <div class="card-body-text" [innerHTML]="degree.description"></div>
           </div>
 
           <div class="card-body-bottom">
             <div class="card-body-technologies">
-              <span>Docker</span>
-              <span>Javascript</span>
-              <span>Vue</span>
-              <span>Vite</span>
-              <span>PHP</span>
-              <span>Symfony</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CSASIR -->
-        <div class="card card-content csasir shadow">
-          <div class="card-body">
-            <div class="card-body-title">CS Administración de Sistemas Informáticos en Red</div>
-            <div class="card-body-subtitle">IES Rodeira</div>
-            <div class="card-body-data">2019 / 2021</div>
-
-            <div class="card-body-text">
-              <p>
-                Aquí principalmente aprendí sobre la gestión y <strong>despliegue de servidores</strong> utilizando
-                Docker y Apache principalmente además
-                de trabajar con Bases de Datos SQL.
-              </p>
-              <p>
-                Estos estudios también me sirvieron para descubrir la programación e hicieron solida mi decisión de
-                seguir estudiando.
-              </p>
-            </div>
-          </div>
-
-          <div class="card-body-bottom">
-            <div class="card-body-technologies">
-              <span>Apache</span>
-              <span>SQL</span>
-              <span>Linux</span>
-              <span>Docker</span>
-              <span>PHP</span>
-              <span>Python</span>
+              <span *ngFor="let technology of degree.technologies">{{technology}}</span>
             </div>
           </div>
         </div>

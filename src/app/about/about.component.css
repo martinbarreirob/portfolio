@@ -38,31 +38,13 @@
 }
 
 .about-studies{
-  display: grid;
-  grid-template-areas:
-    "csdaw"
-    "csasir"
-  ;
+  display: flex;
+  flex-direction: column;
   gap: 1em;
 }
 
-.csdaw{
-  grid-area: csdaw;
-}
 
-.csasir{
-  grid-area: csasir;
-}
 
 h2{
   margin-bottom: 5px;
 }
-
-@media only screen and (min-width: 768px) {
-  .about-studies {
-    grid-template-areas:
-      "csdaw"
-      "csasir";
-  }
-}
-
