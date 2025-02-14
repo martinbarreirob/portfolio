@@ -15,9 +15,7 @@
           proyectos e ideas.
         </p>
         <p>
-          Actualmente, mi objetivo es <strong>encontrar empleo</strong> para consolidar mis conocimientos y demostrar mi
-          valía. Mientras tanto, ofrezco servicios de desarrollo web personalizado para particulares buscando crecer en
-          el sector.
+          Actualmente trabajo en Marosavat como desarrollador Frontend pero mis capacidades van mucho mas allá manejando también tecnologías de Backend y diseño de UX/UI. Estoy abierto a nuevas oportunidades y ofertas en busca de nuevos retos y continuar mi desarrollo profesional.
         </p>
       </div>
 
@@ -38,7 +36,7 @@
     <h2 class="section-title">Experiencia</h2>
     <div class="grid-experience">
 
-      <div class="card pinvestiga card-content shadow" *ngFor="let job of experiences">
+      <div class="card card-content shadow" *ngFor="let job of experiences">
         <div class="card-body">
           <div class="card-body-title">{{job.empresa}}</div>
           <div class="card-body-subtitle">{{job.puesto}}</div>
@@ -55,7 +53,7 @@
               {{technology}}
             </span>
           </div>
-          <div class="card-body-links">
+          <div class="card-body-links" *ngIf="job.recomendation">
             <a (click)="abrirPDF(job.recomendation)">
               <span class="span-button span-primary">Carta de Recomendación<i class="fa-regular fa-envelope"></i></span>
             </a>
