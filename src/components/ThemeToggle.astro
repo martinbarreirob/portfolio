@@ -1,0 +1,53 @@
+---
+import { getDictionary, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label={t.ui.themeToggle}
+  title={t.ui.themeToggle}
+  class="grid h-10 w-10 place-items-center rounded-pill border border-[var(--card-border)] bg-card text-text transition-colors hover:text-accent"
+>
+  <i class="fa-solid fa-sun text-lg" data-icon-light></i>
+  <i class="fa-solid fa-moon hidden text-lg" data-icon-dark></i>
+</button>
+
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const sync = () => {
+      const dark =
+        root.getAttribute('data-theme') === 'dark' ||
+        (!root.hasAttribute('data-theme') &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      document
+        .querySelectorAll('[data-icon-light]')
+        .forEach((el) => el.classList.toggle('hidden', dark));
+      document
+        .querySelectorAll('[data-icon-dark]')
+        .forEach((el) => el.classList.toggle('hidden', !dark));
+    };
+    document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const dark =
+          root.getAttribute('data-theme') === 'dark' ||
+          (!root.hasAttribute('data-theme') &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const next = dark ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('theme', next);
+        } catch (e) {}
+        sync();
+      });
+    });
+    sync();
+  })();
+</script>

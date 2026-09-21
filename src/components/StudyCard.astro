@@ -2,23 +2,22 @@
 interface Props {
   title: string;
   center: string;
-  data: string;
+  period: string;
   description: string;
   technologies: string[];
 }
 
-const { title, center, data, description, technologies } = Astro.props;
+const { title, center, period, description, technologies } = Astro.props;
 ---
 
-<article class="flex flex-col justify-between rounded-[20px] bg-card p-6 shadow-soft md:p-12">
+<article class="card flex flex-col gap-3 p-6 lg:p-7">
   <div>
-    <div class="text-[1.4em] font-semibold">{title}</div>
-    <div class="mt-[5px] text-base font-normal">{center}</div>
-    <div class="text-[0.8em] font-light">{data}</div>
-    <div class="rich mt-4" set:html={description} />
+    <h3 class="text-lg">{title}</h3>
+    <p class="mt-0.5 text-sm font-medium text-accent">{center}</p>
+    <p class="text-xs text-muted">{period}</p>
   </div>
-
-  <div class="mt-8 flex flex-wrap items-center gap-[10px]">
-    {technologies.map((tech) => <span class="chip">{tech}</span>)}
+  <div class="rich text-sm" set:html={description} />
+  <div class="mt-1 flex flex-wrap items-center gap-2">
+    {technologies.map((tech) => <span class="pill card-alt py-1.5 text-xs">{tech}</span>)}
   </div>
 </article>
