@@ -1,0 +1,29 @@
+---
+import { languages, getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+// Determina el subpath actual (sin el prefijo de idioma) para conservar la página al cambiar de idioma.
+const path = Astro.url.pathname.replace(/\/$/, '');
+const subpath = path.endsWith('/about') ? 'about' : '';
+---
+
+<div class="flex items-center gap-1 border-l border-neutral-300 pl-2 md:pl-4">
+  {
+    languages.map((code) => (
+      <a
+        href={localizedPath(code, subpath)}
+        aria-label={getDictionary(code).langName}
+        class={`rounded px-2 py-[2px] text-xs font-medium uppercase transition-colors ${
+          code === lang ? 'bg-ink text-white' : 'text-ink hover:bg-neutral-200'
+        }`}
+      >
+        {code}
+      </a>
+    ))
+  }
+</div>

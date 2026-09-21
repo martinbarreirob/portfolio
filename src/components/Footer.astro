@@ -1,0 +1,55 @@
+---
+import { getDictionary, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+---
+
+<footer
+  class="mt-20 flex h-[200px] w-full flex-row items-center justify-around bg-ink text-white shadow-[inset_0px_6px_15px_rgba(34,30,30,0.733)]"
+>
+  <div class="ml-4 flex flex-row items-center justify-center gap-2">
+    <div
+      class="h-20 w-20 overflow-hidden rounded-full border border-card bg-white shadow-[rgb(60_66_87_/_12%)_0px_7px_8px_0px]"
+    >
+      <img
+        src="/assets/selfie.webp"
+        alt="Martín Barreiro"
+        class="w-full scale-150 translate-x-2 translate-y-[7px] object-cover"
+      />
+    </div>
+    <div>
+      <h1 class="text-xl font-medium">{t.footer.name}</h1>
+      <span
+        class="mt-1 inline-flex items-center gap-2 rounded-md bg-orange px-2 py-1 text-sm font-medium text-offwhite"
+      >
+        <i class="fa-solid fa-circle text-[0.8em]"></i>{t.openToWork}
+      </span>
+    </div>
+  </div>
+
+  <div class="mr-4 flex flex-row items-center justify-center gap-2">
+    <a
+      href="https://www.linkedin.com/in/martinbarreirob/"
+      target="_blank"
+      rel="noopener"
+      aria-label="LinkedIn"
+      class="flex rounded-[30px] border-2 border-linkedin bg-linkedin p-2 text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-linkedin"
+    >
+      <i class="fab fa-linkedin text-2xl"></i>
+    </a>
+    <a
+      href="https://github.com/martinbarreirob"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub"
+      class="flex rounded-[30px] border-2 border-github bg-github p-2 text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-github"
+    >
+      <i class="fab fa-github text-2xl"></i>
+    </a>
+  </div>
+</footer>

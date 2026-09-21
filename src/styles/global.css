@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #383940;
+  --color-orange: #f78522;
+  --color-offwhite: #fafafa;
+  --color-card: #f8f8f8;
+  --color-linkedin: #0a66c2;
+  --color-github: #6e5494;
+
+  --font-sans: 'Roboto', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;
+
+  --shadow-soft:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 6%) 0px 1px 1px 0px, rgb(60 66 87 / 4%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 2%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 2%) 0px 2px 5px 0px;
+  --shadow-soft-hover:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 8%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 4%) 0px 3px 9px 0px,
+    rgb(60 66 87 / 4%) 0px 2px 5px 0px;
+  --shadow-chip:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 10%) 0px 1px 1px 0px, rgb(60 66 87 / 4%) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 4%) 0px 2px 5px 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: #ffffff;
+}
+
+/* Texto enriquecido proveniente de los JSON (set:html) */
+.rich p {
+  font-weight: 300;
+  margin: 1em 0;
+}
+.rich p:first-child {
+  margin-top: 0;
+}
+.rich p:last-child {
+  margin-bottom: 0;
+}
+.rich strong {
+  font-weight: 500;
+}
+
+/* Sombra reutilizable con transición */
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.4s ease;
+}
+.shadow-soft:hover {
+  box-shadow: var(--shadow-soft-hover);
+}
+
+/* Chip / etiqueta de tecnología */
+.chip {
+  border: 0;
+  color: rgb(60, 66, 87);
+  background-color: #ffffff;
+  box-shadow: var(--shadow-chip);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  width: fit-content;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  transition: box-shadow 0.24s, background-color 0.24s, color 0.24s;
+}
