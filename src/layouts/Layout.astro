@@ -1,15 +1,15 @@
 ---
 import '@/styles/global.css';
-import Header from '@/components/Header.astro';
-import Footer from '@/components/Footer.astro';
-import Contact from '@/components/Contact.astro';
+import SideNav from '@/components/SideNav.astro';
 import { getDictionary, type Lang } from '@/i18n/utils';
 
 interface Props {
   lang: Lang;
+  active: 'home' | 'about';
+  showSections?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, active, showSections = false } = Astro.props;
 const t = getDictionary(lang);
 ---
 
@@ -22,32 +22,38 @@ const t = getDictionary(lang);
     <meta name="description" content={t.meta.description} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Iconos: Font Awesome (sociales, UI) + Devicon (stack) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-  </head>
-  <body class="flex flex-col items-center">
-    <Header lang={lang} />
-    <div class="w-[85%] max-w-[900px] max-md:w-[97%]">
-      <slot />
-      <Contact lang={lang} />
-    </div>
-    <Footer lang={lang} />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
 
-    <script is:inline define:vars={{ title: t.meta.title, hidden: t.meta.titleHidden }}>
-      document.addEventListener('visibilitychange', () => {
-        document.title = document.visibilityState === 'hidden' ? hidden : title;
-      });
+    <!-- Tema: aplica antes del primer pintado para evitar parpadeo -->
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          if (stored === 'light' || stored === 'dark') {
+            document.documentElement.setAttribute('data-theme', stored);
+          }
+        } catch (e) {}
+      })();
     </script>
+  </head>
+  <body>
+    <div class="mx-auto max-w-[1240px] px-4 py-6 lg:px-7 lg:py-7">
+      <div class="flex flex-col gap-4 lg:flex-row lg:gap-6">
+        <SideNav lang={lang} active={active} showSections={showSections} />
+        <main class="panel flex-1 p-4 sm:p-6 lg:p-8">
+          <slot />
+        </main>
+      </div>
+    </div>
   </body>
 </html>

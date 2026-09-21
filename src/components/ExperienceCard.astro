@@ -1,39 +1,45 @@
 ---
-interface Props {
-  empresa: string;
-  puesto: string;
-  data: string;
-  description: string;
-  technologies: string[];
-  recomendation?: string;
-  recommendationLabel: string;
-}
+import { getDictionary, type Lang } from '@/i18n/utils';
 
-const { empresa, puesto, data, description, technologies, recomendation, recommendationLabel } =
-  Astro.props;
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
 ---
 
-<article class="flex flex-col justify-between rounded-[20px] bg-card p-6 shadow-soft md:p-12">
-  <div>
-    <div class="text-[1.4em] font-semibold">{empresa}</div>
-    <div class="mt-[5px] text-base font-normal">{puesto}</div>
-    <div class="text-[0.8em] font-light">{data}</div>
-    <div class="rich mt-4" set:html={description} />
-  </div>
+<section id="experiencia" class="card flex flex-col gap-6 p-6 lg:p-8">
+  <h2 class="section-label">{t.home.experienceTitle}</h2>
 
-  <div class="mt-8 flex flex-row items-center justify-between gap-4">
-    <div class="flex flex-wrap items-center gap-[10px]">
-      {technologies.map((tech) => <span class="chip">{tech}</span>)}
-    </div>
+  <ol class="flex list-none flex-col gap-6 p-0">
     {
-      recomendation && (
-        <a href={recomendation} target="_blank" rel="noopener">
-          <span class="chip cursor-pointer bg-orange text-offwhite transition-colors hover:bg-offwhite hover:text-ink">
-            {recommendationLabel}
-            <i class="fa-regular fa-envelope" />
-          </span>
-        </a>
-      )
+      t.home.experiences.map((job) => (
+        <li class="border-b border-[var(--card-border)] pb-6 last:border-0 last:pb-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-3">
+            <h3 class="text-xl">{job.company}</h3>
+            <span class="text-xs font-medium text-muted">{job.period}</span>
+          </div>
+          <p class="mt-0.5 text-sm font-medium text-accent">{job.role}</p>
+          <div class="rich mt-2 text-sm" set:html={job.description} />
+
+          <div class="mt-4 flex flex-wrap items-center gap-2">
+            {job.technologies.map((tech) => (
+              <span class="pill card-alt py-1.5 text-xs">{tech}</span>
+            ))}
+            {job.recommendation && (
+              <a
+                href={job.recommendation}
+                target="_blank"
+                rel="noopener"
+                class="pill py-1.5 text-xs text-accent transition-colors hover:bg-accent hover:text-accent-ink"
+              >
+                {t.ui.recommendation}
+                <i class="fa-regular fa-envelope" />
+              </a>
+            )}
+          </div>
+        </li>
+      ))
     }
-  </div>
-</article>
+  </ol>
+</section>

@@ -1,0 +1,39 @@
+---
+import { getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const aboutHref = localizedPath(lang, 'about');
+---
+
+<section
+  class="flex flex-col justify-between gap-6 overflow-hidden rounded-card bg-accent p-7 text-accent-ink lg:p-9"
+>
+  <div class="flex items-start justify-between gap-4">
+    <span
+      class="inline-flex items-center gap-2 rounded-pill bg-accent-ink/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest"
+    >
+      <i class="fa-solid fa-circle text-[0.6em]"></i>{t.ui.openToWork}
+    </span>
+    <div class="h-24 w-24 shrink-0 overflow-hidden rounded-full border-2 border-accent-ink/15 lg:h-[236px] lg:w-[236px]">
+      <img src="/assets/retrato.webp" alt={t.home.name} class="h-full w-full object-cover" />
+    </div>
+  </div>
+
+  <div>
+    <p class="text-2xl font-medium opacity-80">{t.home.greeting}</p>
+    <h1 class="text-[clamp(2.4rem,6vw,62px)] leading-[1.02]">{t.home.name}</h1>
+    <p class="mt-3 text-lg font-medium">{t.home.role}</p>
+    <p class="mt-4 max-w-md leading-snug opacity-90">{t.home.tagline}</p>
+
+    <a
+      href={aboutHref}
+      class="mt-6 inline-flex items-center gap-2 rounded-pill bg-accent-ink px-5 py-2.5 text-sm font-semibold text-[var(--accent)] transition-transform hover:-translate-y-0.5"
+    >
+      {t.ui.viewAbout}<i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</section>

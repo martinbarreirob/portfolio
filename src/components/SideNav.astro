@@ -1,0 +1,81 @@
+---
+import { getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro';
+
+interface Props {
+  lang: Lang;
+  active: 'home' | 'about';
+  showSections?: boolean;
+}
+
+const { lang, active, showSections = false } = Astro.props;
+const t = getDictionary(lang);
+
+const homeHref = localizedPath(lang, '');
+const aboutHref = localizedPath(lang, 'about');
+
+const sections = [
+  { id: 'experiencia', label: t.nav.experience },
+  { id: 'proyectos', label: t.nav.projects },
+  { id: 'stack', label: t.nav.stack },
+  { id: 'contacto', label: t.nav.contact },
+];
+---
+
+<aside
+  class="flex shrink-0 items-center justify-between gap-4 lg:sticky lg:top-7 lg:h-[calc(100vh-56px)] lg:w-[76px] lg:flex-col lg:justify-between lg:self-start lg:py-2"
+>
+  <!-- Marca + tema -->
+  <div class="flex items-center gap-3 lg:flex-col lg:gap-4">
+    <a href={homeHref} class="flex items-center gap-2" aria-label={t.footer.name}>
+      <span class="block h-4 w-4 rounded-full bg-accent"></span>
+      <span class="font-semibold lg:hidden">MB</span>
+    </a>
+    <ThemeToggle lang={lang} />
+  </div>
+
+  <!-- Enlaces de sección (solo home, verticales en escritorio) -->
+  {
+    showSections && (
+      <nav class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-center">
+        <ul
+          class="flex list-none flex-col items-center gap-8 p-0"
+          style="writing-mode: vertical-rl; transform: rotate(180deg);"
+        >
+          {sections.map((s) => (
+            <li>
+              <a
+                href={`${homeHref === '/' ? '' : homeHref}#${s.id}`}
+                class="section-label transition-colors hover:text-accent"
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
+
+  <!-- Navegación de página + idioma -->
+  <div class="flex items-center gap-4 lg:flex-col lg:gap-4">
+    <nav class="flex items-center gap-3 lg:flex-col lg:gap-3">
+      <a
+        href={homeHref}
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-accent',
+          active === 'home' ? 'text-accent' : 'text-muted',
+        ]}>{t.nav.home}</a
+      >
+      <a
+        href={aboutHref}
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-accent',
+          active === 'about' ? 'text-accent' : 'text-muted',
+        ]}>{t.nav.about}</a
+      >
+    </nav>
+    <LanguageSwitcher lang={lang} />
+  </div>
+</aside>

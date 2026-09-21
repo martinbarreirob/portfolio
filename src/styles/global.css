@@ -1,32 +1,100 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-ink: #383940;
-  --color-orange: #f78522;
-  --color-offwhite: #fafafa;
-  --color-card: #f8f8f8;
-  --color-linkedin: #0a66c2;
-  --color-github: #6e5494;
+/* ============================================================
+   TOKENS DE DISEÑO
+   Fuente única de verdad. Los componentes usan siempre las
+   variables semánticas (--bg, --card, --accent…), nunca hex.
+   El tema se conmuta cambiando estas variables, no las clases.
+   ============================================================ */
 
-  --font-sans: 'Roboto', 'Helvetica Neue', Verdana, Geneva, Tahoma, sans-serif;
+:root {
+  /* Superficies */
+  --bg: #e7e7ea;
+  --panel: #f7f7f8;
+  --card: #ffffff;
+  --card-alt: #f3f3f5;
 
-  --shadow-soft:
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 6%) 0px 1px 1px 0px, rgb(60 66 87 / 4%) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 2%) 0px 3px 9px 0px,
-    rgb(60 66 87 / 2%) 0px 2px 5px 0px;
-  --shadow-soft-hover:
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 8%) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 4%) 0px 3px 9px 0px,
-    rgb(60 66 87 / 4%) 0px 2px 5px 0px;
-  --shadow-chip:
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(0 0 0 / 10%) 0px 1px 1px 0px, rgb(60 66 87 / 4%) 0px 0px 0px 1px,
-    rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px,
-    rgb(60 66 87 / 4%) 0px 2px 5px 0px;
+  /* Texto */
+  --text: #1c1930;
+  --muted: #6b6780;
+
+  /* Acento */
+  --accent: #f78522;
+  --accent-ink: #3a1b00; /* tinta sobre naranja (el blanco no contrasta) */
+
+  /* Detalles */
+  --card-border: transparent;
+  --pill-bg: #ffffff;
+  --pill-border: rgba(28, 24, 48, 0.1);
+  --panel-shadow: 0 18px 40px rgba(28, 24, 48, 0.1);
+
+  /* Radios */
+  --r-panel: 42px;
+  --r-card: 30px;
+  --r-pill: 999px;
 }
 
+/* Tema oscuro: manual (data-theme="dark") o automático por sistema */
+:root[data-theme='dark'],
+:root:not([data-theme='light']) {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #121216;
+    --panel: #1c1c22;
+    --card: #24242c;
+    --card-alt: #24242c;
+    --text: #f4f3f7;
+    --muted: #a5a2b0;
+    --accent: #ff9a44;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --pill-bg: rgba(255, 255, 255, 0.08);
+    --pill-border: rgba(255, 255, 255, 0.08);
+    --panel-shadow: none;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #121216;
+  --panel: #1c1c22;
+  --card: #24242c;
+  --card-alt: #24242c;
+  --text: #f4f3f7;
+  --muted: #a5a2b0;
+  --accent: #ff9a44;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --pill-bg: rgba(255, 255, 255, 0.08);
+  --pill-border: rgba(255, 255, 255, 0.08);
+  --panel-shadow: none;
+}
+
+/* ============================================================
+   MAPEO A TAILWIND (v4)
+   `inline` hace que las utilidades (bg-card, text-muted…) usen
+   var() en tiempo de ejecución, así el tema conmuta solo.
+   ============================================================ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-card-alt: var(--card-alt);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+
+  --radius-panel: var(--r-panel);
+  --radius-card: var(--r-card);
+  --radius-pill: var(--r-pill);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
 html {
   scroll-behavior: smooth;
 }
@@ -34,47 +102,78 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  color: var(--color-ink);
-  background-color: #ffffff;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Texto enriquecido proveniente de los JSON (set:html) */
-.rich p {
-  font-weight: 300;
-  margin: 1em 0;
-}
-.rich p:first-child {
-  margin-top: 0;
-}
-.rich p:last-child {
-  margin-bottom: 0;
-}
-.rich strong {
-  font-weight: 500;
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
-/* Sombra reutilizable con transición */
-.shadow-soft {
-  box-shadow: var(--shadow-soft);
-  transition: box-shadow 0.4s ease;
-}
-.shadow-soft:hover {
-  box-shadow: var(--shadow-soft-hover);
-}
+/* ============================================================
+   PRIMITIVAS DE COMPONENTE
+   ============================================================ */
+@layer components {
+  .panel {
+    background-color: var(--panel);
+    border-radius: var(--r-panel);
+    box-shadow: var(--panel-shadow);
+  }
 
-/* Chip / etiqueta de tecnología */
-.chip {
-  border: 0;
-  color: rgb(60, 66, 87);
-  background-color: #ffffff;
-  box-shadow: var(--shadow-chip);
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 8px;
-  width: fit-content;
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  transition: box-shadow 0.24s, background-color 0.24s, color 0.24s;
+  .card {
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--r-card);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .card-alt {
+    background-color: var(--card-alt);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--pill-bg);
+    border: 1px solid var(--pill-border);
+    border-radius: var(--r-pill);
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    width: fit-content;
+    transition: background-color 0.24s ease, color 0.24s ease, transform 0.2s ease;
+  }
+
+  /* Etiqueta de sección: mayúsculas, tracking amplio */
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+
+  /* Texto enriquecido proveniente de los JSON (set:html) */
+  .rich p {
+    line-height: 1.45;
+    margin: 0.6em 0;
+    color: var(--muted);
+  }
+  .rich p:first-child {
+    margin-top: 0;
+  }
+  .rich p:last-child {
+    margin-bottom: 0;
+  }
+  .rich strong {
+    font-weight: 600;
+    color: var(--text);
+  }
 }

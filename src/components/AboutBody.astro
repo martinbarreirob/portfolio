@@ -2,65 +2,61 @@
 import { getDictionary, type Lang } from '@/i18n/utils';
 import Carousel from '@/components/Carousel.astro';
 import StudyCard from '@/components/StudyCard.astro';
+import ContactCard from '@/components/ContactCard.astro';
 
 interface Props {
   lang: Lang;
 }
-
 const { lang } = Astro.props;
 const t = getDictionary(lang);
 const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
 ---
 
-<div class="w-full pt-20">
+<div class="flex flex-col gap-4">
   <!-- Cabecera -->
-  <div class="flex flex-col gap-6 rounded-[20px] bg-card p-6 shadow-soft md:p-12">
+  <section class="card flex flex-col gap-5 p-6 lg:p-8">
     <div class="flex items-center gap-4">
-      <div
-        class="h-20 w-20 overflow-hidden rounded-full border border-card bg-white shadow-[rgb(60_66_87_/_12%)_0px_7px_8px_0px]"
-      >
-        <img
-          src="/assets/selfie.webp"
-          alt="Martín Barreiro"
-          class="w-full scale-150 translate-x-2 translate-y-[7px] object-cover"
-        />
+      <div class="h-20 w-20 shrink-0 overflow-hidden rounded-full border border-[var(--card-border)]">
+        <img src="/assets/selfie.webp" alt={t.footer.name} class="h-full w-full object-cover" />
       </div>
       <div>
-        <h1 class="text-[25px] font-medium md:text-[34px]">{t.footer.name}</h1>
+        <h1 class="text-2xl lg:text-3xl">{t.footer.name}</h1>
         <span
-          class="mt-1 inline-flex items-center gap-2 rounded-md bg-orange px-2 py-1 text-sm font-medium text-offwhite"
+          class="mt-1 inline-flex items-center gap-2 rounded-pill bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-ink"
         >
-          <i class="fa-solid fa-circle text-[0.8em]"></i>{t.openToWork}
+          <i class="fa-solid fa-circle text-[0.6em]"></i>{t.ui.openToWork}
         </span>
       </div>
     </div>
-
     <div>
-      <h2 class="font-medium italic">{t.about.role}</h2>
-      <h3 class="font-normal">{t.about.tagline}</h3>
+      <h2 class="text-lg font-semibold">{t.about.role}</h2>
+      <p class="mt-1 text-muted">{t.about.tagline}</p>
     </div>
-  </div>
+  </section>
 
   <!-- ¿Quién soy? -->
-  <div class="mt-12 flex flex-col gap-0 overflow-hidden rounded-[20px] bg-card p-3 shadow-soft md:flex-row">
-    <Carousel images={aboutImages} />
-
-    <div class="flex flex-1 flex-col p-4 md:p-8">
-      <div class="text-[1.4em] font-semibold">{t.about.whoTitle}</div>
-      {t.about.whoParagraphs.map((p) => <p class="mt-4 font-light" set:html={p} />)}
+  <section class="card flex flex-col gap-0 overflow-hidden md:flex-row">
+    <div class="md:w-1/2">
+      <Carousel images={aboutImages} />
     </div>
-  </div>
+    <div class="flex flex-1 flex-col gap-3 p-6 lg:p-8">
+      <h2 class="section-label">{t.about.whoTitle}</h2>
+      <div class="rich text-sm">
+        {t.about.whoParagraphs.map((p) => <p set:html={p} />)}
+      </div>
+    </div>
+  </section>
 
   <!-- Estudios -->
-  <section>
-    <h2 class="mx-4 mb-4 mt-12 font-medium italic">{t.about.studiesTitle}</h2>
-    <div class="grid w-full gap-6 md:grid-cols-2">
+  <section class="flex flex-col gap-4">
+    <h2 class="section-label px-2">{t.about.studiesTitle}</h2>
+    <div class="grid gap-4 md:grid-cols-2">
       {
         t.about.studies.map((study) => (
           <StudyCard
             title={study.title}
             center={study.center}
-            data={study.data}
+            period={study.period}
             description={study.description}
             technologies={study.technologies}
           />
@@ -68,4 +64,6 @@ const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/abou
       }
     </div>
   </section>
+
+  <ContactCard lang={lang} />
 </div>

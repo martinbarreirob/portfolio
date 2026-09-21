@@ -1,48 +1,65 @@
 {
   "meta": {
-    "title": "MartinBarreiro - Developer",
+    "title": "Martín Barreiro — Developer",
     "titleHidden": "Anybody there?!",
-    "description": "Portfolio of Martín Barreiro, frontend web developer. Experience, projects and contact information."
+    "description": "Portfolio of Martín Barreiro, fullstack web developer. Experience, projects and contact."
   },
   "nav": {
     "home": "Home",
-    "about": "About Me"
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "stack": "Stack",
+    "contact": "Contact"
   },
-  "openToWork": "Open To Work",
+  "ui": {
+    "openToWork": "Open To Work",
+    "themeToggle": "Toggle theme",
+    "viewAbout": "About me",
+    "recommendation": "Recommendation letter",
+    "copied": "Email copied to clipboard.",
+    "current": "Present"
+  },
   "langName": "English",
   "home": {
-    "greetingLine1": "Hi! I'm Martín,",
-    "greetingLine2": "Web Developer.",
-    "intro1": "I'm a very creative person with a passion for design and a strong drive to work so I can contribute to your projects and ideas.",
-    "intro2": "I currently work at Marosavat as a Frontend developer, but my skills go much further, also handling Backend technologies and UX/UI design. I'm open to new opportunities and offers, looking for new challenges to keep growing professionally.",
-    "cta": "Contact Me",
+    "greeting": "I'm,",
+    "name": "Martín Barreiro",
+    "role": "Web Developer",
+    "tagline": "A creative person with a passion for design, eager to contribute to your projects and ideas.",
     "experienceTitle": "Experience",
-    "projectsTitle": "Featured Projects",
-    "recommendationLabel": "Recommendation Letter",
+    "projectsTitle": "Projects",
+    "stackTitle": "Stack",
     "experiences": [
       {
-        "empresa": "Marosavat",
-        "puesto": "Frontend Developer",
-        "data": "February 2024 / Present",
-        "description": "<p>I work as a frontend developer at Marosavat, contributing to the development of web applications dedicated to the management and presentation of tax returns, in collaboration with the Spanish Tax Agency (AEAT). My main responsibility is implementing dynamic and efficient interfaces using <strong>Angular 10 and Angular 19</strong>, ensuring an optimized user experience tailored to the sector's requirements.</p><p>This role has been essential for improving my <strong>teamwork</strong> skills, as I work closely with professionals from various fields. I have also refined my development skills, managing to write cleaner and more optimized code, as well as learning to manage projects and tasks under <strong>pressure</strong> and tight deadlines.</p>",
-        "technologies": ["Angular", "Agile", "UX / UI", "SCRUM", "Git"]
+        "company": "Sigillum K.S.",
+        "role": "Fullstack Developer",
+        "period": "May 2025 — Present",
+        "description": "<p>I develop an application for a cosmetics products consultancy and build <strong>internal tools with Python and AI</strong> to speed up the team's work.</p>",
+        "technologies": ["Angular", "Java", "Python", "SQL", "Docker"]
       },
       {
-        "empresa": "Galaxia Empirica - pInvestiga",
-        "puesto": "Fullstack Developer",
-        "data": "October 2023 / December 2023",
-        "description": "<p>During my internship at the company, I actively collaborated on the development of the new version of the pInvestiga software using Angular and NestJS.</p><p>My main responsibility was creating various components and services for the application. Notable tasks included implementing a <strong>real-time chat system</strong>, developing data libraries and creating forms for data entry, among other significant contributions.</p>",
-        "technologies": ["NodeJs", "Angular", "PHP", "SQL", "Github"],
-        "recomendation": "/assets/cartarecomendacion.pdf"
+        "company": "Marosavat",
+        "role": "Frontend Developer",
+        "period": "February 2024 — February 2025",
+        "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>",
+        "technologies": ["Angular", "Agile", "SCRUM", "UX / UI", "Git"]
+      },
+      {
+        "company": "Galaxia Empirica — pInvestiga",
+        "role": "Fullstack Developer",
+        "period": "October 2023 — December 2023",
+        "description": "<p>I collaborated on the new version of the pInvestiga software with Angular and NestJS, implementing a <strong>real-time chat</strong>, data libraries and forms.</p>",
+        "technologies": ["Angular", "NestJS", "PHP", "SQL"],
+        "recommendation": "/assets/cartarecomendacion.pdf"
       }
     ],
     "projects": [
       {
-        "title": "Tic-Tac-Toe Online",
-        "subtitle": "Web Dev Diploma Project",
-        "description": "<p>Despite being a simple game everyone knows, I decided to take it to the next level by adding support to play online with other users. This implementation lets players create or join real-time matches, as well as communicate through an integrated text chat.</p><p>The application is built using Angular on the client side and a NestJS backend with an API Gateway and WebSockets to enable real-time communication. This project was developed 100% self-taught, representing a valuable learning experience.</p>",
-        "technologies": ["NodeJs", "Angular", "Socket.IO", "Apache"],
-        "github": "https://github.com/martinbarreirob/tresOnline2"
+        "title": "NonChoPerdas",
+        "subtitle": "Personal project",
+        "description": "<p>A social network and forum to discover and share events. Personal project in development.</p>",
+        "technologies": ["Angular", "Java", "SQL", "Docker"],
+        "link": ""
       }
     ]
   },
@@ -55,31 +72,31 @@
       "I was always a curious person in the field of computing, which led me to study a higher vocational degree in systems, where I discovered programming and my <strong>passion</strong> for it.",
       "Beyond computing and programming, I inherited a great love for music and the sea from my father.",
       "However, what defines me best is kayaking. I have competed at a national level since I was 16 in this sport, which has forged my character in <strong>discipline</strong>, <strong>teamwork</strong> and has grown my social skills by interacting with people from diverse backgrounds.",
-      "Currently, my goal is to <strong>find a job</strong> to consolidate my knowledge and prove my worth. In the meantime, I offer custom web development services for individuals, looking to grow in the sector."
+      "Currently, my goal is to <strong>consolidate my knowledge</strong> and keep growing as a fullstack developer."
     ],
     "studiesTitle": "Education",
     "studies": [
       {
         "title": "Higher Diploma in Web Application Development",
         "center": "IES San Clemente",
-        "data": "2021 / 2023",
-        "description": "<p>Throughout this diploma, I gained solid foundations in <strong>object-oriented programming</strong> and became familiar with the Symfony and Vue frameworks.</p><p>In the area of backend development, I took the opportunity to learn how to create Docker containers to deploy my projects efficiently.</p><p>Although this stage gave me fundamental knowledge in various areas, it also marked the beginning of identifying my true interests.</p>",
+        "period": "2021 / 2023",
+        "description": "<p>I gained solid foundations in <strong>object-oriented programming</strong> and became familiar with Symfony and Vue. On the backend I learned to build Docker containers to deploy my projects.</p>",
         "technologies": ["Docker", "Vue", "PHP", "Symfony", "Javascript"]
       },
       {
         "title": "Higher Diploma in Networked Computer Systems Administration",
         "center": "IES Rodeira",
-        "data": "2019 / 2021",
-        "description": "<p>Here I mainly learned about the management and <strong>deployment of servers</strong> using Docker and Apache, as well as working with SQL databases.</p><p>These studies also helped me discover programming and made my decision to keep studying solid.</p>",
+        "period": "2019 / 2021",
+        "description": "<p>I learned about the management and <strong>deployment of servers</strong> with Docker and Apache, as well as working with SQL databases. This is where I discovered programming.</p>",
         "technologies": ["Apache", "SQL", "Linux", "Docker", "Python", "PHP"]
       }
     ]
   },
   "contact": {
-    "title": "Contact Me Here",
-    "linkedin": "Linkedin",
-    "email": "martinbarreirob@gmail.com",
-    "copied": "Email copied to clipboard."
+    "title": "Contact",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "email": "martinbarreirob@gmail.com"
   },
   "footer": {
     "name": "Martín Barreiro"

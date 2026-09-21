@@ -2,14 +2,10 @@
 interface Props {
   images: string[];
 }
-
 const { images } = Astro.props;
 ---
 
-<div
-  class="carousel relative flex max-h-[600px] flex-1 items-center justify-center overflow-hidden rounded-[13px] md:max-h-none"
-  data-carousel
->
+<div class="relative h-56 w-full overflow-hidden md:h-full md:min-h-[320px]" data-carousel>
   {
     images.map((src, i) => (
       <img
@@ -23,8 +19,6 @@ const { images } = Astro.props;
       />
     ))
   }
-  <!-- imagen fantasma para dar altura al contenedor -->
-  <img src={images[0]} alt="" class="invisible h-full w-full object-cover" aria-hidden="true" />
 </div>
 
 <script is:inline>
