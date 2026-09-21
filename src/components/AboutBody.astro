@@ -1,0 +1,71 @@
+---
+import { getDictionary, type Lang } from '@/i18n/utils';
+import Carousel from '@/components/Carousel.astro';
+import StudyCard from '@/components/StudyCard.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
+---
+
+<div class="w-full pt-20">
+  <!-- Cabecera -->
+  <div class="flex flex-col gap-6 rounded-[20px] bg-card p-6 shadow-soft md:p-12">
+    <div class="flex items-center gap-4">
+      <div
+        class="h-20 w-20 overflow-hidden rounded-full border border-card bg-white shadow-[rgb(60_66_87_/_12%)_0px_7px_8px_0px]"
+      >
+        <img
+          src="/assets/selfie.webp"
+          alt="Martín Barreiro"
+          class="w-full scale-150 translate-x-2 translate-y-[7px] object-cover"
+        />
+      </div>
+      <div>
+        <h1 class="text-[25px] font-medium md:text-[34px]">{t.footer.name}</h1>
+        <span
+          class="mt-1 inline-flex items-center gap-2 rounded-md bg-orange px-2 py-1 text-sm font-medium text-offwhite"
+        >
+          <i class="fa-solid fa-circle text-[0.8em]"></i>{t.openToWork}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="font-medium italic">{t.about.role}</h2>
+      <h3 class="font-normal">{t.about.tagline}</h3>
+    </div>
+  </div>
+
+  <!-- ¿Quién soy? -->
+  <div class="mt-12 flex flex-col gap-0 overflow-hidden rounded-[20px] bg-card p-3 shadow-soft md:flex-row">
+    <Carousel images={aboutImages} />
+
+    <div class="flex flex-1 flex-col p-4 md:p-8">
+      <div class="text-[1.4em] font-semibold">{t.about.whoTitle}</div>
+      {t.about.whoParagraphs.map((p) => <p class="mt-4 font-light" set:html={p} />)}
+    </div>
+  </div>
+
+  <!-- Estudios -->
+  <section>
+    <h2 class="mx-4 mb-4 mt-12 font-medium italic">{t.about.studiesTitle}</h2>
+    <div class="grid w-full gap-6 md:grid-cols-2">
+      {
+        t.about.studies.map((study) => (
+          <StudyCard
+            title={study.title}
+            center={study.center}
+            data={study.data}
+            description={study.description}
+            technologies={study.technologies}
+          />
+        ))
+      }
+    </div>
+  </section>
+</div>

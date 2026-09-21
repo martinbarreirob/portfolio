@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "title": "MartinBarreiro - Desenvolvedor",
+    "titleHidden": "Hai alguén aí?!",
+    "description": "Portfolio de Martín Barreiro, desenvolvedor web frontend. Experiencia, proxectos e formas de contacto."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Min"
+  },
+  "openToWork": "Open To Work",
+  "langName": "Galego",
+  "home": {
+    "greetingLine1": "Ola! Son Martín,",
+    "greetingLine2": "Desenvolvedor Web.",
+    "intro1": "Son unha persoa moi creativa con paixón polo deseño e moitas ganas de traballar para poder achegar nos teus proxectos e ideas.",
+    "intro2": "Actualmente traballo en Marosavat como desenvolvedor Frontend, pero as miñas capacidades van moito máis alá manexando tamén tecnoloxías de Backend e deseño de UX/UI. Estou aberto a novas oportunidades e ofertas na busca de novos retos e continuar o meu desenvolvemento profesional.",
+    "cta": "Contáctame",
+    "experienceTitle": "Experiencia",
+    "projectsTitle": "Proxectos Destacados",
+    "recommendationLabel": "Carta de Recomendación",
+    "experiences": [
+      {
+        "empresa": "Marosavat",
+        "puesto": "Frontend Developer",
+        "data": "Febreiro 2024 / Actualidade",
+        "description": "<p>Traballo como desenvolvedor frontend en Marosavat, contribuíndo ao desenvolvemento de aplicacións web dedicadas á xestión e presentación de declaracións fiscais, en colaboración coa Axencia Estatal de Administración Tributaria (AEAT). A miña principal responsabilidade é a implementación de interfaces dinámicas e eficientes utilizando <strong>Angular 10 e Angular 19</strong>, garantindo unha experiencia de usuario optimizada e adaptada aos requisitos do sector.</p><p>Este rol foi fundamental para mellorar as miñas habilidades en <strong>traballo en equipo</strong>, xa que colaboro estreitamente con profesionais de diversas áreas. Tamén perfeccionei as miñas capacidades de desenvolvemento, logrando escribir código máis limpo e optimizado, ademais de aprender a xestionar proxectos e tarefas baixo <strong>presión</strong> e prazos axustados.</p>",
+        "technologies": ["Angular", "Agile", "UX / UI", "SCRUM", "Git"]
+      },
+      {
+        "empresa": "Galaxia Empirica - pInvestiga",
+        "puesto": "Fullstack Developer",
+        "data": "Outubro 2023 / Decembro 2023",
+        "description": "<p>Durante o meu período de prácticas na empresa, colaborei activamente no desenvolvemento da nova versión do software pInvestiga utilizando Angular e NestJS.</p><p>A miña responsabilidade principal consistía na creación de diversos compoñentes e servizos para a aplicación. Entre as tarefas destacadas incluíuse a implementación dun <strong>sistema de chat en tempo real</strong>, o desenvolvemento de bibliotecas de datos e a creación de formularios para a introdución de datos, entre outras contribucións significativas.</p>",
+        "technologies": ["NodeJs", "Angular", "PHP", "SQL", "Github"],
+        "recomendation": "/assets/cartarecomendacion.pdf"
+      }
+    ],
+    "projects": [
+      {
+        "title": "Tres En Raia Online",
+        "subtitle": "Proxecto CS DAW",
+        "description": "<p>A pesar de ser un xogo sinxelo que todo o mundo coñece, decidín levalo ao seguinte nivel engadindo soporte para xogar en liña con outros usuarios. Esta implementación permite aos xogadores crear ou unirse a partidas en tempo real, ademais de facilitar a comunicación a través dun chat de texto integrado.</p><p>A aplicación está desenvolvida utilizando Angular no lado do cliente e un backend en NestJS cunha API Gateway e WebSockets para facilitar a comunicación en tempo real. Este proxecto foi desenvolvido de maneira autodidacta ao 100%, representando unha valiosa experiencia formativa.</p>",
+        "technologies": ["NodeJs", "Angular", "Socket.IO", "Apache"],
+        "github": "https://github.com/martinbarreirob/tresOnline2"
+      }
+    ]
+  },
+  "about": {
+    "role": "Técnico de Desenvolvemento de Aplicacións Web",
+    "tagline": "Son unha persoa moi creativa con paixón polo deseño e moitas ganas de traballar para poder achegar nos teus proxectos e ideas.",
+    "whoTitle": "Quen son?",
+    "whoParagraphs": [
+      "Hai vinte e tres anos, nacín en Galicia. Desde os meus primeiros recordos, a miña fascinación polos ordenadores marcou o rumbo da miña vida.",
+      "Sempre fun unha persoa curiosa no ámbito da informática, o que me levou a cursar un ciclo superior de sistemas, onde descubrín a programación e a miña <strong>paixón</strong> por ela.",
+      "Máis alá da informática e a programación, herdei unha gran afección pola música e o mar do meu pai.",
+      "Non obstante, o que mellor me define é o kayak. Compito a nivel nacional desde os 16 anos neste deporte, o cal forxou o meu carácter na <strong>disciplina</strong>, o <strong>traballo en equipo</strong> e fixo medrar as miñas habilidades sociais ao interactuar con persoas de diversos perfís.",
+      "Actualmente, o meu obxectivo é <strong>atopar emprego</strong> para consolidar os meus coñecementos e demostrar a miña valía. Mentres tanto, ofrezo servizos de desenvolvemento web personalizado para particulares buscando medrar no sector."
+    ],
+    "studiesTitle": "Estudos",
+    "studies": [
+      {
+        "title": "CS Desenvolvemento de Aplicacións Web",
+        "center": "IES San Clemente",
+        "data": "2021 / 2023",
+        "description": "<p>Durante o desenvolvemento deste Ciclo, adquirín sólidos fundamentos en <strong>programación orientada a obxectos</strong> e familiariceime co uso dos frameworks Symfony e Vue.</p><p>No ámbito do desenvolvemento backend, aproveitei a oportunidade de aprender a crear contedores Docker para implementar eficientemente os meus proxectos.</p><p>Aínda que esta etapa proporcionoume coñecementos fundamentais en diversas áreas, tamén marcou o comezo para identificar os meus verdadeiros intereses.</p>",
+        "technologies": ["Docker", "Vue", "PHP", "Symfony", "Javascript"]
+      },
+      {
+        "title": "CS Administración de Sistemas Informáticos en Rede",
+        "center": "IES Rodeira",
+        "data": "2019 / 2021",
+        "description": "<p>Aquí principalmente aprendín sobre a xestión e <strong>despregamento de servidores</strong> utilizando Docker e Apache principalmente, ademais de traballar con Bases de Datos SQL.</p><p>Estes estudos tamén me serviron para descubrir a programación e fixeron sólida a miña decisión de seguir estudando.</p>",
+        "technologies": ["Apache", "SQL", "Linux", "Docker", "Python", "PHP"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contáctame Aquí",
+    "linkedin": "Linkedin",
+    "email": "martinbarreirob@gmail.com",
+    "copied": "Email copiado ao portapapeis."
+  },
+  "footer": {
+    "name": "Martín Barreiro"
+  }
+}

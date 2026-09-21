@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  technologies: string[];
+  github: string;
+}
+
+const { title, subtitle, description, technologies, github } = Astro.props;
+---
+
+<article class="flex flex-col justify-between rounded-[20px] bg-card p-6 shadow-soft md:p-12">
+  <div>
+    <div class="text-[1.4em] font-semibold">{title}</div>
+    <div class="mt-[5px] text-base font-normal">{subtitle}</div>
+    <div class="rich mt-4" set:html={description} />
+  </div>
+
+  <div class="mt-8 flex flex-row items-center justify-between gap-4">
+    <div class="flex flex-wrap items-center gap-[10px]">
+      {technologies.map((tech) => <span class="chip">{tech}</span>)}
+    </div>
+    <a
+      href={github}
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub"
+      class="flex rounded-[30px] border-2 border-github bg-github p-2 text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-github"
+    >
+      <i class="fab fa-github text-2xl"></i>
+    </a>
+  </div>
+</article>

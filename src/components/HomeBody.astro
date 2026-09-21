@@ -1,0 +1,108 @@
+---
+import { getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+import ExperienceCard from '@/components/ExperienceCard.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+const contactHref = `${localizedPath(lang, '')}#contacto`.replace('//', '/');
+---
+
+<div class="w-full pt-20">
+  <!-- Encabezado del home -->
+  <div
+    class="grid grid-cols-1 gap-6 md:grid-cols-[auto_35%] md:[grid-template-areas:'info_image']"
+  >
+    <div
+      class="order-2 flex flex-col justify-between rounded-[20px] bg-card p-6 shadow-soft md:order-1 md:p-12 md:[grid-area:info]"
+    >
+      <div>
+        <h1 class="text-[25px] font-medium md:text-[34px]">
+          {t.home.greetingLine1}<br />{t.home.greetingLine2}
+          <img src="/assets/saludo.webp" alt="" class="inline h-[1em] align-baseline" />
+        </h1>
+        <p class="mt-4 font-light">{t.home.intro1}</p>
+        <p class="mt-4 font-light">{t.home.intro2}</p>
+      </div>
+
+      <div class="mt-4 flex flex-row items-center gap-4">
+        <a
+          href={contactHref}
+          class="w-fit rounded-[30px] border-2 border-ink bg-ink px-[30px] py-[10px] text-[15px] font-medium text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-ink"
+        >
+          {t.home.cta}
+        </a>
+        <a
+          href="https://www.linkedin.com/in/martinbarreirob/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          class="flex rounded-[30px] border-2 border-linkedin bg-linkedin p-2 text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-linkedin"
+        >
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a
+          href="https://github.com/martinbarreirob"
+          target="_blank"
+          rel="noopener"
+          aria-label="GitHub"
+          class="flex rounded-[30px] border-2 border-github bg-github p-2 text-white transition-colors hover:border-neutral-300 hover:bg-white hover:text-github"
+        >
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="order-1 flex flex-col overflow-hidden rounded-[20px] shadow-soft md:order-2 md:[grid-area:image]"
+    >
+      <img
+        src="/assets/retrato.webp"
+        alt="Martín Barreiro"
+        class="h-full scale-110 object-cover transition-transform duration-500 hover:scale-125"
+      />
+    </div>
+  </div>
+
+  <!-- Experiencia -->
+  <section>
+    <h2 class="mx-4 mb-4 mt-12 font-medium italic">{t.home.experienceTitle}</h2>
+    <div class="grid w-full gap-6">
+      {
+        t.home.experiences.map((job) => (
+          <ExperienceCard
+            empresa={job.empresa}
+            puesto={job.puesto}
+            data={job.data}
+            description={job.description}
+            technologies={job.technologies}
+            recomendation={job.recomendation}
+            recommendationLabel={t.home.recommendationLabel}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Proyectos destacados -->
+  <section>
+    <h2 class="mx-4 mb-4 mt-12 font-medium italic">{t.home.projectsTitle}</h2>
+    <div class="grid w-full gap-6">
+      {
+        t.home.projects.map((project) => (
+          <ProjectCard
+            title={project.title}
+            subtitle={project.subtitle}
+            description={project.description}
+            technologies={project.technologies}
+            github={project.github}
+          />
+        ))
+      }
+    </div>
+  </section>
+</div>

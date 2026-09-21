@@ -1,9 +1,0 @@
-colores:
-
-#
-535FFD Azul
-F78522 Naranja
-383940 Negro
-FAFAFA
-
-git push https://martinbarreirob@github.com/martinbarreirob/portfolio

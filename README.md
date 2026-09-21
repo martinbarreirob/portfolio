@@ -1,27 +1,34 @@
-# MartinPortfolio
+# Portfolio — Martín Barreiro
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+Portfolio personal construido con [Astro](https://astro.build) y [Tailwind CSS v4](https://tailwindcss.com), disponible en **español**, **inglés** y **gallego**.
 
-## Development server
+## Idiomas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Se usa el i18n nativo de Astro con rutas por prefijo. El español es el idioma por defecto (sin prefijo):
 
-## Code scaffolding
+- `/` · `/about` — Español
+- `/en/` · `/en/about` — Inglés
+- `/gl/` · `/gl/about` — Gallego
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Todo el contenido textual vive en `src/i18n/{es,en,gl}.json`. Para editar textos o traducciones basta con modificar esos archivos; el HTML de las descripciones (`<strong>`, `<p>`) se conserva dentro del JSON.
 
-## Build
+## Estructura
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+public/assets/        Imágenes (.webp) y la carta de recomendación (.pdf)
+src/
+  i18n/               Diccionarios por idioma + helpers (utils.ts)
+  layouts/            Layout base (head, fuentes, título dinámico)
+  components/         Header, Footer, Contact, tarjetas, carrusel, selector de idioma
+  pages/              Rutas por idioma (index / about)
+  styles/global.css   Tailwind + tokens del tema
+```
 
-## Running unit tests
+## Comandos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Comando           | Acción                                     |
+| ----------------- | ------------------------------------------ |
+| `npm install`     | Instala dependencias                       |
+| `npm run dev`     | Servidor de desarrollo en `localhost:4321` |
+| `npm run build`   | Genera el sitio estático en `dist/`        |
+| `npm run preview` | Previsualiza el build de producción        |
