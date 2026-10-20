@@ -6,32 +6,37 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+
+// Resumen en una línea: rol + descripción sin etiquetas HTML.
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
 ---
 
-<section id="experiencia" class="card flex flex-col gap-6 p-6 lg:p-8">
+<section id="experiencia" class="card flex flex-col gap-5 p-6 lg:p-7">
   <h2 class="section-label">{t.home.experienceTitle}</h2>
 
-  <ol class="flex list-none flex-col gap-6 p-0">
+  <ol class="flex list-none flex-col gap-5 p-0">
     {
       t.home.experiences.map((job) => (
-        <li class="border-b border-[var(--card-border)] pb-6 last:border-0 last:pb-0">
-          <div class="flex flex-wrap items-baseline justify-between gap-x-3">
-            <h3 class="text-xl">{job.company}</h3>
-            <span class="text-xs font-medium text-muted">{job.period}</span>
-          </div>
-          <p class="mt-0.5 text-sm font-medium text-accent">{job.role}</p>
-          <div class="rich mt-2 text-sm" set:html={job.description} />
+        <li class="flex items-start gap-3">
+          <span class="exp-avatar" aria-hidden="true">
+            {job.company.charAt(0)}
+          </span>
 
-          <div class="mt-4 flex flex-wrap items-center gap-2">
-            {job.technologies.map((tech) => (
-              <span class="pill card-alt py-1.5 text-xs">{tech}</span>
-            ))}
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+              <h3 class="truncate text-base font-bold">{job.company}</h3>
+              <span class="shrink-0 text-xs font-medium text-muted">{job.period}</span>
+            </div>
+            <p class="mt-0.5 truncate text-sm text-muted">
+              <span class="font-medium text-accent">{job.role}</span>
+              <span class="opacity-70"> · {plain(job.description)}</span>
+            </p>
             {job.recommendation && (
               <a
                 href={job.recommendation}
                 target="_blank"
                 rel="noopener"
-                class="pill py-1.5 text-xs text-accent transition-colors hover:bg-accent hover:text-accent-ink"
+                class="pill mt-2 py-1 text-xs text-accent transition-colors hover:bg-accent hover:text-accent-ink"
               >
                 {t.ui.recommendation}
                 <i class="fa-regular fa-envelope" />

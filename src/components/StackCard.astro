@@ -9,15 +9,17 @@ const { lang } = Astro.props;
 const t = getDictionary(lang);
 ---
 
-<section id="stack" class="card flex flex-col gap-5 p-6 lg:p-8">
+<section id="stack" class="card flex flex-col gap-4 p-6 lg:p-7">
   <h2 class="section-label">{t.home.stackTitle}</h2>
 
-  <ul class="flex list-none flex-wrap gap-2.5 p-0">
+  <ul class="flex list-none flex-col gap-3 p-0">
     {
       stack.map((tech) => (
-        <li class="pill">
-          <i class={`${tech.icon} text-lg`} aria-hidden="true" />
-          <span>{tech.name}</span>
+        <li class="flex items-center gap-3">
+          <span class="stack-badge" aria-hidden="true">
+            {tech.name.charAt(0)}
+          </span>
+          <span class="text-sm font-medium">{tech.name}</span>
         </li>
       ))
     }

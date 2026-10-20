@@ -8,18 +8,24 @@ const { lang } = Astro.props;
 const t = getDictionary(lang);
 ---
 
-<section id="contacto" class="card flex flex-col gap-5 p-6 lg:p-8">
-  <h2 class="section-label">{t.contact.title}</h2>
+<section
+  id="contacto"
+  class="card flex flex-wrap items-center justify-between gap-4 p-5 lg:px-7"
+>
+  <div class="flex flex-wrap items-center gap-3">
+    <h2 class="section-label">{t.contact.title}</h2>
+    <button
+      type="button"
+      data-copy-email
+      data-email={t.contact.email}
+      data-copied={t.ui.copied}
+      class="pill card-alt transition-colors hover:bg-accent hover:text-accent-ink"
+    >
+      {t.contact.email}<i class="fa-solid fa-copy"></i>
+    </button>
+  </div>
 
   <div class="flex flex-wrap items-center gap-2.5">
-    <a
-      href="https://www.linkedin.com/in/martinbarreirob/"
-      target="_blank"
-      rel="noopener"
-      class="pill transition-colors hover:bg-[#0A66C2] hover:text-white"
-    >
-      <i class="fab fa-linkedin text-lg"></i>{t.contact.linkedin}
-    </a>
     <a
       href="https://github.com/martinbarreirob"
       target="_blank"
@@ -28,15 +34,14 @@ const t = getDictionary(lang);
     >
       <i class="fab fa-github text-lg"></i>{t.contact.github}
     </a>
-    <button
-      type="button"
-      data-copy-email
-      data-email={t.contact.email}
-      data-copied={t.ui.copied}
-      class="pill transition-colors hover:bg-accent hover:text-accent-ink"
+    <a
+      href="https://www.linkedin.com/in/martinbarreirob/"
+      target="_blank"
+      rel="noopener"
+      class="pill transition-colors hover:bg-[#0A66C2] hover:text-white"
     >
-      {t.contact.email}<i class="fa-solid fa-copy"></i>
-    </button>
+      <i class="fab fa-linkedin text-lg"></i>{t.contact.linkedin}
+    </a>
   </div>
 </section>
 

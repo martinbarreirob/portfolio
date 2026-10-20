@@ -1,5 +1,5 @@
 ---
-import type { Lang } from '@/i18n/utils';
+import { getDictionary, type Lang } from '@/i18n/utils';
 import PresentationCard from '@/components/PresentationCard.astro';
 import ExperienceCard from '@/components/ExperienceCard.astro';
 import StackCard from '@/components/StackCard.astro';
@@ -10,13 +10,21 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
+const t = getDictionary(lang);
 ---
 
 <div class="bento">
   <div class="area-intro"><PresentationCard lang={lang} /></div>
+
+  <div class="area-title flex items-start">
+    <h1 class="text-[clamp(2rem,4vw,44px)] font-bold leading-[1.02]">
+      {t.home.role}
+    </h1>
+  </div>
+
   <div class="area-exp"><ExperienceCard lang={lang} /></div>
-  <div class="area-stack"><StackCard lang={lang} /></div>
   <div class="area-proj"><ProjectCard lang={lang} /></div>
+  <div class="area-stack"><StackCard lang={lang} /></div>
   <div class="area-contact"><ContactCard lang={lang} /></div>
 </div>
 
@@ -29,20 +37,33 @@ const { lang } = Astro.props;
   }
   .bento > div {
     display: flex;
+    min-width: 0;
   }
   .bento > div > :global(*) {
     flex: 1;
+    min-width: 0;
+  }
+  /* El título se integra en la tarjeta naranja en móvil (se oculta aquí) */
+  .area-title {
+    display: none;
   }
 
-  /* Escritorio: rejilla bento de 4 columnas con áreas nombradas */
+  /* Escritorio: rejilla bento con el título "Desarrollador web"
+     encabezando la columna derecha, proyecto y stack lado a lado,
+     y la barra de contacto a lo ancho. */
   @media (min-width: 1024px) {
     .bento {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 2fr 2fr 3.3fr 2fr;
       grid-template-areas:
-        'intro intro exp exp'
-        'intro intro exp exp'
-        'stack stack proj proj'
-        'contact contact proj proj';
+        'intro intro title title'
+        'intro intro exp   exp'
+        'intro intro proj  stack'
+        'contact contact contact contact';
+      grid-template-rows: auto auto 1fr auto;
+    }
+    .area-title {
+      grid-area: title;
+      display: flex;
     }
     .area-intro {
       grid-area: intro;
@@ -50,11 +71,11 @@ const { lang } = Astro.props;
     .area-exp {
       grid-area: exp;
     }
-    .area-stack {
-      grid-area: stack;
-    }
     .area-proj {
       grid-area: proj;
+    }
+    .area-stack {
+      grid-area: stack;
     }
     .area-contact {
       grid-area: contact;

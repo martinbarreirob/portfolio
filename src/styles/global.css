@@ -41,30 +41,30 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #121216;
-    --panel: #1c1c22;
-    --card: #24242c;
-    --card-alt: #24242c;
-    --text: #f4f3f7;
-    --muted: #a5a2b0;
-    --accent: #ff9a44;
-    --card-border: rgba(255, 255, 255, 0.08);
-    --pill-bg: rgba(255, 255, 255, 0.08);
+    --bg: #0e0e0f;
+    --panel: #161617;
+    --card: #1c1c1e;
+    --card-alt: #242426;
+    --text: #f5f5f6;
+    --muted: #9b9ba3;
+    --accent: #f5851f;
+    --card-border: rgba(255, 255, 255, 0.07);
+    --pill-bg: rgba(255, 255, 255, 0.06);
     --pill-border: rgba(255, 255, 255, 0.08);
     --panel-shadow: none;
   }
 }
 
 :root[data-theme='dark'] {
-  --bg: #121216;
-  --panel: #1c1c22;
-  --card: #24242c;
-  --card-alt: #24242c;
-  --text: #f4f3f7;
-  --muted: #a5a2b0;
-  --accent: #ff9a44;
-  --card-border: rgba(255, 255, 255, 0.08);
-  --pill-bg: rgba(255, 255, 255, 0.08);
+  --bg: #0e0e0f;
+  --panel: #161617;
+  --card: #1c1c1e;
+  --card-alt: #242426;
+  --text: #f5f5f6;
+  --muted: #9b9ba3;
+  --accent: #f5851f;
+  --card-border: rgba(255, 255, 255, 0.07);
+  --pill-bg: rgba(255, 255, 255, 0.06);
   --pill-border: rgba(255, 255, 255, 0.08);
   --panel-shadow: none;
 }
@@ -175,5 +175,111 @@ h3 {
   .rich strong {
     font-weight: 600;
     color: var(--text);
+  }
+
+  /* Avatar cuadrado redondeado de cada experiencia */
+  .exp-avatar {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--card));
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* Badge circular con la inicial en la lista de stack */
+  .stack-badge {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--card));
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* Botón de acción circular (flecha del proyecto) */
+  .icon-btn {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--accent) 16%, var(--card));
+    color: var(--accent);
+    transition: background-color 0.24s ease, color 0.24s ease, transform 0.2s ease;
+  }
+  .icon-btn:hover {
+    background-color: var(--accent);
+    color: var(--accent-ink);
+    transform: translateY(-2px);
+  }
+
+  /* Maqueta de teléfono del proyecto destacado */
+  .phone {
+    position: relative;
+    width: 152px;
+    border-radius: 26px;
+    background-color: color-mix(in srgb, var(--text) 88%, var(--card));
+    padding: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+  }
+  .phone::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px;
+    height: 5px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.35);
+    z-index: 2;
+  }
+  .phone-screen {
+    border-radius: 19px;
+    background-color: var(--card);
+    padding: 20px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+  .phone-search {
+    height: 24px;
+    border-radius: 999px;
+    background-color: var(--card-alt);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 9px;
+    color: var(--muted);
+  }
+  .phone-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    border-radius: 12px;
+    background-color: var(--card-alt);
+    padding: 8px;
+    font-size: 9px;
+    color: var(--muted);
+  }
+  .phone-chip {
+    border-radius: 999px;
+    background-color: color-mix(in srgb, var(--accent) 20%, var(--card));
+    color: var(--accent);
+    padding: 2px 6px;
+    font-size: 8px;
+    font-weight: 600;
   }
 }

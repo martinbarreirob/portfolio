@@ -6,37 +6,63 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+
+const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
+const project = t.home.projects[0];
 ---
 
-<section id="proyectos" class="card flex flex-col gap-6 p-6 lg:p-8">
-  <h2 class="section-label">{t.home.projectsTitle}</h2>
+<section id="proyectos" class="card flex flex-col gap-5 p-6 lg:p-7">
+  <div class="flex items-center justify-between">
+    <h2 class="section-label">{t.home.projectsTitle}</h2>
+    <span class="section-label">01</span>
+  </div>
 
-  {
-    t.home.projects.map((project) => (
-      <article class="flex flex-1 flex-col">
-        <div class="flex flex-wrap items-baseline justify-between gap-x-3">
-          <h3 class="text-xl">{project.title}</h3>
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener"
-              aria-label={project.title}
-              class="text-muted transition-colors hover:text-accent"
-            >
-              <i class="fa-solid fa-arrow-up-right-from-square" />
-            </a>
-          )}
+  <!-- Maqueta de teléfono -->
+  <div class="flex flex-1 items-center justify-center py-2">
+    <div class="phone">
+      <div class="phone-screen">
+        <p class="text-[11px] font-bold text-accent">{project.title}</p>
+        <div class="phone-search">
+          <i class="fa-solid fa-magnifying-glass mr-1.5 text-[8px]"></i>Buscar eventos
         </div>
-        <p class="mt-0.5 text-sm font-medium text-accent">{project.subtitle}</p>
-        <div class="rich mt-2 text-sm" set:html={project.description} />
+        <div class="phone-item">
+          <span>[Evento]</span><span class="phone-chip">chat</span>
+        </div>
+        <div class="phone-item">
+          <span>[Evento]</span><span class="phone-chip">chat</span>
+        </div>
+        <div class="mt-1 flex justify-center gap-1">
+          <span class="h-1 w-1 rounded-full bg-accent"></span>
+          <span class="h-1 w-1 rounded-full bg-[var(--muted)] opacity-40"></span>
+          <span class="h-1 w-1 rounded-full bg-[var(--muted)] opacity-40"></span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="mt-4 flex flex-wrap items-center gap-2">
-          {project.technologies.map((tech) => (
-            <span class="pill card-alt py-1.5 text-xs">{tech}</span>
-          ))}
-        </div>
-      </article>
-    ))
-  }
+  <!-- Datos del proyecto -->
+  <div class="flex items-end justify-between gap-3">
+    <div class="min-w-0">
+      <h3 class="text-lg font-bold">{project.title}</h3>
+      <p class="mt-0.5 line-clamp-2 text-sm text-muted">{plain(project.description)}</p>
+      <p class="mt-1 text-xs text-muted opacity-70">{project.technologies.join(' · ')}</p>
+    </div>
+    {
+      project.link ? (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener"
+          aria-label={project.title}
+          class="icon-btn"
+        >
+          <i class="fa-solid fa-arrow-up" style="transform: rotate(45deg)"></i>
+        </a>
+      ) : (
+        <span class="icon-btn" aria-hidden="true">
+          <i class="fa-solid fa-arrow-up" style="transform: rotate(45deg)"></i>
+        </span>
+      )
+    }
+  </div>
 </section>
