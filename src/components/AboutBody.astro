@@ -11,7 +11,11 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = getDictionary(lang);
-const age = new Date().getFullYear() - profile.birthYear;
+const [birthYear, birthMonth, birthDay] = profile.birthDate.split('-').map(Number);
+const today = new Date();
+const birthdayPassed =
+  today.getMonth() + 1 > birthMonth || (today.getMonth() + 1 === birthMonth && today.getDate() >= birthDay);
+const age = today.getFullYear() - birthYear - (birthdayPassed ? 0 : 1);
 const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
 ---
 
