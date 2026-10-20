@@ -48,7 +48,7 @@
     "tagline": "Soy una persona muy creativa con pasión por el diseño y muchas ganas de trabajar para poder aportar en tus proyectos e ideas.",
     "whoTitle": "¿Quién soy?",
     "whoParagraphs": [
-      "Hace veintitrés años, nací en Galicia. Desde mis primeros recuerdos, mi fascinación por los ordenadores marcó el rumbo de mi vida.",
+      "Hace {age} años, nací en Galicia. Desde mis primeros recuerdos, mi fascinación por los ordenadores marcó el rumbo de mi vida.",
       "Siempre fui una persona curiosa en el ámbito de la informática, lo que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi <strong>pasión</strong> por ella.",
       "Más allá de la informática y la programación, heredé una gran afición por la música y el mar de mi padre.",
       "Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en este deporte, el cual ha forjado mi carácter en la <strong>disciplina</strong>, <strong>trabajo en equipo</strong> y ha hecho crecer mis habilidades sociales al interactuar con personas de diversos perfiles.",

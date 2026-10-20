@@ -11,6 +11,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const t = getDictionary(lang);
+const age = new Date().getFullYear() - profile.birthYear;
 const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
 ---
 
@@ -44,7 +45,7 @@ const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/abou
     <div class="flex flex-1 flex-col gap-3 p-6 lg:p-8">
       <h2 class="section-label">{t.about.whoTitle}</h2>
       <div class="rich text-sm">
-        {t.about.whoParagraphs.map((p) => <p set:html={p} />)}
+        {t.about.whoParagraphs.map((p) => <p set:html={p.replace('{age}', String(age))} />)}
       </div>
     </div>
   </section>
