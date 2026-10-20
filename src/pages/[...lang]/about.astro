@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AboutBody from '@/components/AboutBody.astro';
+import { getLangStaticPaths, type Lang } from '@/i18n/utils';
+
+export const getStaticPaths = getLangStaticPaths;
+
+const { lang } = Astro.props as { lang: Lang };
+---
+
+<Layout lang={lang} active="about">
+  <AboutBody lang={lang} />
+</Layout>

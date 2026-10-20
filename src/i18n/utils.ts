@@ -17,13 +17,6 @@ export function getDictionary(lang: Lang): Dictionary {
   return dictionaries[lang];
 }
 
-/** Extrae el idioma del primer segmento de la URL (`/en/...`, `/gl/...`). */
-export function getLangFromUrl(url: URL): Lang {
-  const [, segment] = url.pathname.split('/');
-  if (languages.includes(segment as Lang)) return segment as Lang;
-  return defaultLang;
-}
-
 /** Construye una ruta con el prefijo de idioma correcto (el idioma por defecto no lleva prefijo). */
 export function localizedPath(lang: Lang, path = ''): string {
   const clean = path.replace(/^\/+/, '');
@@ -47,4 +40,15 @@ export function formatPeriod(
   currentLabel: string,
 ): string {
   return `${formatMonthYear(start, lang)} — ${end ? formatMonthYear(end, lang) : currentLabel}`;
+}
+
+/**
+ * `getStaticPaths` compartido por las páginas dinámicas `[...lang]`.
+ * El idioma por defecto no lleva prefijo (`lang` indefinido); el resto sí.
+ */
+export function getLangStaticPaths() {
+  return languages.map((lang) => ({
+    params: { lang: lang === defaultLang ? undefined : lang },
+    props: { lang },
+  }));
 }
