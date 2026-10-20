@@ -1,5 +1,6 @@
 ---
 import { getDictionary, type Lang } from '@/i18n/utils';
+import { projects } from '@/data/projects';
 
 interface Props {
   lang: Lang;
@@ -8,7 +9,8 @@ const { lang } = Astro.props;
 const t = getDictionary(lang);
 
 const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
-const project = t.home.projects[0];
+const project = projects[0];
+const description = t.home.projects[project.id].description;
 ---
 
 <section id="proyectos" class="card flex flex-col gap-5 p-6 lg:p-7">
@@ -44,7 +46,7 @@ const project = t.home.projects[0];
   <div class="flex items-end justify-between gap-3">
     <div class="min-w-0">
       <h3 class="text-lg font-bold">{project.title}</h3>
-      <p class="mt-0.5 line-clamp-2 text-sm text-muted">{plain(project.description)}</p>
+      <p class="mt-0.5 line-clamp-2 text-sm text-muted">{plain(description)}</p>
       <p class="mt-1 text-xs text-muted opacity-70">{project.technologies.join(' · ')}</p>
     </div>
     {

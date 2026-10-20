@@ -1,5 +1,6 @@
 ---
-import { getDictionary, type Lang } from '@/i18n/utils';
+import { getDictionary, formatPeriod, type Lang } from '@/i18n/utils';
+import { experiences } from '@/data/experience';
 
 interface Props {
   lang: Lang;
@@ -16,7 +17,7 @@ const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
 
   <ol class="flex list-none flex-col gap-5 p-0">
     {
-      t.home.experiences.map((job) => (
+      experiences.map((job) => (
         <li class="flex items-start gap-3">
           <span class="exp-avatar" aria-hidden="true">
             {job.company.charAt(0)}
@@ -25,11 +26,11 @@ const plain = (html: string) => html.replace(/<[^>]+>/g, '').trim();
           <div class="min-w-0 flex-1">
             <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
               <h3 class="truncate text-base font-bold">{job.company}</h3>
-              <span class="shrink-0 text-xs font-medium text-muted">{job.period}</span>
+              <span class="shrink-0 text-xs font-medium text-muted">{formatPeriod(job.start, job.end, lang, t.ui.current)}</span>
             </div>
             <p class="mt-0.5 truncate text-sm text-muted">
               <span class="font-medium text-accent">{job.role}</span>
-              <span class="opacity-70"> · {plain(job.description)}</span>
+              <span class="opacity-70"> · {plain(t.home.experiences[job.id].description)}</span>
             </p>
             {job.recommendation && (
               <a

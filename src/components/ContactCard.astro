@@ -1,5 +1,6 @@
 ---
 import { getDictionary, type Lang } from '@/i18n/utils';
+import { profile } from '@/data/profile';
 
 interface Props {
   lang: Lang;
@@ -17,30 +18,30 @@ const t = getDictionary(lang);
     <button
       type="button"
       data-copy-email
-      data-email={t.contact.email}
+      data-email={profile.email}
       data-copied={t.ui.copied}
       class="pill card-alt transition-colors hover:bg-accent hover:text-accent-ink"
     >
-      {t.contact.email}<i class="fa-solid fa-copy"></i>
+      {profile.email}<i class="fa-solid fa-copy"></i>
     </button>
   </div>
 
   <div class="flex flex-wrap items-center gap-2.5">
     <a
-      href="https://github.com/martinbarreirob"
+      href={profile.github.url}
       target="_blank"
       rel="noopener"
       class="pill transition-colors hover:bg-[#6E5494] hover:text-white"
     >
-      <i class="fab fa-github text-lg"></i>{t.contact.github}
+      <i class="fab fa-github text-lg"></i>{profile.github.label}
     </a>
     <a
-      href="https://www.linkedin.com/in/martinbarreirob/"
+      href={profile.linkedin.url}
       target="_blank"
       rel="noopener"
       class="pill transition-colors hover:bg-[#0A66C2] hover:text-white"
     >
-      <i class="fab fa-linkedin text-lg"></i>{t.contact.linkedin}
+      <i class="fab fa-linkedin text-lg"></i>{profile.linkedin.label}
     </a>
   </div>
 </section>

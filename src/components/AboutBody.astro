@@ -3,6 +3,8 @@ import { getDictionary, type Lang } from '@/i18n/utils';
 import Carousel from '@/components/Carousel.astro';
 import StudyCard from '@/components/StudyCard.astro';
 import ContactCard from '@/components/ContactCard.astro';
+import { profile } from '@/data/profile';
+import { studies } from '@/data/studies';
 
 interface Props {
   lang: Lang;
@@ -17,10 +19,10 @@ const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/abou
   <section class="card flex flex-col gap-5 p-6 lg:p-8">
     <div class="flex items-center gap-4">
       <div class="h-20 w-20 shrink-0 overflow-hidden rounded-full border border-[var(--card-border)]">
-        <img src="/assets/selfie.webp" alt={t.footer.name} class="h-full w-full object-cover" />
+        <img src="/assets/selfie.webp" alt={profile.name} class="h-full w-full object-cover" />
       </div>
       <div>
-        <h1 class="text-2xl lg:text-3xl">{t.footer.name}</h1>
+        <h1 class="text-2xl lg:text-3xl">{profile.name}</h1>
         <span
           class="mt-1 inline-flex items-center gap-2 rounded-pill bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent-ink"
         >
@@ -52,12 +54,12 @@ const aboutImages = ['/assets/about1.webp', '/assets/about2.webp', '/assets/abou
     <h2 class="section-label px-2">{t.about.studiesTitle}</h2>
     <div class="grid gap-4 md:grid-cols-2">
       {
-        t.about.studies.map((study) => (
+        studies.map((study) => (
           <StudyCard
-            title={study.title}
+            title={t.about.studies[study.id].title}
             center={study.center}
             period={study.period}
-            description={study.description}
+            description={t.about.studies[study.id].description}
             technologies={study.technologies}
           />
         ))

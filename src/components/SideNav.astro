@@ -1,5 +1,6 @@
 ---
 import { getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+import { profile } from '@/data/profile';
 import ThemeToggle from '@/components/ThemeToggle.astro';
 import LanguageSwitcher from '@/components/LanguageSwitcher.astro';
 
@@ -28,7 +29,7 @@ const sections = [
 >
   <!-- Marca + tema -->
   <div class="flex items-center gap-3 lg:flex-col lg:gap-4">
-    <a href={homeHref} class="flex items-center gap-2" aria-label={t.footer.name}>
+    <a href={homeHref} class="flex items-center gap-2" aria-label={profile.name}>
       <span class="block h-4 w-4 rounded-full bg-accent"></span>
       <span class="font-semibold lg:hidden">MB</span>
     </a>

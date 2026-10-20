@@ -4,7 +4,7 @@ interface Props {
   center: string;
   period: string;
   description: string;
-  technologies: string[];
+  technologies: readonly string[];
 }
 
 const { title, center, period, description, technologies } = Astro.props;

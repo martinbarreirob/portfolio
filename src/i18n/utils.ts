@@ -1,3 +1,4 @@
+import type { YearMonth } from '@/data/experience';
 import es from './es.json';
 import en from './en.json';
 import gl from './gl.json';
@@ -28,4 +29,22 @@ export function localizedPath(lang: Lang, path = ''): string {
   const clean = path.replace(/^\/+/, '');
   const prefix = lang === defaultLang ? '' : `/${lang}`;
   return `${prefix}/${clean}`.replace(/\/+$/, '') || '/';
+}
+
+/** "Mayo 2025", "May 2025", "Maio 2025"… según el idioma. */
+export function formatMonthYear({ year, month }: YearMonth, lang: Lang): string {
+  const name = new Intl.DateTimeFormat(lang, { month: 'long', timeZone: 'UTC' }).format(
+    new Date(Date.UTC(year, month - 1, 1)),
+  );
+  return `${name.charAt(0).toLocaleUpperCase(lang)}${name.slice(1)} ${year}`;
+}
+
+/** Periodo localizado de un puesto; sin fecha de fin usa el texto de "actualidad". */
+export function formatPeriod(
+  start: YearMonth,
+  end: YearMonth | null,
+  lang: Lang,
+  currentLabel: string,
+): string {
+  return `${formatMonthYear(start, lang)} — ${end ? formatMonthYear(end, lang) : currentLabel}`;
 }

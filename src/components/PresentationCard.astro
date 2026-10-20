@@ -1,5 +1,6 @@
 ---
 import { getDictionary, localizedPath, type Lang } from '@/i18n/utils';
+import { profile } from '@/data/profile';
 
 interface Props {
   lang: Lang;
@@ -31,14 +32,14 @@ const aboutHref = localizedPath(lang, 'about');
     <div
       class="aspect-square w-40 overflow-hidden rounded-full border-2 border-accent-ink/15 lg:w-[236px]"
     >
-      <img src="/assets/retrato.webp" alt={t.home.name} class="h-full w-full object-cover" />
+      <img src="/assets/retrato.webp" alt={profile.name} class="h-full w-full object-cover" />
     </div>
   </div>
 
   <!-- Nombre -->
   <div>
     <p class="text-lg font-medium opacity-70">{t.home.greeting}</p>
-    <h2 class="text-[clamp(2.4rem,6vw,58px)] font-bold leading-[1.0]">{t.home.name}</h2>
+    <h2 class="text-[clamp(2.4rem,6vw,58px)] font-bold leading-[1.0]">{profile.name}</h2>
   </div>
 
   <!-- Pie: rol + enlace a Sobre mí -->

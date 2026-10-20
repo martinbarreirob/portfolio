@@ -1,7 +1,6 @@
 {
   "meta": {
     "title": "Martín Barreiro — Developer",
-    "titleHidden": "Anybody there?!",
     "description": "Portfolio of Martín Barreiro, fullstack web developer. Experience, projects and contact."
   },
   "nav": {
@@ -23,45 +22,26 @@
   "langName": "English",
   "home": {
     "greeting": "I'm,",
-    "name": "Martín Barreiro",
     "role": "Web Developer",
-    "tagline": "A creative person with a passion for design, eager to contribute to your projects and ideas.",
     "experienceTitle": "Experience",
     "projectsTitle": "Projects",
     "stackTitle": "Stack",
-    "experiences": [
-      {
-        "company": "Sigillum K.S.",
-        "role": "Fullstack Developer",
-        "period": "May 2025 — Present",
-        "description": "<p>I develop an application for a cosmetics products consultancy and build <strong>internal tools with Python and AI</strong> to speed up the team's work.</p>",
-        "technologies": ["Angular", "Java", "Python", "SQL", "Docker"]
+    "experiences": {
+      "sigillum": {
+        "description": "<p>I develop an application for a cosmetics products consultancy and build <strong>internal tools with Python and AI</strong> to speed up the team's work.</p>"
       },
-      {
-        "company": "Marosavat",
-        "role": "Frontend Developer",
-        "period": "February 2024 — February 2025",
-        "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>",
-        "technologies": ["Angular", "Agile", "SCRUM", "UX / UI", "Git"]
+      "marosavat": {
+        "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>"
       },
-      {
-        "company": "Galaxia Empirica — pInvestiga",
-        "role": "Fullstack Developer",
-        "period": "October 2023 — December 2023",
-        "description": "<p>I collaborated on the new version of the pInvestiga software with Angular and NestJS, implementing a <strong>real-time chat</strong>, data libraries and forms.</p>",
-        "technologies": ["Angular", "NestJS", "PHP", "SQL"],
-        "recommendation": "/assets/cartarecomendacion.pdf"
+      "pinvestiga": {
+        "description": "<p>I collaborated on the new version of the pInvestiga software with Angular and NestJS, implementing a <strong>real-time chat</strong>, data libraries and forms.</p>"
       }
-    ],
-    "projects": [
-      {
-        "title": "NonChoPerdas",
-        "subtitle": "Personal project",
-        "description": "<p>A social network and forum to discover and share events. Personal project in development.</p>",
-        "technologies": ["Angular", "Java", "SQL", "Docker"],
-        "link": ""
+    },
+    "projects": {
+      "nonchoperdas": {
+        "description": "<p>A social network and forum to discover and share events. Personal project in development.</p>"
       }
-    ]
+    }
   },
   "about": {
     "role": "Web Application Development Technician",
@@ -75,30 +55,18 @@
       "Currently, my goal is to <strong>consolidate my knowledge</strong> and keep growing as a fullstack developer."
     ],
     "studiesTitle": "Education",
-    "studies": [
-      {
+    "studies": {
+      "daw": {
         "title": "Higher Diploma in Web Application Development",
-        "center": "IES San Clemente",
-        "period": "2021 / 2023",
-        "description": "<p>I gained solid foundations in <strong>object-oriented programming</strong> and became familiar with Symfony and Vue. On the backend I learned to build Docker containers to deploy my projects.</p>",
-        "technologies": ["Docker", "Vue", "PHP", "Symfony", "Javascript"]
+        "description": "<p>I gained solid foundations in <strong>object-oriented programming</strong> and became familiar with Symfony and Vue. On the backend I learned to build Docker containers to deploy my projects.</p>"
       },
-      {
+      "asir": {
         "title": "Higher Diploma in Networked Computer Systems Administration",
-        "center": "IES Rodeira",
-        "period": "2019 / 2021",
-        "description": "<p>I learned about the management and <strong>deployment of servers</strong> with Docker and Apache, as well as working with SQL databases. This is where I discovered programming.</p>",
-        "technologies": ["Apache", "SQL", "Linux", "Docker", "Python", "PHP"]
+        "description": "<p>I learned about the management and <strong>deployment of servers</strong> with Docker and Apache, as well as working with SQL databases. This is where I discovered programming.</p>"
       }
-    ]
+    }
   },
   "contact": {
-    "title": "Contact",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
-    "email": "martinbarreirob@gmail.com"
-  },
-  "footer": {
-    "name": "Martín Barreiro"
+    "title": "Contact"
   }
 }

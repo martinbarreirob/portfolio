@@ -1,7 +1,6 @@
 {
   "meta": {
     "title": "Martín Barreiro — Desarrollador",
-    "titleHidden": "¿Hay alguien ahí?!",
     "description": "Portfolio de Martín Barreiro, desarrollador web fullstack. Experiencia, proyectos y contacto."
   },
   "nav": {
@@ -23,45 +22,26 @@
   "langName": "Español",
   "home": {
     "greeting": "Soy,",
-    "name": "Martín Barreiro",
     "role": "Desarrollador Web",
-    "tagline": "Persona creativa con pasión por el diseño y ganas de aportar en tus proyectos e ideas.",
     "experienceTitle": "Experiencia",
     "projectsTitle": "Proyectos",
     "stackTitle": "Stack",
-    "experiences": [
-      {
-        "company": "Sigillum K.S.",
-        "role": "Fullstack Developer",
-        "period": "Mayo 2025 — Actualidad",
-        "description": "<p>Desarrollo una aplicación para una consultora de productos cosméticos y creo <strong>herramientas internas con Python e IA</strong> para agilizar el trabajo del equipo.</p>",
-        "technologies": ["Angular", "Java", "Python", "SQL", "Docker"]
+    "experiences": {
+      "sigillum": {
+        "description": "<p>Desarrollo una aplicación para una consultora de productos cosméticos y creo <strong>herramientas internas con Python e IA</strong> para agilizar el trabajo del equipo.</p>"
       },
-      {
-        "company": "Marosavat",
-        "role": "Frontend Developer",
-        "period": "Febrero 2024 — Febrero 2025",
-        "description": "<p>Desarrollé interfaces dinámicas y eficientes con <strong>Angular</strong> para aplicaciones de gestión y presentación de declaraciones fiscales, en colaboración con la Agencia Estatal de Administración Tributaria (AEAT).</p>",
-        "technologies": ["Angular", "Agile", "SCRUM", "UX / UI", "Git"]
+      "marosavat": {
+        "description": "<p>Desarrollé interfaces dinámicas y eficientes con <strong>Angular</strong> para aplicaciones de gestión y presentación de declaraciones fiscales, en colaboración con la Agencia Estatal de Administración Tributaria (AEAT).</p>"
       },
-      {
-        "company": "Galaxia Empírica — pInvestiga",
-        "role": "Fullstack Developer",
-        "period": "Octubre 2023 — Diciembre 2023",
-        "description": "<p>Colaboré en la nueva versión del software pInvestiga con Angular y NestJS, implementando un <strong>chat en tiempo real</strong>, bibliotecas de datos y formularios.</p>",
-        "technologies": ["Angular", "NestJS", "PHP", "SQL"],
-        "recommendation": "/assets/cartarecomendacion.pdf"
+      "pinvestiga": {
+        "description": "<p>Colaboré en la nueva versión del software pInvestiga con Angular y NestJS, implementando un <strong>chat en tiempo real</strong>, bibliotecas de datos y formularios.</p>"
       }
-    ],
-    "projects": [
-      {
-        "title": "NonChoPerdas",
-        "subtitle": "Proyecto propio",
-        "description": "<p>Red social y foro para descubrir y compartir eventos. Proyecto personal en desarrollo.</p>",
-        "technologies": ["Angular", "Java", "SQL", "Docker"],
-        "link": ""
+    },
+    "projects": {
+      "nonchoperdas": {
+        "description": "<p>Red social y foro para descubrir y compartir eventos. Proyecto personal en desarrollo.</p>"
       }
-    ]
+    }
   },
   "about": {
     "role": "Técnico de Desarrollo de Aplicaciones Web",
@@ -75,30 +55,18 @@
       "Actualmente, mi objetivo es <strong>consolidar mis conocimientos</strong> y seguir creciendo como desarrollador fullstack."
     ],
     "studiesTitle": "Estudios",
-    "studies": [
-      {
+    "studies": {
+      "daw": {
         "title": "CS Desarrollo de Aplicaciones Web",
-        "center": "IES San Clemente",
-        "period": "2021 / 2023",
-        "description": "<p>Adquirí sólidos fundamentos en <strong>programación orientada a objetos</strong> y me familiaricé con Symfony y Vue. En backend aprendí a crear contenedores Docker para desplegar mis proyectos.</p>",
-        "technologies": ["Docker", "Vue", "PHP", "Symfony", "Javascript"]
+        "description": "<p>Adquirí sólidos fundamentos en <strong>programación orientada a objetos</strong> y me familiaricé con Symfony y Vue. En backend aprendí a crear contenedores Docker para desplegar mis proyectos.</p>"
       },
-      {
+      "asir": {
         "title": "CS Administración de Sistemas Informáticos en Red",
-        "center": "IES Rodeira",
-        "period": "2019 / 2021",
-        "description": "<p>Aprendí sobre la gestión y <strong>despliegue de servidores</strong> con Docker y Apache, además de trabajar con bases de datos SQL. Aquí descubrí la programación.</p>",
-        "technologies": ["Apache", "SQL", "Linux", "Docker", "Python", "PHP"]
+        "description": "<p>Aprendí sobre la gestión y <strong>despliegue de servidores</strong> con Docker y Apache, además de trabajar con bases de datos SQL. Aquí descubrí la programación.</p>"
       }
-    ]
+    }
   },
   "contact": {
-    "title": "Contacto",
-    "linkedin": "LinkedIn",
-    "github": "GitHub",
-    "email": "martinbarreirob@gmail.com"
-  },
-  "footer": {
-    "name": "Martín Barreiro"
+    "title": "Contacto"
   }
 }
