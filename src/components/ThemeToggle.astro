@@ -22,11 +22,12 @@ const t = getDictionary(lang);
 <script is:inline>
   (() => {
     const root = document.documentElement;
+    const isDark = () =>
+      root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches);
     const sync = () => {
-      const dark =
-        root.getAttribute('data-theme') === 'dark' ||
-        (!root.hasAttribute('data-theme') &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches);
+      const dark = isDark();
       document
         .querySelectorAll('[data-icon-light]')
         .forEach((el) => el.classList.toggle('hidden', dark));
@@ -36,11 +37,7 @@ const t = getDictionary(lang);
     };
     document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const dark =
-          root.getAttribute('data-theme') === 'dark' ||
-          (!root.hasAttribute('data-theme') &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches);
-        const next = dark ? 'light' : 'dark';
+        const next = isDark() ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
         try {
           localStorage.setItem('theme', next);

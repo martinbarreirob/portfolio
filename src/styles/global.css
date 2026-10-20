@@ -8,25 +8,29 @@
    ============================================================ */
 
 :root {
+  /* Sigue al sistema por defecto; data-theme fuerza un tema concreto.
+     Cada token se define una sola vez como light-dark(claro, oscuro). */
+  color-scheme: light dark;
+
   /* Superficies */
-  --bg: #e7e7ea;
-  --panel: #f7f7f8;
-  --card: #ffffff;
-  --card-alt: #f3f3f5;
+  --bg: light-dark(#e7e7ea, #0e0e0f);
+  --panel: light-dark(#f7f7f8, #161617);
+  --card: light-dark(#ffffff, #1c1c1e);
+  --card-alt: light-dark(#f3f3f5, #242426);
 
   /* Texto */
-  --text: #1c1930;
-  --muted: #6b6780;
+  --text: light-dark(#1c1930, #f5f5f6);
+  --muted: light-dark(#6b6780, #9b9ba3);
 
   /* Acento */
-  --accent: #f78522;
+  --accent: light-dark(#f78522, #f5851f);
   --accent-ink: #3a1b00; /* tinta sobre naranja (el blanco no contrasta) */
 
   /* Detalles */
-  --card-border: transparent;
-  --pill-bg: #ffffff;
-  --pill-border: rgba(28, 24, 48, 0.1);
-  --panel-shadow: 0 18px 40px rgba(28, 24, 48, 0.1);
+  --card-border: light-dark(transparent, rgba(255, 255, 255, 0.07));
+  --pill-bg: light-dark(#ffffff, rgba(255, 255, 255, 0.06));
+  --pill-border: light-dark(rgba(28, 24, 48, 0.1), rgba(255, 255, 255, 0.08));
+  --panel-shadow-color: light-dark(rgba(28, 24, 48, 0.1), transparent);
 
   /* Radios */
   --r-panel: 42px;
@@ -34,39 +38,12 @@
   --r-pill: 999px;
 }
 
-/* Tema oscuro: manual (data-theme="dark") o automático por sistema */
-:root[data-theme='dark'],
-:root:not([data-theme='light']) {
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg: #0e0e0f;
-    --panel: #161617;
-    --card: #1c1c1e;
-    --card-alt: #242426;
-    --text: #f5f5f6;
-    --muted: #9b9ba3;
-    --accent: #f5851f;
-    --card-border: rgba(255, 255, 255, 0.07);
-    --pill-bg: rgba(255, 255, 255, 0.06);
-    --pill-border: rgba(255, 255, 255, 0.08);
-    --panel-shadow: none;
-  }
+:root[data-theme='light'] {
+  color-scheme: light;
 }
 
 :root[data-theme='dark'] {
-  --bg: #0e0e0f;
-  --panel: #161617;
-  --card: #1c1c1e;
-  --card-alt: #242426;
-  --text: #f5f5f6;
-  --muted: #9b9ba3;
-  --accent: #f5851f;
-  --card-border: rgba(255, 255, 255, 0.07);
-  --pill-bg: rgba(255, 255, 255, 0.06);
-  --pill-border: rgba(255, 255, 255, 0.08);
-  --panel-shadow: none;
+  color-scheme: dark;
 }
 
 /* ============================================================
@@ -123,7 +100,7 @@ h3 {
   .panel {
     background-color: var(--panel);
     border-radius: var(--r-panel);
-    box-shadow: var(--panel-shadow);
+    box-shadow: 0 18px 40px var(--panel-shadow-color);
   }
 
   .card {
