@@ -1,15 +1,12 @@
 ---
 import '@/styles/global.css';
-import SideNav from '@/components/SideNav.astro';
 import { getDictionary, type Lang } from '@/i18n/utils';
 
 interface Props {
   lang: Lang;
-  active: 'home' | 'about';
-  showSections?: boolean;
 }
 
-const { lang, active, showSections = false } = Astro.props;
+const { lang } = Astro.props;
 const t = getDictionary(lang);
 ---
 
@@ -21,35 +18,8 @@ const t = getDictionary(lang);
     <title>{t.meta.title}</title>
     <meta name="description" content={t.meta.description} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- Iconos: Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Tema: aplica antes del primer pintado para evitar parpadeo -->
-    <script is:inline>
-      (() => {
-        try {
-          const stored = localStorage.getItem('theme');
-          if (stored === 'light' || stored === 'dark') {
-            document.documentElement.setAttribute('data-theme', stored);
-          }
-        } catch (e) {}
-      })();
-    </script>
   </head>
   <body>
-    <div class="mx-auto max-w-[1240px] px-4 py-6 lg:px-7 lg:py-7">
-      <div class="flex flex-col gap-4 lg:flex-row lg:gap-6">
-        <SideNav lang={lang} active={active} showSections={showSections} />
-        <main class="panel flex-1 p-4 sm:p-6 lg:p-8">
-          <slot />
-        </main>
-      </div>
-    </div>
+    <slot />
   </body>
 </html>

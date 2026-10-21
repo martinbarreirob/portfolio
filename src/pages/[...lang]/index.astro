@@ -1,13 +1,15 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import HomeBody from '@/components/HomeBody.astro';
-import { getLangStaticPaths, type Lang } from '@/i18n/utils';
+import { getDictionary, getLangStaticPaths, type Lang } from '@/i18n/utils';
 
 export const getStaticPaths = getLangStaticPaths;
 
 const { lang } = Astro.props as { lang: Lang };
+const t = getDictionary(lang);
 ---
 
-<Layout lang={lang} active="home" showSections={true}>
-  <HomeBody lang={lang} />
+<Layout lang={lang}>
+  <main>
+    <h1>{t.home.role}</h1>
+  </main>
 </Layout>

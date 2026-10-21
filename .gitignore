@@ -33,3 +33,6 @@ Thumbs.db
 
 # Claude Code (config local)
 .claude/settings.local.json
+
+# Claude Code
+.claude/
