@@ -1,24 +1,86 @@
 ---
 import Screen from './Screen.astro';
-import { placeholderExperience } from '@/data/placeholder';
+import { experiences } from '@/data/experience';
+import { formatPeriod, getDictionary, type Lang } from '@/i18n/utils';
 
-const tones = ['bg-card text-ink', 'bg-brand text-paper', 'bg-ink text-paper'];
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
+
+const tones = [
+  { card: 'bg-card text-ink', chip: 'border-ink/30', accent: 'text-brand' },
+  { card: 'bg-brand text-paper', chip: 'border-paper/50', accent: 'text-paper' },
+  { card: 'bg-ink text-paper', chip: 'border-paper/40', accent: 'text-[#b4c8ff]' },
+];
 ---
 
-<Screen id="experiencia" title="Experiencia">
+<Screen id="experiencia" title={t.home.experienceTitle}>
   <div class="screen-grid grid-experience">
-    {
-      placeholderExperience.map((x, i) => (
-        <article class={`cell reveal justify-center gap-2.5 p-5 md:p-[22px] ${tones[i]}`} style={`grid-area:x${i + 1};--i:${i + 1}`}>
-          <div class={`text-[2rem] font-black leading-none tracking-[-0.05em] md:text-[2.5rem] ${i ? 'text-paper' : 'text-brand'}`}>{x.year}</div>
-          <div class="text-base font-semibold leading-tight md:text-lg">{x.role}</div>
-          <div class="font-serif text-sm italic md:text-[15px]">{x.org}</div>
-          <p class="text-sm leading-normal md:mt-auto md:text-[15px]">{x.impact}</p>
-        </article>
-      ))
-    }
     <div class="cell area-t reveal justify-end bg-transparent" style="grid-area:t">
-      <span class="mt-auto text-[2.125rem] font-black leading-none tracking-[-0.03em] text-brand">Experiencia</span>
+      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-brand">{t.home.experienceTitle}</span>
+    </div>
+    <div class="exp-list" style="grid-area:acc" data-accordion>
+      {
+        experiences.map((x, i) => {
+          const tone = tones[i % tones.length];
+          const points = t.home.experiences[x.id].points;
+          const period = formatPeriod(x.start, x.end, lang, t.ui.current);
+          return (
+            <article class={`cell exp-item reveal ${tone.card}`} style={`--i:${i + 1}`} data-open={i === 0 ? '' : undefined}>
+              <button
+                type="button"
+                class="exp-head flex w-full flex-none cursor-pointer items-center gap-3 px-4 py-3 text-left md:px-[22px]"
+                aria-expanded={i === 0}
+                aria-controls={`exp-${x.id}`}
+              >
+                <span class="min-w-0 flex-1">
+                  <span class="block truncate text-base font-black leading-tight tracking-[-0.02em] md:text-lg">{x.company}</span>
+                  <span class="block truncate font-serif text-[13px] italic md:text-sm">{x.role}</span>
+                </span>
+                <span class="hidden flex-none text-xs font-semibold uppercase tracking-[0.1em] sm:block">{period}</span>
+                <span class="exp-chevron flex-none text-sm" aria-hidden="true">▾</span>
+              </button>
+              <div class="exp-body flex flex-col gap-3 px-4 pb-4 md:px-[22px] md:pb-[22px]" id={`exp-${x.id}`} inert={i !== 0}>
+                <div class={`text-xs font-semibold uppercase tracking-[0.1em] sm:hidden ${tone.accent}`}>{period}</div>
+                <div class="text-sm leading-normal md:text-[15px] [&_strong]:font-bold" set:html={t.home.experiences[x.id].description} />
+                {points.length > 0 && (
+                  <ul class="hidden list-disc flex-col gap-1.5 pl-4 text-sm leading-snug marker:text-current full:flex [&_strong]:font-bold">
+                    {points.map((pt) => <li set:html={pt} />)}
+                  </ul>
+                )}
+                <ul class="mt-auto flex list-none flex-wrap gap-1.5 p-0">
+                  {x.technologies.map((tech) => (
+                    <li class={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${tone.chip}`}>{tech}</li>
+                  ))}
+                </ul>
+                {x.recommendation && (
+                  <a class="lk self-start border-b border-current pb-0.5 text-xs font-semibold" href={x.recommendation} target="_blank" rel="noopener noreferrer">
+                    {t.ui.recommendation} ↗
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })
+      }
     </div>
   </div>
 </Screen>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((list) => {
+    const items = [...list.querySelectorAll<HTMLElement>('.exp-item')];
+    items.forEach((item) => {
+      item.querySelector('.exp-head')?.addEventListener('click', () => {
+        for (const other of items) {
+          const open = other === item;
+          other.toggleAttribute('data-open', open);
+          other.querySelector('.exp-head')?.setAttribute('aria-expanded', String(open));
+          other.querySelector('.exp-body')?.toggleAttribute('inert', !open);
+        }
+      });
+    });
+  });
+</script>

@@ -28,13 +28,22 @@
     "stackTitle": "Stack",
     "experiences": {
       "sigillum": {
-        "description": "<p>I develop an application for a cosmetics products consultancy and build <strong>internal tools with Python and AI</strong> to speed up the team's work.</p>"
+        "description": "<p>I build complete features for <strong>SCATHA</strong>, a platform for the cosmetics sector, from idea to production.</p>",
+        "points": [
+          "<strong>Frontend:</strong> I build Angular interfaces with complex forms, dialogs and guided flows, taking care of visual consistency and user experience.",
+          "<strong>Backend:</strong> I design and develop REST APIs in Spring Boot, with business logic, validations and role-based access control.",
+          "<strong>Data:</strong> I model PostgreSQL schemas, write queries with jOOQ and manage migrations with Flyway.",
+          "<strong>Data extraction:</strong> I develop projects that collect and structure information from public sources such as ECHA.",
+          "<strong>Quality:</strong> I write tests, review code and maintain formatting and static analysis in CI."
+        ]
       },
       "marosavat": {
-        "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>"
+        "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>",
+        "points": []
       },
       "pinvestiga": {
-        "description": "<p>I collaborated on the new version of the pInvestiga software with Angular and NestJS, implementing a <strong>real-time chat</strong>, data libraries and forms.</p>"
+        "description": "<p>I collaborated on the new version of the pInvestiga software with Angular and NestJS, implementing a <strong>real-time chat</strong>, data libraries and forms.</p>",
+        "points": []
       }
     },
     "projects": {

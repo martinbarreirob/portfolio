@@ -1,0 +1,45 @@
+---
+import { languages, localizedPath, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+const labels: Record<Lang, string> = { en: 'English', es: 'Español', gl: 'Galego' };
+---
+
+<details class="lang-menu relative text-[11px] font-semibold uppercase tracking-[0.14em] md:text-xs md:tracking-[0.16em]">
+  <summary
+    class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-brand py-[10px] pl-[20px] pr-[16px] text-brand marker:hidden md:pl-6 md:pr-5 [&::-webkit-details-marker]:hidden"
+  >
+    Language <span aria-hidden="true">▾</span>
+  </summary>
+  <ul class="absolute right-0 top-full z-40 mt-2 min-w-full list-none overflow-hidden rounded-2xl bg-card p-1 shadow-lg ring-1 ring-ink/10">
+    {
+      languages.map((l) => (
+        <li>
+          <a
+            href={localizedPath(l)}
+            hreflang={l}
+            lang={l}
+            aria-current={l === lang ? 'true' : undefined}
+            class="block whitespace-nowrap rounded-xl px-3 py-2 normal-case tracking-normal text-ink hover:bg-paper aria-[current=true]:text-brand"
+          >
+            {labels[l]}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.lang-menu');
+  document.addEventListener('click', (e) => {
+    if (menu?.open && !menu.contains(e.target as Node)) menu.open = false;
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu) menu.open = false;
+  });
+</script>

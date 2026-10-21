@@ -19,15 +19,6 @@ export interface PlaceholderProject {
 
 export const placeholderProjects: PlaceholderProject[] = [
   {
-    id: 'nonchoperdas',
-    title: 'NonChoPerdas',
-    kind: 'Captura: NonChoPerdas',
-    result: 'Red social y foro para descubrir y compartir eventos.',
-    stack: 'Angular · Java · SQL · Docker',
-    role: 'Proyecto personal en desarrollo',
-    rows: [],
-  },
-  {
     id: 'portfolio',
     title: 'Portfolio',
     kind: 'Captura: portfolio',

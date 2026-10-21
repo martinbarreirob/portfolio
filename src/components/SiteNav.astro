@@ -1,8 +1,17 @@
 ---
-import { placeholderNav } from '@/data/placeholder';
+import { getDictionary, type Lang } from '@/i18n/utils';
 
-const ids = ['inicio', 'proyectos', 'experiencia', 'sobre-mi', 'contacto'];
-const items = ids.map((id, i) => ({ id, label: placeholderNav[i] }));
+interface Props {
+  lang: Lang;
+}
+const { nav } = getDictionary(Astro.props.lang);
+const items = [
+  { id: 'inicio', label: nav.home },
+  { id: 'proyectos', label: nav.projects },
+  { id: 'experiencia', label: nav.experience },
+  { id: 'sobre-mi', label: nav.about },
+  { id: 'contacto', label: nav.contact },
+];
 ---
 
 <!-- Barra segmentada: cinco bloques contiguos; el activo se rellena. Vertical en escritorio, horizontal en móvil. -->

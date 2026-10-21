@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@custom-variant full (@media (min-width: 1024px) and (min-height: 901px));
+
+/* Pantallas bajas: se recorta lo prescindible para que nada desborde */
+@custom-variant tight (@media (max-height: 900px));
+
 @theme {
   --color-paper: #eeeedd;
   --color-card: #f6f5e8;
@@ -58,25 +63,29 @@ html.section-magnet {
   letter-spacing: 0.08em;
 }
 
-.lk {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.lk:hover {
-  opacity: 0.6;
-}
+/* En una capa, para que las utilidades de Tailwind (text-*, p-*, gap-*) puedan sobrescribirlas */
+@layer components {
+  .lk {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .lk:hover {
+    opacity: 0.6;
+  }
 
-.cell {
-  border-radius: var(--radius-card);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  overflow: hidden;
-  min-width: 0;
-  min-height: 0;
+  .cell {
+    border-radius: var(--radius-card);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: hidden auto;
+    scrollbar-width: thin;
+    min-width: 0;
+    min-height: 0;
+  }
 }
 
 .eyebrow {
@@ -88,7 +97,10 @@ html.section-magnet {
 /* Sección a pantalla completa */
 .screen {
   position: relative;
-  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  min-height: 32rem;
   scroll-snap-align: start;
   overflow: hidden;
   padding: 4.5rem 0.875rem 3.5rem;
@@ -102,13 +114,13 @@ html.section-magnet {
 .screen-grid {
   position: relative;
   display: grid;
+  flex: 1 1 0;
+  min-height: 0;
   gap: 0.625rem;
-  min-height: calc(100svh - 8rem);
 }
 @media (min-width: 768px) {
   .screen-grid {
     gap: 0.875rem;
-    min-height: calc(100svh - 7.5rem);
   }
 }
 
@@ -116,45 +128,97 @@ html.section-magnet {
 
 .grid-projects {
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1.3fr) minmax(0, 1.15fr) minmax(0, 0.8fr);
   grid-template-areas: 'p1 p1' 'p2 t' 'p3 p3';
 }
 .grid-experience {
-  grid-template-columns: 1fr;
-  grid-template-areas: 'x1' 'x2' 'x3';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: 'acc';
 }
 .grid-about {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 0.3fr) minmax(0, 2.5fr) minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas: 'ph' 'txt' 'det' 'seek';
 }
 .grid-contact {
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(0, 1.5fr) minmax(0, 1.2fr) minmax(0, 0.6fr);
   grid-template-areas: 'cta cta' 'form form' 'gh li';
-  grid-template-rows: 1.5fr 1.2fr 0.6fr;
 }
 
 @media (min-width: 768px) {
   .grid-projects {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     grid-template-areas: 'p1 p1 p2 t' 'p1 p1 p3 p3';
   }
   .grid-experience {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 't x1 x1 x1' 'x2 x2 x3 x3';
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas: 't acc acc acc';
   }
   .grid-about {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'ph ph txt txt' 'ph ph det seek';
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-areas: 'ph txt txt det' 'ph txt txt seek';
   }
   .grid-contact {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     grid-template-areas: 'cta cta form form' 'gh li form form';
   }
   .grid-experience > .area-t {
     display: flex;
+  }
+}
+
+/* ---------- Acordeón de experiencia ---------- */
+
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-height: 0;
+}
+@media (min-width: 768px) {
+  .exp-list {
+    gap: 0.875rem;
+  }
+}
+.exp-item {
+  flex: 1 1 0;
+  min-height: 4.25rem;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  transition: flex-grow 0.5s ease;
+}
+.exp-item[data-open] {
+  flex-grow: 7;
+}
+.exp-body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden auto;
+  scrollbar-width: thin;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.exp-item[data-open] .exp-body {
+  opacity: 1;
+  transition-delay: 0.15s;
+}
+.exp-chevron {
+  transition: transform 0.3s ease;
+}
+.exp-item[data-open] .exp-chevron {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-item,
+  .exp-body,
+  .exp-chevron {
+    transition: none;
   }
 }
 

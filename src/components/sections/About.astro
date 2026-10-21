@@ -1,21 +1,49 @@
 ---
 import Screen from './Screen.astro';
-import { placeholderAbout as a } from '@/data/placeholder';
+import { profile } from '@/data/profile';
+import { studies } from '@/data/studies';
+import { calcAge, getDictionary, type Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const t = getDictionary(Astro.props.lang);
+const age = calcAge(profile.birthDate);
+const paragraphs = t.about.whoParagraphs.map((p) => p.replace('{age}', String(age)));
+/** Versión corta: solo estos párrafos. El resto aparece cuando hay espacio (variante `full`). */
+const shortKeep = new Set([0, paragraphs.length - 1]);
+
+const studyTones = ['bg-brand text-paper', 'bg-ink text-paper'];
 ---
 
-<Screen id="sobre-mi" title="Sobre mí">
+<Screen id="sobre-mi" title={t.nav.about}>
   <div class="screen-grid grid-about">
-    <div class="cell ph reveal min-h-[180px] bg-card text-brand" style="grid-area:ph">Foto / ilustración</div>
-    <div class="cell reveal justify-center bg-card p-6" style="grid-area:txt;--i:1">
-      <p class="font-serif text-[19px] italic leading-[1.4] md:text-[26px] md:leading-[1.35]">{a.intro}</p>
+    <div class="cell ph reveal bg-card text-brand" style="grid-area:ph">
+      <span>{t.about.role}</span>
     </div>
-    <div class="cell reveal justify-center bg-brand p-6 text-paper" style="grid-area:det;--i:2">
-      <div class="eyebrow">Fuera del código</div>
-      <p class="text-sm leading-normal md:text-[15px]">{a.outside}</p>
+    <div class="cell reveal justify-center gap-3 bg-card p-5 tight:gap-2 tight:p-4 md:p-7" style="grid-area:txt;--i:1">
+      <div class="eyebrow text-brand">{t.about.whoTitle}</div>
+      <p class="font-serif text-[15px] italic leading-snug tight:text-sm md:text-[19px] full:text-[22px]">{t.about.tagline}</p>
+      <div class="flex flex-col gap-2 text-[13px] leading-normal tight:text-[12.5px] md:text-sm full:gap-2.5 full:text-[15px] [&_strong]:font-bold">
+        {
+          paragraphs.map((p, i) => (
+            <p class={shortKeep.has(i) ? '' : 'hidden full:block'} set:html={p} />
+          ))
+        }
+      </div>
     </div>
-    <div class="cell reveal justify-center bg-ink p-6 text-paper" style="grid-area:seek;--i:3">
-      <div class="eyebrow text-[#b4c8ff]">Busco · Disponibilidad</div>
-      <p class="text-[15px] font-medium leading-[1.45] md:text-[17px]">{a.seeking}<br />{a.availability}</p>
-    </div>
+    {
+      studies.map((s, i) => (
+        <div class={`cell reveal justify-center gap-2 p-4 tight:gap-1 tight:p-3 md:p-[18px] ${studyTones[i]}`} style={`grid-area:${i ? 'seek' : 'det'};--i:${i + 2}`}>
+          <div class="eyebrow text-[#b4c8ff]">{t.about.studiesTitle} · {s.period}</div>
+          <div class="text-sm font-black leading-tight tracking-[-0.02em] md:text-base">{t.about.studies[s.id].title}</div>
+          <div class="font-serif text-xs italic md:text-[13px]">{s.center}</div>
+          <div class="hidden text-xs leading-snug full:block [&_strong]:font-bold" set:html={t.about.studies[s.id].description} />
+          <ul class="mt-auto flex list-none flex-wrap gap-1 p-0 text-[10px] tight:hidden font-medium md:text-[11px]">
+            {s.technologies.map((tech) => <li class="rounded-full border border-paper/40 px-2 py-0.5">{tech}</li>)}
+          </ul>
+        </div>
+      ))
+    }
   </div>
 </Screen>

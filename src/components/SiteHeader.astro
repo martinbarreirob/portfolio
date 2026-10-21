@@ -1,16 +1,26 @@
 ---
 import Logo from './Logo.astro';
-import { placeholderNav } from '@/data/placeholder';
+import LangSwitcher from './LangSwitcher.astro';
+import type { Lang } from '@/i18n/utils';
+import { getDictionary } from '@/i18n/utils';
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getDictionary(lang);
 ---
 
 <header class="fixed inset-x-0 top-0 z-30 flex h-[60px] items-center justify-between px-4 md:h-[72px] md:px-10">
   <a href="#inicio" class="text-brand" aria-label="Martín Barreiro">
     <Logo compact class="h-[34px] md:h-[46px]" />
   </a>
-  <a
-    href="#contacto"
-    class="rounded-full bg-brand px-[18px] py-[11px] text-[11px] font-semibold uppercase tracking-[0.14em] text-paper md:px-5 md:text-xs md:tracking-[0.16em]"
-  >
-    {placeholderNav[4]}
-  </a>
+  <div class="flex items-center gap-3 md:gap-5">
+    <LangSwitcher lang={lang} />
+    <a
+      href="#contacto"
+      class="rounded-full bg-brand px-[18px] py-[11px] text-[11px] font-semibold uppercase tracking-[0.14em] text-paper md:px-5 md:text-xs md:tracking-[0.16em]"
+    >
+      {t.nav.contact}
+    </a>
+  </div>
 </header>

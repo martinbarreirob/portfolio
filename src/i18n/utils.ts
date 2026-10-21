@@ -3,10 +3,10 @@ import es from './es.json';
 import en from './en.json';
 import gl from './gl.json';
 
-export const languages = ['es', 'en', 'gl'] as const;
+export const languages = ['en', 'es', 'gl'] as const;
 export type Lang = (typeof languages)[number];
 
-export const defaultLang: Lang = 'es';
+export const defaultLang: Lang = 'en';
 
 const dictionaries = { es, en, gl } as const;
 
@@ -15,6 +15,13 @@ export type Dictionary = (typeof dictionaries)['es'];
 /** Devuelve el diccionario completo del idioma indicado. */
 export function getDictionary(lang: Lang): Dictionary {
   return dictionaries[lang];
+}
+
+/** Edad exacta en años a partir de la fecha de nacimiento (AAAA-MM-DD). */
+export function calcAge(birthDate: string, now = new Date()): number {
+  const [y, m, d] = birthDate.split('-').map(Number);
+  const hadBirthday = now.getMonth() + 1 > m || (now.getMonth() + 1 === m && now.getDate() >= d);
+  return now.getFullYear() - y - (hadBirthday ? 0 : 1);
 }
 
 /** Construye una ruta con el prefijo de idioma correcto (el idioma por defecto no lleva prefijo). */

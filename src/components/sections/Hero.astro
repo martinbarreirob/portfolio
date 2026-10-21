@@ -1,12 +1,20 @@
 ---
 import Logo from '../Logo.astro';
+import { profile } from '@/data/profile';
+import type { Lang } from '@/i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
 ---
 
 <section id="inicio" class="grain relative flex min-h-svh flex-col overflow-hidden bg-paper text-brand md:flex-row">
   <div class="ph relative h-[55svh] flex-none border-0 border-b border-brand/35 text-brand md:h-auto md:w-[38vw] md:max-w-[480px] md:border-b-0 md:border-r">
     Photo
     <div class="absolute bottom-5 right-5 flex rotate-180 gap-6 text-[13px] font-medium uppercase tracking-[0.2em] [writing-mode:vertical-rl]">
-      <a class="lk" href="#">LinkedIn</a><a class="lk" href="#">GitHub</a><a class="lk" href="#">Mail</a>
+      <a class="lk" href={profile.linkedin.url} target="_blank" rel="noopener noreferrer">{profile.linkedin.label}</a>
+      <a class="lk" href={profile.github.url} target="_blank" rel="noopener noreferrer">{profile.github.label}</a>
+      <a class="lk" href={`mailto:${profile.email}`}>Mail</a>
     </div>
   </div>
   <div class="reveal flex flex-1 flex-col justify-center px-7 pb-2 md:px-[clamp(1.5rem,5vw,4.5rem)]">

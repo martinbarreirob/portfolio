@@ -15,14 +15,14 @@ const { lang } = Astro.props as { lang: Lang };
 ---
 
 <Layout lang={lang}>
-  <SiteHeader />
-  <SiteNav />
+  <SiteHeader lang={lang} />
+  <SiteNav lang={lang} />
   <main>
-    <Hero />
-    <Projects />
-    <Experience />
-    <About />
-    <Contact />
+    <Hero lang={lang} />
+    <Projects lang={lang} />
+    <Experience lang={lang} />
+    <About lang={lang} />
+    <Contact lang={lang} />
   </main>
 </Layout>
 

@@ -28,13 +28,22 @@
     "stackTitle": "Stack",
     "experiences": {
       "sigillum": {
-        "description": "<p>Desarrollo una aplicación para una consultora de productos cosméticos y creo <strong>herramientas internas con Python e IA</strong> para agilizar el trabajo del equipo.</p>"
+        "description": "<p>Desarrollo funcionalidades completas en <strong>SCATHA</strong>, una plataforma para el sector cosmético, de la idea a producción.</p>",
+        "points": [
+          "<strong>Frontend:</strong> construyo interfaces en Angular con formularios complejos, diálogos y flujos guiados, cuidando la consistencia visual y la experiencia de usuario.",
+          "<strong>Backend:</strong> diseño y desarrollo APIs REST en Spring Boot, con lógica de negocio, validaciones y control de acceso por roles.",
+          "<strong>Datos:</strong> modelo esquemas en PostgreSQL, escribo consultas con jOOQ y gestiono migraciones con Flyway.",
+          "<strong>Extracción de datos:</strong> desarrollo proyectos que recogen y estructuran información de fuentes públicas como ECHA.",
+          "<strong>Calidad:</strong> escribo tests, reviso código y mantengo formato y análisis estático en CI."
+        ]
       },
       "marosavat": {
-        "description": "<p>Desarrollé interfaces dinámicas y eficientes con <strong>Angular</strong> para aplicaciones de gestión y presentación de declaraciones fiscales, en colaboración con la Agencia Estatal de Administración Tributaria (AEAT).</p>"
+        "description": "<p>Desarrollé interfaces dinámicas y eficientes con <strong>Angular</strong> para aplicaciones de gestión y presentación de declaraciones fiscales, en colaboración con la Agencia Estatal de Administración Tributaria (AEAT).</p>",
+        "points": []
       },
       "pinvestiga": {
-        "description": "<p>Colaboré en la nueva versión del software pInvestiga con Angular y NestJS, implementando un <strong>chat en tiempo real</strong>, bibliotecas de datos y formularios.</p>"
+        "description": "<p>Colaboré en la nueva versión del software pInvestiga con Angular y NestJS, implementando un <strong>chat en tiempo real</strong>, bibliotecas de datos y formularios.</p>",
+        "points": []
       }
     },
     "projects": {
