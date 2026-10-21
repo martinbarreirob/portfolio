@@ -1,11 +1,11 @@
 ---
+import Logo from './Logo.astro';
 import { placeholderNav } from '@/data/placeholder';
 ---
 
 <header class="fixed inset-x-0 top-0 z-30 flex h-[60px] items-center justify-between px-4 md:h-[72px] md:px-10">
-  <a href="#inicio" class="flex flex-col text-brand uppercase" aria-label="Martín Barreiro">
-    <span class="font-serif text-[1.35rem] italic leading-[0.95] tracking-[-0.06em] md:text-[2rem]">Martín</span>
-    <span class="text-[1.35rem] font-black leading-[0.85] tracking-[-0.05em] md:text-[2rem]">Barreiro</span>
+  <a href="#inicio" class="text-brand" aria-label="Martín Barreiro">
+    <Logo compact class="h-[34px] md:h-[46px]" />
   </a>
   <a
     href="#contacto"

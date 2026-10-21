@@ -116,7 +116,7 @@ html.section-magnet {
 
 .grid-projects {
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: 'p1 p1' 'p2 p3' 'p4 p4';
+  grid-template-areas: 'p1 p1' 'p2 t' 'p3 p3';
 }
 .grid-experience {
   grid-template-columns: 1fr;
@@ -136,7 +136,7 @@ html.section-magnet {
   .grid-projects {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 'p1 p1 p2 p3' 'p1 p1 p4 t';
+    grid-template-areas: 'p1 p1 p2 t' 'p1 p1 p3 p3';
   }
   .grid-experience {
     grid-template-columns: repeat(4, 1fr);
@@ -153,7 +153,6 @@ html.section-magnet {
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 'cta cta form form' 'gh li form form';
   }
-  .grid-projects > .area-t,
   .grid-experience > .area-t {
     display: flex;
   }

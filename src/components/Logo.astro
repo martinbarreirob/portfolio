@@ -1,0 +1,39 @@
+---
+/**
+ * Logotipo: tres líneas con el mismo ancho (viewBox con margen lateral para el voladizo de las letras). `textLength` con
+ * `lengthAdjust="spacing"` ajusta el espaciado entre letras, sin deformarlas.
+ * `compact` omite la tercera línea (ilegible a tamaños pequeños).
+ */
+interface Props {
+  compact?: boolean;
+  class?: string;
+}
+const { compact = false, class: className } = Astro.props;
+const height = compact ? 108 : 130;
+---
+
+<svg
+  viewBox={`-10 0 320 ${height}`}
+  overflow="visible"
+  class={className}
+  role="img"
+  aria-label="Martín Barreiro, Full Stack Engineer"
+  fill="currentColor"
+>
+  <text
+    x="0" y="58" textLength="296" lengthAdjust="spacing"
+    font-family="'Libre Baskerville', serif" font-style="italic" font-size="62" letter-spacing="-3"
+  >MARTÍN</text>
+  <text
+    x="0" y="104" textLength="296" lengthAdjust="spacing"
+    font-family="'Poppins', sans-serif" font-weight="900" font-size="50" letter-spacing="-2"
+  >BARREIRO</text>
+  {
+    !compact && (
+      <text
+        x="0" y="126" textLength="296" lengthAdjust="spacing"
+        font-family="'Poppins', sans-serif" font-weight="500" font-size="18"
+      >FULL STACK ENGINEER</text>
+    )
+  }
+</svg>
