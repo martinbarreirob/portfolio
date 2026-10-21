@@ -1,0 +1,47 @@
+---
+import { placeholderNav } from '@/data/placeholder';
+
+const ids = ['inicio', 'proyectos', 'experiencia', 'sobre-mi', 'contacto'];
+const items = ids.map((id, i) => ({ id, label: placeholderNav[i] }));
+---
+
+<!-- Barra segmentada: cinco bloques contiguos; el activo se rellena. Vertical en escritorio, horizontal en móvil. -->
+<nav
+  aria-label="Secciones"
+  class="fixed bottom-4 left-1/2 z-30 flex h-3 w-60 -translate-x-1/2 flex-row gap-0.5 md:bottom-auto md:left-auto md:right-5 md:top-1/2 md:h-64 md:w-3 md:-translate-y-1/2 md:translate-x-0 md:flex-col"
+>
+  {
+    items.map((it, i) => (
+      <a
+        href={`#${it.id}`}
+        data-dot={it.id}
+        aria-label={it.label}
+        class:list={[
+          'group relative flex-1 bg-brand/25 transition-colors duration-300 hover:bg-brand/60 data-[active]:bg-brand',
+          i === 0 && 'rounded-l-full md:rounded-l-none md:rounded-t-full',
+          i === items.length - 1 && 'rounded-r-full md:rounded-r-none md:rounded-b-full',
+        ]}
+      >
+        <span class="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-brand px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-paper opacity-0 transition-opacity group-hover:opacity-100 md:bottom-auto md:left-auto md:right-full md:top-1/2 md:mb-0 md:mr-3 md:-translate-y-1/2 md:translate-x-0">
+          {it.label}
+        </span>
+      </a>
+    ))
+  }
+</nav>
+
+<script>
+  const dots = document.querySelectorAll<HTMLElement>('[data-dot]');
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) dots.forEach((d) => d.toggleAttribute('data-active', d.dataset.dot === e.target.id));
+      }
+    },
+    { threshold: 0.5 },
+  );
+  dots.forEach((d) => {
+    const el = document.getElementById(d.dataset.dot!);
+    if (el) io.observe(el);
+  });
+</script>

@@ -1,0 +1,44 @@
+---
+import Screen from './Screen.astro';
+import CaseDialog from '../CaseDialog.astro';
+import { placeholderProjects } from '@/data/placeholder';
+
+const tones = [
+  'bg-brand text-paper',
+  'bg-card text-ink',
+  'bg-card text-ink',
+  'bg-ink text-paper',
+];
+---
+
+<Screen id="proyectos" title="Proyectos">
+  <div class="screen-grid grid-projects">
+    {
+      placeholderProjects.map((p, i) => (
+        <article class={`cell reveal ${tones[i]}`} style={`grid-area:p${i + 1};--i:${i}`}>
+          <div class="ph min-h-12 flex-1 rounded-xl text-inherit md:rounded-[14px]">{p.kind}</div>
+          <a
+            class={`lk font-black leading-[1.05] tracking-[-0.03em] ${i === 0 ? 'text-3xl md:text-[2.125rem]' : 'text-xl'}`}
+            href="#"
+            data-case-open={p.rows.length ? p.id : undefined}
+          >
+            {p.title}
+          </a>
+          <p class="text-[12.5px] font-medium leading-snug md:text-[13px]">{p.result}</p>
+          <p class="text-[10.5px] leading-normal opacity-85 md:text-[11px]">{p.stack} · {p.role}</p>
+          <div class="flex gap-3 text-[10.5px] font-semibold uppercase tracking-[0.06em] md:text-[11px]">
+            <a class="lk py-0.5" href="#">Demo ↗</a>
+            <a class="lk py-0.5" href="#">Código ↗</a>
+            {p.rows.length > 0 && (
+              <a class="lk ml-auto py-0.5" href="#" data-case-open={p.id}>Caso →</a>
+            )}
+          </div>
+        </article>
+      ))
+    }
+    <div class="cell area-t reveal justify-end bg-card text-ink md:bg-transparent" style="grid-area:t">
+      <span class="mt-auto text-[2.125rem] font-black leading-none tracking-[-0.03em] text-brand">Proyectos</span>
+    </div>
+  </div>
+  {placeholderProjects.filter((p) => p.rows.length).map((p) => <CaseDialog project={p} />)}
+</Screen>

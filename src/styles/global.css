@@ -1,1 +1,235 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-paper: #eeeedd;
+  --color-card: #f6f5e8;
+  --color-ink: #10131c;
+  --color-brand: #0a4fd1;
+  --color-brand-deep: #071d63;
+  --font-sans: 'Poppins', system-ui, sans-serif;
+  --font-serif: 'Libre Baskerville', serif;
+  --radius-card: 22px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Scroll libre con un imán suave al acercarse al borde de una sección */
+html {
+  scroll-snap-type: y proximity;
+}
+
+html[data-dir='up'],
+html.section-magnet {
+  scroll-snap-type: none;
+}
+
+#inicio,
+.screen {
+  scroll-snap-align: start;
+}
+
+/* ---------- Primitivas ---------- */
+
+/* Papel con grano */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .3 0 0 0 0 .2 0 0 0 .2 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hueco para imagen pendiente */
+.ph {
+  background: repeating-linear-gradient(135deg, transparent 0 12px, rgb(128 128 128 / 0.16) 12px 14px);
+  border: 1px solid rgb(128 128 128 / 0.55);
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  font: 500 10px/1 ui-monospace, Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lk {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.lk:hover {
+  opacity: 0.6;
+}
+
+.cell {
+  border-radius: var(--radius-card);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+.eyebrow {
+  font: 600 0.6875rem/1 var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* Sección a pantalla completa */
+.screen {
+  position: relative;
+  min-height: 100svh;
+  scroll-snap-align: start;
+  overflow: hidden;
+  padding: 4.5rem 0.875rem 3.5rem;
+}
+@media (min-width: 768px) {
+  .screen {
+    padding: 5.25rem 3.5rem 2.25rem;
+  }
+}
+
+.screen-grid {
+  position: relative;
+  display: grid;
+  gap: 0.625rem;
+  min-height: calc(100svh - 8rem);
+}
+@media (min-width: 768px) {
+  .screen-grid {
+    gap: 0.875rem;
+    min-height: calc(100svh - 7.5rem);
+  }
+}
+
+/* ---------- Rejillas por sección (móvil → escritorio) ---------- */
+
+.grid-projects {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'p1 p1' 'p2 p3' 'p4 p4';
+}
+.grid-experience {
+  grid-template-columns: 1fr;
+  grid-template-areas: 'x1' 'x2' 'x3';
+}
+.grid-about {
+  grid-template-columns: 1fr;
+  grid-template-areas: 'ph' 'txt' 'det' 'seek';
+}
+.grid-contact {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'cta cta' 'form form' 'gh li';
+  grid-template-rows: 1.5fr 1.2fr 0.6fr;
+}
+
+@media (min-width: 768px) {
+  .grid-projects {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'p1 p1 p2 p3' 'p1 p1 p4 t';
+  }
+  .grid-experience {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 't x1 x1 x1' 'x2 x2 x3 x3';
+  }
+  .grid-about {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'ph ph txt txt' 'ph ph det seek';
+  }
+  .grid-contact {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'cta cta form form' 'gh li form form';
+  }
+  .grid-projects > .area-t,
+  .grid-experience > .area-t {
+    display: flex;
+  }
+}
+
+.area-t {
+  display: none;
+}
+
+/* ---------- Animación de entrada (CSS + clase puesta por IntersectionObserver) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: scale(0.92);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+    transition-delay: calc(var(--i, 0) * 70ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Caso de estudio ---------- */
+
+dialog.case {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-ink);
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+dialog.case::backdrop {
+  background: rgb(16 19 28 / 0.55);
+}
+dialog.case[open] {
+  display: flex;
+  align-items: flex-end; /* móvil: hoja inferior */
+}
+.case-sheet {
+  width: 100%;
+  max-height: 84svh;
+  overflow-y: auto;
+  background: var(--color-card);
+  border-radius: 26px 26px 0 0;
+  padding: 0.875rem 1.375rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+@media (min-width: 768px) {
+  dialog.case[open] {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .case-sheet {
+    background: transparent;
+    border-radius: 0;
+    overflow: visible;
+    padding: 0;
+    max-width: 1020px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.875rem;
+    height: min(560px, 85svh);
+  }
+  .case-sheet > .case-lead {
+    grid-row: span 2;
+  }
+}

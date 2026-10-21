@@ -1,0 +1,21 @@
+---
+import Screen from './Screen.astro';
+import { placeholderAbout as a } from '@/data/placeholder';
+---
+
+<Screen id="sobre-mi" title="Sobre mí">
+  <div class="screen-grid grid-about">
+    <div class="cell ph reveal min-h-[180px] bg-card text-brand" style="grid-area:ph">Foto / ilustración</div>
+    <div class="cell reveal justify-center bg-card p-6" style="grid-area:txt;--i:1">
+      <p class="font-serif text-[19px] italic leading-[1.4] md:text-[26px] md:leading-[1.35]">{a.intro}</p>
+    </div>
+    <div class="cell reveal justify-center bg-brand p-6 text-paper" style="grid-area:det;--i:2">
+      <div class="eyebrow">Fuera del código</div>
+      <p class="text-sm leading-normal md:text-[15px]">{a.outside}</p>
+    </div>
+    <div class="cell reveal justify-center bg-ink p-6 text-paper" style="grid-area:seek;--i:3">
+      <div class="eyebrow text-[#b4c8ff]">Busco · Disponibilidad</div>
+      <p class="text-[15px] font-medium leading-[1.45] md:text-[17px]">{a.seeking}<br />{a.availability}</p>
+    </div>
+  </div>
+</Screen>

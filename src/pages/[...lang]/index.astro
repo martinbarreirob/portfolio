@@ -1,15 +1,54 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { getDictionary, getLangStaticPaths, type Lang } from '@/i18n/utils';
+import SiteHeader from '@/components/SiteHeader.astro';
+import SiteNav from '@/components/SiteNav.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Projects from '@/components/sections/Projects.astro';
+import Experience from '@/components/sections/Experience.astro';
+import About from '@/components/sections/About.astro';
+import Contact from '@/components/sections/Contact.astro';
+import { getLangStaticPaths, type Lang } from '@/i18n/utils';
 
 export const getStaticPaths = getLangStaticPaths;
 
 const { lang } = Astro.props as { lang: Lang };
-const t = getDictionary(lang);
 ---
 
 <Layout lang={lang}>
+  <SiteHeader />
+  <SiteNav />
   <main>
-    <h1>{t.home.role}</h1>
+    <Hero />
+    <Projects />
+    <Experience />
+    <About />
+    <Contact />
   </main>
 </Layout>
+
+<script>
+  import { initSectionMagnet } from '@/scripts/section-magnet';
+  initSectionMagnet();
+
+  // El imán entre secciones solo actúa al bajar; al subir el scroll es libre
+  const root = document.documentElement;
+  let lastY = scrollY;
+  addEventListener(
+    'scroll',
+    () => {
+      if (Math.abs(scrollY - lastY) < 2) return;
+      root.dataset.dir = scrollY > lastY ? 'down' : 'up';
+      lastY = scrollY;
+    },
+    { passive: true },
+  );
+
+  // Entrada escalonada de las tarjetas al aparecer en pantalla
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) e.target.classList.toggle('is-visible', e.isIntersecting);
+    },
+    { threshold: 0.15 },
+  );
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

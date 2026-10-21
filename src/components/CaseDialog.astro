@@ -1,0 +1,43 @@
+---
+import type { PlaceholderProject } from '@/data/placeholder';
+
+interface Props {
+  project: PlaceholderProject;
+}
+const { project } = Astro.props;
+---
+
+<dialog class="case" id={`case-${project.id}`} aria-label={project.title}>
+  <div class="case-sheet">
+    <div class="case-lead flex flex-none flex-col gap-3.5 md:rounded-[24px] md:bg-brand md:p-7 md:text-paper">
+      <form method="dialog">
+        <button class="rounded-full bg-paper px-3.5 py-2 text-xs font-semibold text-brand md:bg-paper">✕ Cerrar</button>
+      </form>
+      <h3 class="text-[2rem] font-black leading-[1.05] tracking-[-0.04em] md:mt-auto md:text-4xl">{project.title}</h3>
+      <p class="font-serif text-[17px] italic leading-snug text-brand md:text-paper">{project.result}</p>
+    </div>
+    {
+      project.rows.map((r) => (
+        <div class="rounded-[18px] bg-paper p-4 md:rounded-[24px] md:bg-card md:p-[22px]">
+          <div class="eyebrow mb-1.5 text-brand">{r.k}</div>
+          <div class="text-sm leading-normal">{r.v}</div>
+        </div>
+      ))
+    }
+  </div>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-case-open]').forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelector<HTMLDialogElement>(`#case-${trigger.dataset.caseOpen}`)?.showModal();
+    });
+  });
+  // Cerrar al pulsar fuera de la hoja
+  document.querySelectorAll<HTMLDialogElement>('dialog.case').forEach((d) => {
+    d.addEventListener('click', (e) => {
+      if (e.target === d) d.close();
+    });
+  });
+</script>

@@ -1,0 +1,24 @@
+---
+import Screen from './Screen.astro';
+import { placeholderExperience } from '@/data/placeholder';
+
+const tones = ['bg-card text-ink', 'bg-brand text-paper', 'bg-ink text-paper'];
+---
+
+<Screen id="experiencia" title="Experiencia">
+  <div class="screen-grid grid-experience">
+    {
+      placeholderExperience.map((x, i) => (
+        <article class={`cell reveal justify-center gap-2.5 p-5 md:p-[22px] ${tones[i]}`} style={`grid-area:x${i + 1};--i:${i + 1}`}>
+          <div class={`text-[2rem] font-black leading-none tracking-[-0.05em] md:text-[2.5rem] ${i ? 'text-paper' : 'text-brand'}`}>{x.year}</div>
+          <div class="text-base font-semibold leading-tight md:text-lg">{x.role}</div>
+          <div class="font-serif text-sm italic md:text-[15px]">{x.org}</div>
+          <p class="text-sm leading-normal md:mt-auto md:text-[15px]">{x.impact}</p>
+        </article>
+      ))
+    }
+    <div class="cell area-t reveal justify-end bg-transparent" style="grid-area:t">
+      <span class="mt-auto text-[2.125rem] font-black leading-none tracking-[-0.03em] text-brand">Experiencia</span>
+    </div>
+  </div>
+</Screen>
