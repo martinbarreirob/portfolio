@@ -25,7 +25,7 @@ const real = projects.map((p) => ({
 const sample = placeholderProjects.map((p) => ({ ...p, descriptionHtml: '', link: '#' }));
 const cards = [...real, ...sample];
 
-const tones = ['bg-brand text-paper', 'bg-card text-ink', 'bg-ink text-paper'];
+const tones = ['bg-ink text-paper', 'bg-card text-ink', 'bg-card text-ink'];
 ---
 
 <Screen id="proyectos" title={t.nav.projects}>
@@ -35,20 +35,20 @@ const tones = ['bg-brand text-paper', 'bg-card text-ink', 'bg-ink text-paper'];
         <article class={`cell reveal ${tones[i]}`} style={`grid-area:p${i + 1};--i:${i}`}>
           <div class={`ph min-h-12 flex-1 rounded-xl tight:min-h-0 text-inherit md:rounded-[14px] ${i > 0 ? 'tight:hidden' : ''}`}>{p.kind}</div>
           <a
-            class={`lk font-black leading-[1.05] tracking-[-0.03em] ${i === 0 ? 'text-3xl md:text-[2.125rem]' : 'text-xl'}`}
+            class={`lk font-black leading-[1.05] tracking-[-0.03em] ${i === 0 ? 'text-3xl md:text-[clamp(2rem,3vw,3rem)]' : 'text-xl md:text-[clamp(1.5rem,2vw,2rem)]'}`}
             href="#"
             data-case-open={p.rows.length ? p.id : undefined}
           >
             {p.title}
           </a>
           {p.descriptionHtml ? (
-            <div class="text-[12.5px] font-medium leading-snug md:text-[13px]" set:html={p.descriptionHtml} />
+            <div class="text-[12.5px] font-medium leading-snug md:text-[clamp(14px,1.15vw,17px)]" set:html={p.descriptionHtml} />
           ) : (
-            <p class="text-[12.5px] font-medium leading-snug md:text-[13px]">{p.result}</p>
+            <p class="text-[12.5px] font-medium leading-snug md:text-[clamp(14px,1.15vw,17px)]">{p.result}</p>
           )}
-          <p class={`text-[10.5px] leading-normal opacity-85 md:text-[11px] ${i > 0 ? 'tight:hidden' : ''}`}>{p.stack}{p.role && ` · ${p.role}`}</p>
+          <p class={`text-[10.5px] leading-normal opacity-85 md:text-[clamp(12px,0.9vw,14px)] ${i > 0 ? 'tight:hidden' : ''}`}>{p.stack}{p.role && ` · ${p.role}`}</p>
           {(p.link || p.rows.length > 0) && (
-            <div class={`flex gap-3 text-[10.5px] font-semibold uppercase tracking-[0.06em] md:text-[11px] ${p.link === '#' ? 'tight:hidden' : ''}`}>
+            <div class={`flex gap-3 text-[10.5px] font-semibold uppercase tracking-[0.06em] md:text-[clamp(12px,0.9vw,14px)] ${p.link === '#' ? 'tight:hidden' : ''}`}>
               {p.link && <a class="lk py-0.5" href={p.link}>Demo ↗</a>}
               {p.link && <a class="lk py-0.5" href={p.link}>Código ↗</a>}
               {p.rows.length > 0 && (
@@ -59,8 +59,8 @@ const tones = ['bg-brand text-paper', 'bg-card text-ink', 'bg-ink text-paper'];
         </article>
       ))
     }
-    <div class="cell reveal justify-end bg-card text-ink md:bg-transparent" style="grid-area:t">
-      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-brand">{t.home.projectsTitle}</span>
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.home.projectsTitle}</span>
     </div>
   </div>
   {sample.filter((p) => p.rows.length).map((p) => <CaseDialog project={p} />)}

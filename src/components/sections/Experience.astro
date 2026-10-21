@@ -11,15 +11,13 @@ const t = getDictionary(lang);
 
 const tones = [
   { card: 'bg-card text-ink', chip: 'border-ink/30', accent: 'text-brand' },
-  { card: 'bg-brand text-paper', chip: 'border-paper/50', accent: 'text-paper' },
-  { card: 'bg-ink text-paper', chip: 'border-paper/40', accent: 'text-[#b4c8ff]' },
 ];
 ---
 
 <Screen id="experiencia" title={t.home.experienceTitle}>
   <div class="screen-grid grid-experience">
-    <div class="cell area-t reveal justify-end bg-transparent" style="grid-area:t">
-      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-brand">{t.home.experienceTitle}</span>
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.home.experienceTitle}</span>
     </div>
     <div class="exp-list" style="grid-area:acc" data-accordion>
       {
@@ -28,38 +26,40 @@ const tones = [
           const points = t.home.experiences[x.id].points;
           const period = formatPeriod(x.start, x.end, lang, t.ui.current);
           return (
-            <article class={`cell exp-item reveal ${tone.card}`} style={`--i:${i + 1}`} data-open={i === 0 ? '' : undefined}>
+            <article class={`cell exp-item reveal ${tone.card}`} style={`grid-area:x${i + 1};--i:${i + 1}`} data-open={i === 0 ? '' : undefined}>
               <button
                 type="button"
-                class="exp-head flex w-full flex-none cursor-pointer items-center gap-3 px-4 py-3 text-left md:px-[22px]"
+                class="exp-head flex w-full flex-none cursor-pointer items-center gap-3 px-6 pb-5 pt-6 text-left md:flex-wrap md:gap-y-1 md:px-8 md:pt-8 tight:md:pb-3 tight:md:pt-6"
                 aria-expanded={i === 0}
                 aria-controls={`exp-${x.id}`}
               >
-                <span class="min-w-0 flex-1">
-                  <span class="block truncate text-base font-black leading-tight tracking-[-0.02em] md:text-lg">{x.company}</span>
-                  <span class="block truncate font-serif text-[13px] italic md:text-sm">{x.role}</span>
+                <span class="min-w-0 flex-1 md:min-w-[11rem]">
+                  <span class="block truncate text-base font-semibold md:whitespace-normal leading-tight tracking-[-0.02em] md:text-[clamp(1.5rem,1.8vw,2rem)]">{x.company}</span>
+                  <span class="block truncate text-[13px] font-medium md:whitespace-normal leading-tight md:text-[clamp(16px,1.2vw,19px)]">{x.role}</span>
                 </span>
-                <span class="hidden flex-none text-xs font-semibold uppercase tracking-[0.1em] sm:block">{period}</span>
+                <span class="hidden flex-none text-xs font-semibold uppercase tracking-[0.1em] sm:block md:text-[clamp(14px,1vw,16px)]">{period}</span>
                 <span class="exp-chevron flex-none text-sm" aria-hidden="true">▾</span>
               </button>
-              <div class="exp-body flex flex-col gap-3 px-4 pb-4 md:px-[22px] md:pb-[22px]" id={`exp-${x.id}`} inert={i !== 0}>
+              <div class="exp-body flex flex-col gap-3 px-6 pb-6 md:px-8 md:pb-8 tight:md:gap-2 tight:md:pb-6" id={`exp-${x.id}`} inert={i !== 0}>
                 <div class={`text-xs font-semibold uppercase tracking-[0.1em] sm:hidden ${tone.accent}`}>{period}</div>
-                <div class="text-sm leading-normal md:text-[15px] [&_strong]:font-bold" set:html={t.home.experiences[x.id].description} />
+                <div class="text-[13px] font-light leading-normal md:text-[clamp(16px,1.2vw,19px)] tight:md:text-[clamp(14px,1.05vw,17px)] [&_p+p]:mt-3 tight:md:[&_p+p]:mt-2 [&_strong]:font-medium" set:html={t.home.experiences[x.id].description} />
                 {points.length > 0 && (
-                  <ul class="hidden list-disc flex-col gap-1.5 pl-4 text-sm leading-snug marker:text-current full:flex [&_strong]:font-bold">
+                  <ul class="hidden list-disc flex-col gap-1.5 pl-4 text-[13px] font-light leading-snug marker:text-current md:flex md:gap-2 md:text-[clamp(14px,1vw,17px)] [&_strong]:font-medium">
                     {points.map((pt) => <li set:html={pt} />)}
                   </ul>
                 )}
-                <ul class="mt-auto flex list-none flex-wrap gap-1.5 p-0">
-                  {x.technologies.map((tech) => (
-                    <li class={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${tone.chip}`}>{tech}</li>
-                  ))}
-                </ul>
-                {x.recommendation && (
-                  <a class="lk self-start border-b border-current pb-0.5 text-xs font-semibold" href={x.recommendation} target="_blank" rel="noopener noreferrer">
-                    {t.ui.recommendation} ↗
-                  </a>
-                )}
+                <div class="mt-auto flex flex-col gap-3">
+                  {x.recommendation && (
+                    <a class="lk self-start border-b border-current pb-0.5 text-xs font-semibold md:text-[clamp(14px,1vw,16px)]" href={x.recommendation} target="_blank" rel="noopener noreferrer">
+                      {t.ui.recommendation} ↗
+                    </a>
+                  )}
+                  <ul class="flex list-none flex-wrap gap-1.5 p-0">
+                    {x.technologies.map((tech) => (
+                      <li class={`rounded-full border px-2.5 py-1 text-[11px] font-medium md:px-3.5 md:py-1.5 md:text-[clamp(13px,0.95vw,15px)] ${tone.chip}`}>{tech}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </article>
           );
@@ -72,8 +72,15 @@ const tones = [
 <script>
   document.querySelectorAll<HTMLElement>('[data-accordion]').forEach((list) => {
     const items = [...list.querySelectorAll<HTMLElement>('.exp-item')];
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const syncInert = () => {
+      for (const item of items) item.querySelector('.exp-body')?.toggleAttribute('inert', !desktop.matches && !item.hasAttribute('data-open'));
+    };
+    desktop.addEventListener('change', syncInert);
+    syncInert();
     items.forEach((item) => {
       item.querySelector('.exp-head')?.addEventListener('click', () => {
+        if (desktop.matches) return;
         for (const other of items) {
           const open = other === item;
           other.toggleAttribute('data-open', open);

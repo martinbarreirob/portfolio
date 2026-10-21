@@ -14,6 +14,7 @@
   "ui": {
     "openToWork": "Open To Work",
     "themeToggle": "Toggle theme",
+    "language": "Language",
     "viewAbout": "About me",
     "recommendation": "Recommendation letter",
     "copied": "Email copied to clipboard.",
@@ -28,14 +29,8 @@
     "stackTitle": "Stack",
     "experiences": {
       "sigillum": {
-        "description": "<p>I build complete features for <strong>SCATHA</strong>, a platform for the cosmetics sector, from idea to production.</p>",
-        "points": [
-          "<strong>Frontend:</strong> I build Angular interfaces with complex forms, dialogs and guided flows, taking care of visual consistency and user experience.",
-          "<strong>Backend:</strong> I design and develop REST APIs in Spring Boot, with business logic, validations and role-based access control.",
-          "<strong>Data:</strong> I model PostgreSQL schemas, write queries with jOOQ and manage migrations with Flyway.",
-          "<strong>Data extraction:</strong> I develop projects that collect and structure information from public sources such as ECHA.",
-          "<strong>Quality:</strong> I write tests, review code and maintain formatting and static analysis in CI."
-        ]
+        "description": "<p>I work as a full stack developer on a platform in the cosmetics sector, where I have taken on more and more responsibility. I help define the structure of the application and I am solely responsible for <strong>design and user experience</strong>, from the interface to complete user flows.</p><p>My strongest contribution is on the frontend with Angular, but I also work on the backend with Spring Boot and PostgreSQL and help on projects that extract data from public sources. That way I take each feature from idea to production.</p>",
+        "points": []
       },
       "marosavat": {
         "description": "<p>I built dynamic, efficient interfaces with <strong>Angular</strong> for applications that manage and present tax returns, in collaboration with the Spanish Tax Agency (AEAT).</p>",
@@ -54,14 +49,21 @@
   },
   "about": {
     "role": "Web Application Development Technician",
-    "tagline": "I'm a very creative person with a passion for design and a strong drive to work so I can contribute to your projects and ideas.",
-    "whoTitle": "Who am I?",
-    "whoParagraphs": [
-      "{age} years ago, I was born in Galicia. From my earliest memories, my fascination with computers shaped the course of my life.",
-      "I was always a curious person in the field of computing, which led me to study a higher vocational degree in systems, where I discovered programming and my <strong>passion</strong> for it.",
-      "Beyond computing and programming, I inherited a great love for music and the sea from my father.",
-      "However, what defines me best is kayaking. I have competed at a national level since I was 16 in this sport, which has forged my character in <strong>discipline</strong>, <strong>teamwork</strong> and has grown my social skills by interacting with people from diverse backgrounds.",
-      "Currently, my goal is to <strong>consolidate my knowledge</strong> and keep growing as a fullstack developer."
+    "intro": "I'm Martín, a full stack developer with a passion for design. I was born in Galicia {age} years ago and I like what I build to work well and look polished too.",
+    "outsideTitle": "Beyond the code",
+    "outside": "I have competed in kayaking at national level since I was 16. From my father I inherited a love for music and the sea.",
+    "seekTitle": "Looking for",
+    "seek": "To consolidate my knowledge and keep growing as a full stack developer, contributing to your projects and ideas.",
+    "carousel": {
+      "label": "Photos of Martín",
+      "prev": "Previous photo",
+      "next": "Next photo",
+      "goTo": "Go to photo {n}"
+    },
+    "photos": [
+      "Martín competing in kayak",
+      "Martín with his dog on the beach",
+      "Martín coding at his desk"
     ],
     "studiesTitle": "Education",
     "studies": {

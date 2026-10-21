@@ -14,6 +14,7 @@
   "ui": {
     "openToWork": "Open To Work",
     "themeToggle": "Cambiar tema",
+    "language": "Idioma",
     "viewAbout": "Sobre mí",
     "recommendation": "Carta de recomendación",
     "copied": "Email copiado al portapapeles.",
@@ -28,14 +29,8 @@
     "stackTitle": "Stack",
     "experiences": {
       "sigillum": {
-        "description": "<p>Desarrollo funcionalidades completas en <strong>SCATHA</strong>, una plataforma para el sector cosmético, de la idea a producción.</p>",
-        "points": [
-          "<strong>Frontend:</strong> construyo interfaces en Angular con formularios complejos, diálogos y flujos guiados, cuidando la consistencia visual y la experiencia de usuario.",
-          "<strong>Backend:</strong> diseño y desarrollo APIs REST en Spring Boot, con lógica de negocio, validaciones y control de acceso por roles.",
-          "<strong>Datos:</strong> modelo esquemas en PostgreSQL, escribo consultas con jOOQ y gestiono migraciones con Flyway.",
-          "<strong>Extracción de datos:</strong> desarrollo proyectos que recogen y estructuran información de fuentes públicas como ECHA.",
-          "<strong>Calidad:</strong> escribo tests, reviso código y mantengo formato y análisis estático en CI."
-        ]
+        "description": "<p>Trabajo como desarrollador full stack en una plataforma del sector cosmético, donde he ido asumiendo cada vez más responsabilidad. Participo en la definición de la estructura de la aplicación y soy el responsable único del <strong>diseño y la experiencia de usuario</strong>, de la interfaz a los flujos completos.</p><p>Mi mayor aportación está en el frontend con Angular, pero también trabajo en el backend con Spring Boot y PostgreSQL y colaboro en proyectos de extracción de datos de fuentes públicas. Así llevo cada funcionalidad de la idea a producción.</p>",
+        "points": []
       },
       "marosavat": {
         "description": "<p>Desarrollé interfaces dinámicas y eficientes con <strong>Angular</strong> para aplicaciones de gestión y presentación de declaraciones fiscales, en colaboración con la Agencia Estatal de Administración Tributaria (AEAT).</p>",
@@ -54,14 +49,21 @@
   },
   "about": {
     "role": "Técnico de Desarrollo de Aplicaciones Web",
-    "tagline": "Soy una persona muy creativa con pasión por el diseño y muchas ganas de trabajar para poder aportar en tus proyectos e ideas.",
-    "whoTitle": "¿Quién soy?",
-    "whoParagraphs": [
-      "Hace {age} años, nací en Galicia. Desde mis primeros recuerdos, mi fascinación por los ordenadores marcó el rumbo de mi vida.",
-      "Siempre fui una persona curiosa en el ámbito de la informática, lo que me llevó a cursar un ciclo superior de sistemas, donde descubrí la programación y mi <strong>pasión</strong> por ella.",
-      "Más allá de la informática y la programación, heredé una gran afición por la música y el mar de mi padre.",
-      "Sin embargo, lo que mejor me define es el kayak. Compito a nivel nacional desde los 16 años en este deporte, el cual ha forjado mi carácter en la <strong>disciplina</strong>, <strong>trabajo en equipo</strong> y ha hecho crecer mis habilidades sociales al interactuar con personas de diversos perfiles.",
-      "Actualmente, mi objetivo es <strong>consolidar mis conocimientos</strong> y seguir creciendo como desarrollador fullstack."
+    "intro": "Soy Martín, desarrollador full stack con pasión por el diseño. Nací en Galicia hace {age} años y me gusta que lo que construyo funcione bien y también se vea cuidado.",
+    "outsideTitle": "Fuera del código",
+    "outside": "Compito en kayak a nivel nacional desde los 16 años. De mi padre heredé el gusto por la música y el mar.",
+    "seekTitle": "Busco",
+    "seek": "Consolidar mis conocimientos y seguir creciendo como desarrollador full stack, aportando en tus proyectos e ideas.",
+    "carousel": {
+      "label": "Fotos de Martín",
+      "prev": "Foto anterior",
+      "next": "Foto siguiente",
+      "goTo": "Ir a la foto {n}"
+    },
+    "photos": [
+      "Martín compitiendo en kayak",
+      "Martín con su perro en la playa",
+      "Martín programando en su escritorio"
     ],
     "studiesTitle": "Estudios",
     "studies": {

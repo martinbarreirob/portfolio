@@ -26,7 +26,7 @@ export interface Experience {
 export const experiences: readonly Experience[] = [
   {
     id: 'sigillum',
-    company: 'Sigillum K.S.',
+    company: 'Sigillum Knowledge Solutions',
     role: 'Full Stack Engineer',
     start: { year: 2025, month: 5 },
     end: null,
@@ -37,13 +37,9 @@ export const experiences: readonly Experience[] = [
       'PostgreSQL',
       'Flyway',
       'Angular 19',
-      'RxJS',
       'Angular Material',
-      'Tailwind CSS',
       'Docker',
-      'Maven',
       'Git',
-      'CI/CD',
     ],
   },
   {
@@ -56,7 +52,7 @@ export const experiences: readonly Experience[] = [
   },
   {
     id: 'pinvestiga',
-    company: 'Galaxia Empírica — pInvestiga',
+    company: 'pInvestiga',
     role: 'Fullstack Developer',
     start: { year: 2023, month: 10 },
     end: { year: 2023, month: 12 },

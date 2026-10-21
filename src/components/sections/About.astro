@@ -1,7 +1,6 @@
 ---
 import Screen from './Screen.astro';
 import { profile } from '@/data/profile';
-import { studies } from '@/data/studies';
 import { calcAge, getDictionary, type Lang } from '@/i18n/utils';
 
 interface Props {
@@ -9,41 +8,101 @@ interface Props {
 }
 const t = getDictionary(Astro.props.lang);
 const age = calcAge(profile.birthDate);
-const paragraphs = t.about.whoParagraphs.map((p) => p.replace('{age}', String(age)));
-/** Versión corta: solo estos párrafos. El resto aparece cuando hay espacio (variante `full`). */
-const shortKeep = new Set([0, paragraphs.length - 1]);
+const intro = t.about.intro.replace('{age}', String(age));
 
-const studyTones = ['bg-brand text-paper', 'bg-ink text-paper'];
+const photos = ['/assets/about1.webp', '/assets/about2.webp', '/assets/about3.webp'];
+const btn =
+  'flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-0 bg-brand text-base font-semibold leading-none text-paper focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink';
 ---
 
 <Screen id="sobre-mi" title={t.nav.about}>
   <div class="screen-grid grid-about">
-    <div class="cell ph reveal bg-card text-brand" style="grid-area:ph">
-      <span>{t.about.role}</span>
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+      <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.nav.about}</span>
     </div>
-    <div class="cell reveal justify-center gap-3 bg-card p-5 tight:gap-2 tight:p-4 md:p-7" style="grid-area:txt;--i:1">
-      <div class="eyebrow text-brand">{t.about.whoTitle}</div>
-      <p class="font-serif text-[15px] italic leading-snug tight:text-sm md:text-[19px] full:text-[22px]">{t.about.tagline}</p>
-      <div class="flex flex-col gap-2 text-[13px] leading-normal tight:text-[12.5px] md:text-sm full:gap-2.5 full:text-[15px] [&_strong]:font-bold">
+
+    <div class="cell reveal bg-card" style="grid-area:ph">
+      <div
+        class="relative min-h-0 flex-1 overflow-hidden rounded-xl md:rounded-[14px]"
+        data-carousel
+        role="group"
+        aria-roledescription="carousel"
+        aria-label={t.about.carousel.label}
+      >
         {
-          paragraphs.map((p, i) => (
-            <p class={shortKeep.has(i) ? '' : 'hidden full:block'} set:html={p} />
+          photos.map((src, i) => (
+            <img
+              src={src}
+              alt={t.about.photos[i]}
+              loading="lazy"
+              draggable="false"
+              class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700 data-[active]:opacity-100"
+              data-slide
+              data-active={i === 0 ? '' : undefined}
+            />
           ))
         }
+        <div class="absolute inset-x-3 bottom-3 flex items-center justify-between">
+          <div class="flex gap-2">
+            {photos.map((_, i) => <button type="button" aria-label={t.about.carousel.goTo.replace('{n}', String(i + 1))} class="h-2.5 w-2.5 cursor-pointer rounded-full border-0 bg-paper p-0 opacity-60 shadow-[0_0_0_1px_rgb(16_19_28/0.35)] data-[active]:opacity-100" data-dot data-active={i === 0 ? '' : undefined} />)}
+          </div>
+          <div class="flex gap-2">
+            <button type="button" aria-label={t.about.carousel.prev} class={btn} data-prev>‹</button>
+            <button type="button" aria-label={t.about.carousel.next} class={btn} data-next>›</button>
+          </div>
+        </div>
       </div>
     </div>
-    {
-      studies.map((s, i) => (
-        <div class={`cell reveal justify-center gap-2 p-4 tight:gap-1 tight:p-3 md:p-[18px] ${studyTones[i]}`} style={`grid-area:${i ? 'seek' : 'det'};--i:${i + 2}`}>
-          <div class="eyebrow text-[#b4c8ff]">{t.about.studiesTitle} · {s.period}</div>
-          <div class="text-sm font-black leading-tight tracking-[-0.02em] md:text-base">{t.about.studies[s.id].title}</div>
-          <div class="font-serif text-xs italic md:text-[13px]">{s.center}</div>
-          <div class="hidden text-xs leading-snug full:block [&_strong]:font-bold" set:html={t.about.studies[s.id].description} />
-          <ul class="mt-auto flex list-none flex-wrap gap-1 p-0 text-[10px] tight:hidden font-medium md:text-[11px]">
-            {s.technologies.map((tech) => <li class="rounded-full border border-paper/40 px-2 py-0.5">{tech}</li>)}
-          </ul>
-        </div>
-      ))
-    }
+
+    <div class="cell reveal justify-center gap-3 bg-card p-6 md:p-8" style="grid-area:txt;--i:1">
+      <div class="eyebrow text-brand">{t.about.role}</div>
+      <p class="text-[15px] font-medium leading-snug md:text-[clamp(18px,1.5vw,22px)]">{intro}</p>
+    </div>
+
+    <div class="cell reveal justify-center gap-2 bg-card p-6 md:p-8" style="grid-area:det;--i:2">
+      <div class="eyebrow text-brand">{t.about.outsideTitle}</div>
+      <p class="text-[13px] font-light leading-normal md:text-[clamp(15px,1.1vw,18px)]">{t.about.outside}</p>
+    </div>
+
+    <div class="cell reveal justify-center gap-2 bg-ink p-6 text-paper md:p-8" style="grid-area:seek;--i:3">
+      <div class="eyebrow text-[#b4c8ff]">{t.about.seekTitle}</div>
+      <p class="text-[13px] font-light leading-normal md:text-[clamp(15px,1.1vw,18px)]">{t.about.seek}</p>
+    </div>
   </div>
 </Screen>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
+    const dots = [...root.querySelectorAll<HTMLElement>('[data-dot]')];
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let index = 0;
+    let timer = 0;
+    let paused = false;
+
+    const show = (n: number) => {
+      index = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => s.toggleAttribute('data-active', i === index));
+      dots.forEach((d, i) => d.toggleAttribute('data-active', i === index));
+    };
+    const restart = () => {
+      clearInterval(timer);
+      if (!reduced) timer = window.setInterval(() => !paused && show(index + 1), 5000);
+    };
+    const go = (n: number) => {
+      show(n);
+      restart();
+    };
+
+    root.querySelector('[data-prev]')?.addEventListener('click', () => go(index - 1));
+    root.querySelector('[data-next]')?.addEventListener('click', () => go(index + 1));
+    dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+    root.addEventListener('mouseenter', () => (paused = true));
+    root.addEventListener('mouseleave', () => (paused = false));
+    root.addEventListener('focusin', () => (paused = true));
+    root.addEventListener('focusout', () => (paused = false));
+
+    show(0);
+    restart();
+  });
+</script>

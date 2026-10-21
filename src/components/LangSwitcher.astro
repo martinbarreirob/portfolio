@@ -1,19 +1,20 @@
 ---
-import { languages, localizedPath, type Lang } from '@/i18n/utils';
+import { getDictionary, languages, localizedPath, type Lang } from '@/i18n/utils';
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
+const t = getDictionary(lang);
 
 const labels: Record<Lang, string> = { en: 'English', es: 'Español', gl: 'Galego' };
 ---
 
 <details class="lang-menu relative text-[11px] font-semibold uppercase tracking-[0.14em] md:text-xs md:tracking-[0.16em]">
   <summary
-    class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-brand py-[10px] pl-[20px] pr-[16px] text-brand marker:hidden md:pl-6 md:pr-5 [&::-webkit-details-marker]:hidden"
+    class="flex cursor-pointer list-none items-center gap-1.5 rounded-full border border-brand bg-paper py-[10px] pl-[20px] pr-[16px] text-brand marker:hidden md:pl-6 md:pr-5 [&::-webkit-details-marker]:hidden"
   >
-    Language <span aria-hidden="true">▾</span>
+    {t.ui.language} <span aria-hidden="true">▾</span>
   </summary>
   <ul class="absolute right-0 top-full z-40 mt-2 min-w-full list-none overflow-hidden rounded-2xl bg-card p-1 shadow-lg ring-1 ring-ink/10">
     {

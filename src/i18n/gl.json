@@ -14,6 +14,7 @@
   "ui": {
     "openToWork": "Open To Work",
     "themeToggle": "Cambiar tema",
+    "language": "Idioma",
     "viewAbout": "Sobre min",
     "recommendation": "Carta de recomendación",
     "copied": "Email copiado ao portapapeis.",
@@ -28,14 +29,8 @@
     "stackTitle": "Stack",
     "experiences": {
       "sigillum": {
-        "description": "<p>Desenvolvo funcionalidades completas en <strong>SCATHA</strong>, unha plataforma para o sector cosmético, da idea á produción.</p>",
-        "points": [
-          "<strong>Frontend:</strong> construín interfaces en Angular con formularios complexos, diálogos e fluxos guiados, coidando a consistencia visual e a experiencia de usuario.",
-          "<strong>Backend:</strong> deseño e desenvolvo APIs REST en Spring Boot, con lóxica de negocio, validacións e control de acceso por roles.",
-          "<strong>Datos:</strong> modelo esquemas en PostgreSQL, escribo consultas con jOOQ e xestiono migracións con Flyway.",
-          "<strong>Extracción de datos:</strong> desenvolvo proxectos que recollen e estruturan información de fontes públicas como ECHA.",
-          "<strong>Calidade:</strong> escribo tests, reviso código e mantéñome formato e análise estática en CI."
-        ]
+        "description": "<p>Traballo como desenvolvedor full stack nunha plataforma do sector cosmético, onde fun asumindo cada vez máis responsabilidade. Participo na definición da estrutura da aplicación e son o responsable único do <strong>deseño e da experiencia de usuario</strong>, da interface aos fluxos completos.</p><p>A miña maior achega está no frontend con Angular, pero tamén traballo no backend con Spring Boot e PostgreSQL e colaboro en proxectos de extracción de datos de fontes públicas. Así levo cada funcionalidade da idea á produción.</p>",
+        "points": []
       },
       "marosavat": {
         "description": "<p>Desenvolvín interfaces dinámicas e eficientes con <strong>Angular</strong> para aplicacións de xestión e presentación de declaracións fiscais, en colaboración coa Axencia Estatal de Administración Tributaria (AEAT).</p>",
@@ -54,14 +49,21 @@
   },
   "about": {
     "role": "Técnico de Desenvolvemento de Aplicacións Web",
-    "tagline": "Son unha persoa moi creativa con paixón polo deseño e moitas ganas de traballar para poder achegar nos teus proxectos e ideas.",
-    "whoTitle": "Quen son?",
-    "whoParagraphs": [
-      "Hai {age} anos, nacín en Galicia. Desde os meus primeiros recordos, a miña fascinación polos ordenadores marcou o rumbo da miña vida.",
-      "Sempre fun unha persoa curiosa no ámbito da informática, o que me levou a cursar un ciclo superior de sistemas, onde descubrín a programación e a miña <strong>paixón</strong> por ela.",
-      "Máis alá da informática e a programación, herdei unha gran afección pola música e o mar do meu pai.",
-      "Non obstante, o que mellor me define é o kayak. Compito a nivel nacional desde os 16 anos neste deporte, o cal forxou o meu carácter na <strong>disciplina</strong>, o <strong>traballo en equipo</strong> e fixo medrar as miñas habilidades sociais ao interactuar con persoas de diversos perfís.",
-      "Actualmente, o meu obxectivo é <strong>consolidar os meus coñecementos</strong> e seguir medrando como desenvolvedor fullstack."
+    "intro": "Son Martín, desenvolvedor full stack con paixón polo deseño. Nacín en Galicia hai {age} anos e gústame que o que construo funcione ben e tamén se vexa coidado.",
+    "outsideTitle": "Fóra do código",
+    "outside": "Competo en kayak a nivel nacional desde os 16 anos. Do meu pai herdei o gusto pola música e o mar.",
+    "seekTitle": "Busco",
+    "seek": "Consolidar os meus coñecementos e seguir crecendo como desenvolvedor full stack, achegando nos teus proxectos e ideas.",
+    "carousel": {
+      "label": "Fotos de Martín",
+      "prev": "Foto anterior",
+      "next": "Foto seguinte",
+      "goTo": "Ir á foto {n}"
+    },
+    "photos": [
+      "Martín competindo en kayak",
+      "Martín co seu can na praia",
+      "Martín programando no seu escritorio"
     ],
     "studiesTitle": "Estudos",
     "studies": {
