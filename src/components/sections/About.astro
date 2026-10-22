@@ -17,11 +17,11 @@ const btn =
 
 <Screen id="sobre-mi" title={t.nav.about}>
   <div class="screen-grid grid-about">
-    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t" data-step="0">
       <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.nav.about}</span>
     </div>
 
-    <div class="cell reveal bg-card" style="grid-area:ph">
+    <div class="cell reveal bg-card" style="grid-area:ph" data-step="0">
       <div
         class="relative min-h-0 flex-1 overflow-hidden rounded-xl md:rounded-[14px]"
         data-carousel
@@ -54,17 +54,17 @@ const btn =
       </div>
     </div>
 
-    <div class="cell reveal justify-center gap-3 bg-card p-6 md:p-8" style="grid-area:txt;--i:1">
+    <div class="cell reveal justify-center gap-3 bg-card p-6 md:p-8" style="grid-area:txt" data-step="1">
       <div class="eyebrow text-brand">{t.about.role}</div>
       <p class="text-[15px] font-medium leading-snug md:text-[clamp(18px,1.5vw,22px)]">{intro}</p>
     </div>
 
-    <div class="cell reveal justify-center gap-2 bg-card p-6 md:p-8" style="grid-area:det;--i:2">
+    <div class="cell reveal justify-center gap-2 bg-card p-6 md:p-8" style="grid-area:det" data-step="2">
       <div class="eyebrow text-brand">{t.about.outsideTitle}</div>
       <p class="text-[13px] font-light leading-normal md:text-[clamp(15px,1.1vw,18px)]">{t.about.outside}</p>
     </div>
 
-    <div class="cell reveal justify-center gap-2 bg-ink p-6 text-paper md:p-8" style="grid-area:seek;--i:3">
+    <div class="cell reveal justify-center gap-2 bg-ink p-6 text-paper md:p-8" style="grid-area:seek" data-step="2">
       <div class="eyebrow text-[#b4c8ff]">{t.about.seekTitle}</div>
       <p class="text-[13px] font-light leading-normal md:text-[clamp(15px,1.1vw,18px)]">{t.about.seek}</p>
     </div>

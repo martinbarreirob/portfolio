@@ -40,17 +40,15 @@ const items = [
 </nav>
 
 <script>
-  const dots = document.querySelectorAll<HTMLElement>('[data-dot]');
-  const io = new IntersectionObserver(
-    (entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) dots.forEach((d) => d.toggleAttribute('data-active', d.dataset.dot === e.target.id));
-      }
-    },
-    { threshold: 0.5 },
-  );
-  dots.forEach((d) => {
-    const el = document.getElementById(d.dataset.dot!);
-    if (el) io.observe(el);
-  });
+  // Activa el bloque de la sección que cruza la mitad de la ventana (los stages son más altos que la pantalla)
+  const dots = [...document.querySelectorAll<HTMLElement>('[data-dot]')];
+  const sections = dots.map((d) => document.getElementById(d.dataset.dot!));
+  const sync = () => {
+    const mid = innerHeight / 2;
+    const current = sections.findIndex((s) => s && s.getBoundingClientRect().top <= mid && s.getBoundingClientRect().bottom > mid);
+    dots.forEach((d, i) => d.toggleAttribute('data-active', i === current));
+  };
+  addEventListener('scroll', sync, { passive: true });
+  addEventListener('resize', sync);
+  sync();
 </script>

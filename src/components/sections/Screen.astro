@@ -6,7 +6,10 @@ interface Props {
 const { id, title } = Astro.props;
 ---
 
-<section id={id} class="screen grain bg-paper">
-  {title && <h2 class="reveal mb-2.5 px-1 text-[2.125rem] font-black leading-none tracking-[-0.04em] text-brand md:hidden">{title}</h2>}
-  <slot />
+<!-- El "stage" es alto: mientras se recorre, la pantalla queda fija (sticky) y las cards van apareciendo una a una -->
+<section id={id} class="stage" data-stage>
+  <div class="screen grain bg-paper">
+    {title && <h2 data-step="0" class="reveal mb-2.5 px-1 text-[2.125rem] font-black leading-none tracking-[-0.04em] text-brand md:hidden">{title}</h2>}
+    <slot />
+  </div>
 </section>

@@ -16,7 +16,7 @@ const tones = [
 
 <Screen id="experiencia" title={t.home.experienceTitle}>
   <div class="screen-grid grid-experience">
-    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t" data-step="0">
       <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.home.experienceTitle}</span>
     </div>
     <div class="exp-list" style="grid-area:acc" data-accordion>
@@ -26,7 +26,7 @@ const tones = [
           const points = t.home.experiences[x.id].points;
           const period = formatPeriod(x.start, x.end, lang, t.ui.current);
           return (
-            <article class={`cell exp-item reveal ${tone.card}`} style={`grid-area:x${i + 1};--i:${i + 1}`} data-open={i === 0 ? '' : undefined}>
+            <article class={`cell exp-item reveal ${tone.card}`} style={`grid-area:x${i + 1}`} data-step={Math.min(i + 1, 2)} data-open={i === 0 ? '' : undefined}>
               <button
                 type="button"
                 class="exp-head flex w-full flex-none cursor-pointer items-center gap-3 px-6 pb-5 pt-6 text-left md:flex-wrap md:gap-y-1 md:px-8 md:pt-8 tight:md:pb-3 tight:md:pt-6"

@@ -27,28 +27,19 @@ const { lang } = Astro.props as { lang: Lang };
 </Layout>
 
 <script>
-  import { initSectionMagnet } from '@/scripts/section-magnet';
-  initSectionMagnet();
+  import { initScrollReveal } from '@/scripts/scroll-reveal';
+  initScrollReveal();
 
-  // El imán entre secciones solo actúa al bajar; al subir el scroll es libre
-  const root = document.documentElement;
-  let lastY = scrollY;
-  addEventListener(
-    'scroll',
-    () => {
-      if (Math.abs(scrollY - lastY) < 2) return;
-      root.dataset.dir = scrollY > lastY ? 'down' : 'up';
-      lastY = scrollY;
-    },
-    { passive: true },
-  );
-
-  // Entrada escalonada de las tarjetas al aparecer en pantalla
+  // Entrada de lo que no pertenece a un stage (el hero) al aparecer en pantalla
   const io = new IntersectionObserver(
     (entries) => {
-      for (const e of entries) e.target.classList.toggle('is-visible', e.isIntersecting);
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
     },
     { threshold: 0.15 },
   );
-  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  document.querySelectorAll('.reveal:not([data-stage] .reveal)').forEach((el) => io.observe(el));
 </script>

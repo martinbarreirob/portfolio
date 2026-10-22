@@ -32,7 +32,7 @@ const tones = ['bg-ink text-paper', 'bg-card text-ink', 'bg-card text-ink'];
   <div class="screen-grid grid-projects">
     {
       cards.map((p, i) => (
-        <article class={`cell reveal ${tones[i]}`} style={`grid-area:p${i + 1};--i:${i}`}>
+        <article class={`cell reveal ${tones[i]}`} style={`grid-area:p${i + 1}`} data-step={i === 0 ? 1 : i}>
           <div class={`ph min-h-12 flex-1 rounded-xl tight:min-h-0 text-inherit md:rounded-[14px] ${i > 0 ? 'tight:hidden' : ''}`}>{p.kind}</div>
           <a
             class={`lk font-black leading-[1.05] tracking-[-0.03em] ${i === 0 ? 'text-3xl md:text-[clamp(2rem,3vw,3rem)]' : 'text-xl md:text-[clamp(1.5rem,2vw,2rem)]'}`}
@@ -59,7 +59,7 @@ const tones = ['bg-ink text-paper', 'bg-card text-ink', 'bg-card text-ink'];
         </article>
       ))
     }
-    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t">
+    <div class="cell area-t reveal justify-end bg-brand" style="grid-area:t" data-step="0">
       <span class="mt-auto text-[clamp(1.5rem,6.5vw,2.125rem)] md:text-[clamp(1.5rem,3.2vw,2.125rem)] font-black leading-none tracking-[-0.03em] text-paper">{t.home.projectsTitle}</span>
     </div>
   </div>

@@ -29,21 +29,6 @@ html {
   }
 }
 
-/* Scroll libre con un imán suave al acercarse al borde de una sección */
-html {
-  scroll-snap-type: y proximity;
-}
-
-html[data-dir='up'],
-html.section-magnet {
-  scroll-snap-type: none;
-}
-
-#inicio,
-.screen {
-  scroll-snap-align: start;
-}
-
 /* ---------- Primitivas ---------- */
 
 /* Papel con grano */
@@ -94,6 +79,16 @@ html.section-magnet {
   letter-spacing: 0.14em;
 }
 
+/* Con scroll por pasos (lo activa el script) la pantalla queda fija mientras se recorre el stage,
+   cuya altura fija el script según el número de cards */
+.stepped .screen {
+  position: sticky;
+  top: 0;
+}
+.stepped .reveal {
+  transition-delay: 0s;
+}
+
 /* Sección a pantalla completa */
 .screen {
   position: relative;
@@ -101,7 +96,6 @@ html.section-magnet {
   flex-direction: column;
   height: 100svh;
   min-height: 32rem;
-  scroll-snap-align: start;
   overflow: hidden;
   padding: 4.5rem 0.875rem 3.5rem;
 }
@@ -266,8 +260,8 @@ html.section-magnet {
     opacity: 0;
     transform: scale(0.92);
     transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
+      opacity 0.6s ease,
+      transform 0.6s ease;
     transition-delay: calc(var(--i, 0) * 70ms);
   }
   .reveal.is-visible {
